@@ -13,7 +13,6 @@
 
 <script>
 	export let summoner;
-	console.log({summoner})
 </script>
 
 

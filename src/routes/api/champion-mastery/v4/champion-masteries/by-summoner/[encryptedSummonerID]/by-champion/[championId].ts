@@ -1,10 +1,8 @@
-import riot from 'config/riot';
-
 const OPTIONS = {
 	method: 'GET',
 	withCredentials: true,
 	headers: {
-		'X-Riot-Token': riot.API_KEY,
+		'X-Riot-Token': import.meta.env.VITE_API_KEY as string,
 		'Content-Type': 'application/json'
 	}
 };
@@ -16,7 +14,7 @@ export async function get({
 }): Promise<{ body: Record<string, unknown> } | { status: number; statusText: string }> {
 	const { encryptedSummonerID, championId } = params;
 	const res = await fetch(
-		riot.baseUrl +
+		'https://euw1.api.riotgames.com' +
 			'/lol/champion-mastery/v4/champion-masteries/by-summoner/' +
 			encryptedSummonerID +
 			'/by-champion/' +

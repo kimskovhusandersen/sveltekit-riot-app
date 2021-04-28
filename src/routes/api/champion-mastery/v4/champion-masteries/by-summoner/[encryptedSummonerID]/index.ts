@@ -1,12 +1,10 @@
-import riot from 'config/riot';
-
 const END_POINT = '/lol/champion-mastery/v4/champion-masteries/by-summoner/';
-const URL = riot.baseUrl + END_POINT;
+const URL = 'https://euw1.api.riotgames.com' + END_POINT;
 const OPTIONS = {
 	method: 'GET',
 	withCredentials: true,
 	headers: {
-		'X-Riot-Token': riot.API_KEY,
+		'X-Riot-Token': import.meta.env.VITE_API_KEY as string,
 		'Content-Type': 'application/json'
 	}
 };
