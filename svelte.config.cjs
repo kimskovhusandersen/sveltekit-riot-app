@@ -1,5 +1,6 @@
 const preprocess = require('svelte-preprocess');
 const adapter = require('@sveltejs/adapter-vercel');
+const { resolve } = require("path");
 
 /** @type {import('@sveltejs/kit').Config} */
 module.exports = {
@@ -10,6 +11,13 @@ module.exports = {
 	kit: {
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#svelte',
-		adapter: adapter()
+		adapter: adapter(),
+		vite: {
+			resolve: {
+				alias: {
+					config: resolve(__dirname, "./config")
+				}
+			}
+		}
 	}
 };

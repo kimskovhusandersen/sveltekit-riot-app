@@ -1,9 +1,9 @@
 <script context="module">
 	export async function load({ fetch, page }) {
-		const { lastName } = page.params;
-		const res = await fetch(`/api/users/${lastName}`);
+		const { summonerName } = page.params;
+		const res = await fetch(`/api/summoner/summoners/by-name/${summonerName}`);
 
-		if (res.ok) return { props: { user: await res.json() } };
+		if (res.ok) return { props: { summoner: await res.json() } };
 		return {
 			status: res.status,
 			error: new Error()
@@ -12,17 +12,19 @@
 </script>
 
 <script>
-	export let user;
+	export let summoner;
+	console.log({summoner})
 </script>
 
+
 <main>
-	<h1>{user.firstName} {user.lastName}</h1>
+	<h1>{summoner.name} </h1>
 	<div class="box">
-		<img src={user.avatar} alt={user.astName} />
+		<img src={``} alt={summoner.astName} />
 		<ul>
-			<li>Title: {user.title}</li>
-			<li>Phone: {user.phone}</li>
-			<li>Email: {user.email}</li>
+			<li>Profil Icon ID: {summoner.profileIconId}</li>
+			<li>Level: {summoner.summonerLevel}</li>
+			<li>Revision Date: {new Date(summoner.revisionDate).toLocaleDateString()}</li>
 		</ul>
 	</div>
 </main>
