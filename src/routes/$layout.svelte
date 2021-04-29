@@ -6,11 +6,11 @@
 
 <Header />
 
-<main class={tw`flex(& 1 col) p-4 container mx-auto my-0 border-box`}>
+<main class={tw`flex(& 1 col) p-4 container mx-auto my-0 box-border`}>
 	<slot />
 </main>
 
-<footer class={tw`flex(& col) justify-center items-center p[40px]`}>
+<footer class={tw`flex(& col) justify-center items-center p-[40px]`}>
 	<p>Kim Skovhus Andersen &copy; 2021</p>
 </footer>
 

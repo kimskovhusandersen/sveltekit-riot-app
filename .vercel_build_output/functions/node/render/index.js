@@ -131,6 +131,2230 @@ var require_cookie = __commonJS((exports) => {
   }
 });
 
+// node_modules/style-vendorizer/dist/cjs/bundle.min.js
+var require_bundle_min = __commonJS((exports) => {
+  "use strict";
+  Object.defineProperty(exports, "__esModule", {value: true});
+  var r = new Map([["align-self", "-ms-grid-row-align"], ["color-adjust", "-webkit-print-color-adjust"], ["column-gap", "grid-column-gap"], ["gap", "grid-gap"], ["grid-template-columns", "-ms-grid-columns"], ["grid-template-rows", "-ms-grid-rows"], ["justify-self", "-ms-grid-column-align"], ["margin-inline-end", "-webkit-margin-end"], ["margin-inline-start", "-webkit-margin-start"], ["overflow-wrap", "word-wrap"], ["padding-inline-end", "-webkit-padding-end"], ["padding-inline-start", "-webkit-padding-start"], ["row-gap", "grid-row-gap"], ["scroll-margin-bottom", "scroll-snap-margin-bottom"], ["scroll-margin-left", "scroll-snap-margin-left"], ["scroll-margin-right", "scroll-snap-margin-right"], ["scroll-margin-top", "scroll-snap-margin-top"], ["scroll-margin", "scroll-snap-margin"], ["text-combine-upright", "-ms-text-combine-horizontal"]]);
+  exports.cssPropertyAlias = function(i) {
+    return r.get(i);
+  }, exports.cssPropertyPrefixFlags = function(r2) {
+    var i = /^(?:(text-(?:decoration$|e|or|si)|back(?:ground-cl|d|f)|box-d|(?:mask(?:$|-[ispro]|-cl)))|(tab-|column(?!-s)|text-align-l)|(ap)|(u|hy))/i.exec(r2);
+    return i ? i[1] ? 1 : i[2] ? 2 : i[3] ? 3 : 5 : 0;
+  }, exports.cssValuePrefixFlags = function(r2, i) {
+    var t = /^(?:(pos)|(background-i)|((?:max-|min-)?(?:block-s|inl|he|widt))|(dis))/i.exec(r2);
+    return t ? t[1] ? /^sti/i.test(i) ? 1 : 0 : t[2] ? /^image-/i.test(i) ? 1 : 0 : t[3] ? i[3] === "-" ? 2 : 0 : /^(inline-)?grid$/i.test(i) ? 4 : 0 : 0;
+  };
+});
+
+// node_modules/twind/twind.cjs
+var require_twind = __commonJS((exports) => {
+  var __create2 = Object.create;
+  var __defProp2 = Object.defineProperty;
+  var __getProtoOf2 = Object.getPrototypeOf;
+  var __hasOwnProp2 = Object.prototype.hasOwnProperty;
+  var __getOwnPropNames2 = Object.getOwnPropertyNames;
+  var __getOwnPropDesc2 = Object.getOwnPropertyDescriptor;
+  var __getOwnPropSymbols = Object.getOwnPropertySymbols;
+  var __propIsEnum = Object.prototype.propertyIsEnumerable;
+  var __assign = Object.assign;
+  var __markAsModule2 = (target) => __defProp2(target, "__esModule", {value: true});
+  var __rest = (source, exclude) => {
+    var target = {};
+    for (var prop in source)
+      if (__hasOwnProp2.call(source, prop) && exclude.indexOf(prop) < 0)
+        target[prop] = source[prop];
+    if (source != null && __getOwnPropSymbols)
+      for (var prop of __getOwnPropSymbols(source)) {
+        if (exclude.indexOf(prop) < 0 && __propIsEnum.call(source, prop))
+          target[prop] = source[prop];
+      }
+    return target;
+  };
+  var __export2 = (target, all) => {
+    for (var name in all)
+      __defProp2(target, name, {get: all[name], enumerable: true});
+  };
+  var __exportStar = (target, module22, desc) => {
+    if (module22 && typeof module22 === "object" || typeof module22 === "function") {
+      for (let key of __getOwnPropNames2(module22))
+        if (!__hasOwnProp2.call(target, key) && key !== "default")
+          __defProp2(target, key, {get: () => module22[key], enumerable: !(desc = __getOwnPropDesc2(module22, key)) || desc.enumerable});
+    }
+    return target;
+  };
+  var __toModule2 = (module22) => {
+    return __exportStar(__markAsModule2(__defProp2(module22 != null ? __create2(__getProtoOf2(module22)) : {}, "default", module22 && module22.__esModule && "default" in module22 ? {get: () => module22.default, enumerable: true} : {value: module22, enumerable: true})), module22);
+  };
+  __markAsModule2(exports);
+  __export2(exports, {
+    apply: () => apply2,
+    autoprefix: () => autoprefix2,
+    create: () => create2,
+    cssomSheet: () => cssomSheet2,
+    directive: () => directive2,
+    hash: () => cyrb32,
+    mode: () => mode2,
+    noprefix: () => noprefix2,
+    setup: () => setup2,
+    silent: () => silent2,
+    strict: () => strict2,
+    theme: () => theme2,
+    tw: () => tw2,
+    voidSheet: () => voidSheet2,
+    warn: () => warn2
+  });
+  var import_url2 = __toModule2(require("url"));
+  var shim_import_meta_url = (0, import_url2.pathToFileURL)(__filename);
+  var includes = (value, search) => !!~value.indexOf(search);
+  var join = (parts, separator = "-") => parts.join(separator);
+  var joinTruthy = (parts, separator) => join(parts.filter(Boolean), separator);
+  var tail = (array, startIndex = 1) => array.slice(startIndex);
+  var identity2 = (value) => value;
+  var noop3 = () => {
+  };
+  var capitalize = (value) => value[0].toUpperCase() + tail(value);
+  var hyphenate = (value) => value.replace(/[A-Z]/g, "-$&").toLowerCase();
+  var evalThunk = (value, context) => {
+    while (typeof value == "function") {
+      value = value(context);
+    }
+    return value;
+  };
+  var ensureMaxSize = (map, max) => {
+    if (map.size > max) {
+      map.delete(map.keys().next().value);
+    }
+  };
+  var isCSSProperty = (key, value) => !includes("@:&", key[0]) && (includes("rg", (typeof value)[5]) || Array.isArray(value));
+  var merge = (target, source, context) => source ? Object.keys(source).reduce((target2, key) => {
+    const value = evalThunk(source[key], context);
+    if (isCSSProperty(key, value)) {
+      target2[hyphenate(key)] = value;
+    } else {
+      target2[key] = key[0] == "@" && includes("figa", key[1]) ? (target2[key] || []).concat(value) : merge(target2[key] || {}, value, context);
+    }
+    return target2;
+  }, target) : target;
+  var escape3 = typeof CSS !== "undefined" && CSS.escape || ((className) => className.replace(/[!"'`*+.,;:\\/<=>?@#$%&^|~()[\]{}]/g, "\\$&").replace(/^\d/, "\\3$& "));
+  var buildMediaQuery = (screen) => {
+    if (!Array.isArray(screen)) {
+      screen = [screen];
+    }
+    return "@media " + join(screen.map((screen2) => {
+      if (typeof screen2 == "string") {
+        screen2 = {min: screen2};
+      }
+      return screen2.raw || join(Object.keys(screen2).map((feature) => `(${feature}-width:${screen2[feature]})`), " and ");
+    }), ",");
+  };
+  var cyrb32 = (value) => {
+    for (var h = 9, index2 = value.length; index2--; ) {
+      h = Math.imul(h ^ value.charCodeAt(index2), 1597334677);
+    }
+    return "tw-" + ((h ^ h >>> 9) >>> 0).toString(36);
+  };
+  var sortedInsertionIndex = (array, element) => {
+    let high = array.length;
+    if (high == 0)
+      return 0;
+    for (let low = 0; low < high; ) {
+      const pivot = high + low >> 1;
+      if (array[pivot] <= element) {
+        low = pivot + 1;
+      } else {
+        high = pivot;
+      }
+    }
+    return high;
+  };
+  var groupings;
+  var rules;
+  var startGrouping = (value = "") => {
+    groupings.push(value);
+    return "";
+  };
+  var endGrouping = (isWhitespace) => {
+    groupings.length = Math.max(groupings.lastIndexOf("") + ~~isWhitespace, 0);
+  };
+  var onlyPrefixes = (s2) => s2 && !includes("!:", s2[0]);
+  var onlyVariants = (s2) => s2[0] == ":";
+  var addRule = (directive22, negate) => {
+    rules.push({
+      v: groupings.filter(onlyVariants),
+      d: directive22,
+      n: negate,
+      i: includes(groupings, "!"),
+      $: ""
+    });
+  };
+  var saveRule = (buffer) => {
+    const negate = buffer[0] == "-";
+    if (negate) {
+      buffer = tail(buffer);
+    }
+    const prefix = join(groupings.filter(onlyPrefixes));
+    addRule(buffer == "&" ? prefix : (prefix && prefix + "-") + buffer, negate);
+    return "";
+  };
+  var parseString = (token, isVariant) => {
+    let buffer = "";
+    for (let char, dynamic = false, position2 = 0; char = token[position2++]; ) {
+      if (dynamic || char == "[") {
+        buffer += char;
+        dynamic = char != "]";
+        continue;
+      }
+      switch (char) {
+        case ":":
+          buffer = buffer && startGrouping(":" + (token[position2] == char ? token[position2++] : "") + buffer);
+          break;
+        case "(":
+          buffer = buffer && startGrouping(buffer);
+          startGrouping();
+          break;
+        case "!":
+          startGrouping(char);
+          break;
+        case ")":
+        case " ":
+        case "	":
+        case "\n":
+        case "\r":
+          buffer = buffer && saveRule(buffer);
+          endGrouping(char !== ")");
+          break;
+        default:
+          buffer += char;
+      }
+    }
+    if (buffer) {
+      if (isVariant) {
+        startGrouping(":" + buffer);
+      } else if (buffer.slice(-1) == "-") {
+        startGrouping(buffer.slice(0, -1));
+      } else {
+        saveRule(buffer);
+      }
+    }
+  };
+  var parseGroupedToken = (token) => {
+    startGrouping();
+    parseToken(token);
+    endGrouping();
+  };
+  var parseGroup = (key, token) => {
+    if (token) {
+      startGrouping();
+      const isVariant = includes("tbu", (typeof token)[1]);
+      parseString(key, isVariant);
+      if (isVariant) {
+        parseGroupedToken(token);
+      }
+      endGrouping();
+    }
+  };
+  var parseToken = (token) => {
+    switch (typeof token) {
+      case "string":
+        parseString(token);
+        break;
+      case "function":
+        addRule(token);
+        break;
+      case "object":
+        if (Array.isArray(token)) {
+          token.forEach(parseGroupedToken);
+        } else if (token) {
+          Object.keys(token).forEach((key) => {
+            parseGroup(key, token[key]);
+          });
+        }
+    }
+  };
+  var staticsCaches = new WeakMap();
+  var buildStatics = (strings) => {
+    let statics = staticsCaches.get(strings);
+    if (!statics) {
+      let slowModeIndex = NaN;
+      let buffer = "";
+      statics = strings.map((token, index2) => {
+        if (slowModeIndex !== slowModeIndex && (token.slice(-1) == "[" || includes(":-(", (strings[index2 + 1] || "")[0]))) {
+          slowModeIndex = index2;
+        }
+        if (index2 >= slowModeIndex) {
+          return (interpolation) => {
+            if (index2 == slowModeIndex) {
+              buffer = "";
+            }
+            buffer += token;
+            if (includes("rg", (typeof interpolation)[5])) {
+              buffer += interpolation;
+            } else if (interpolation) {
+              parseString(buffer);
+              buffer = "";
+              parseToken(interpolation);
+            }
+            if (index2 == strings.length - 1) {
+              parseString(buffer);
+            }
+          };
+        }
+        const staticRules = rules = [];
+        parseString(token);
+        const activeGroupings = [...groupings];
+        rules = [];
+        return (interpolation) => {
+          rules.push(...staticRules);
+          groupings = [...activeGroupings];
+          if (interpolation) {
+            parseToken(interpolation);
+          }
+        };
+      });
+      staticsCaches.set(strings, statics);
+    }
+    return statics;
+  };
+  var parse = (tokens) => {
+    groupings = [];
+    rules = [];
+    if (Array.isArray(tokens[0]) && Array.isArray(tokens[0].raw)) {
+      buildStatics(tokens[0]).forEach((apply22, index2) => apply22(tokens[index2 + 1]));
+    } else {
+      parseToken(tokens);
+    }
+    return rules;
+  };
+  var isFunctionFree;
+  var detectFunction = (key, value) => {
+    if (typeof value == "function") {
+      isFunctionFree = false;
+    }
+    return value;
+  };
+  var stringify = (data) => {
+    isFunctionFree = true;
+    const key = JSON.stringify(data, detectFunction);
+    return isFunctionFree && key;
+  };
+  var cacheByFactory = new WeakMap();
+  var directive2 = (factory, data) => {
+    const key = stringify(data);
+    let directive22;
+    if (key) {
+      var cache = cacheByFactory.get(factory);
+      if (!cache) {
+        cacheByFactory.set(factory, cache = new Map());
+      }
+      directive22 = cache.get(key);
+    }
+    if (!directive22) {
+      directive22 = Object.defineProperty((params, context) => {
+        context = Array.isArray(params) ? context : params;
+        return evalThunk(factory(data, context), context);
+      }, "toJSON", {
+        value: () => key || data
+      });
+      if (cache) {
+        cache.set(key, directive22);
+        ensureMaxSize(cache, 1e4);
+      }
+    }
+    return directive22;
+  };
+  var applyFactory = (tokens, {css: css2}) => css2(parse(tokens));
+  var apply2 = (...tokens) => directive2(applyFactory, tokens);
+  var positions = (resolve2) => (value, position2, prefix, suffix) => {
+    if (value) {
+      const properties = position2 && resolve2(position2);
+      if (properties && properties.length > 0) {
+        return properties.reduce((declarations, property2) => {
+          declarations[joinTruthy([prefix, property2, suffix])] = value;
+          return declarations;
+        }, {});
+      }
+    }
+  };
+  var corners = /* @__PURE__ */ positions((key) => ({
+    t: ["top-left", "top-right"],
+    r: ["top-right", "bottom-right"],
+    b: ["bottom-left", "bottom-right"],
+    l: ["bottom-left", "top-left"],
+    tl: ["top-left"],
+    tr: ["top-right"],
+    bl: ["bottom-left"],
+    br: ["bottom-right"]
+  })[key]);
+  var expandEdges = (key) => {
+    const parts = ({x: "lr", y: "tb"}[key] || key || "").split("").sort();
+    for (let index2 = parts.length; index2--; ) {
+      if (!(parts[index2] = {
+        t: "top",
+        r: "right",
+        b: "bottom",
+        l: "left"
+      }[parts[index2]]))
+        return;
+    }
+    if (parts.length)
+      return parts;
+  };
+  var edges = /* @__PURE__ */ positions(expandEdges);
+  var _;
+  var __;
+  var $;
+  var toColumnsOrRows = (x) => x == "cols" ? "columns" : "rows";
+  var property = (property2) => (params, context, id) => ({
+    [property2]: id + ((_ = join(params)) && "-" + _)
+  });
+  var propertyValue = (property2, separator) => (params, context, id) => (_ = join(params, separator)) && {
+    [property2 || id]: _
+  };
+  var themeProperty = (section) => (params, {theme: theme22}, id) => (_ = theme22(section || id, params)) && {
+    [section || id]: _
+  };
+  var themePropertyFallback = (section, separator) => (params, {theme: theme22}, id) => (_ = theme22(section || id, params, join(params, separator))) && {
+    [section || id]: _
+  };
+  var alias = (handler, name) => (params, context) => handler(params, context, name);
+  var display = property("display");
+  var position = property("position");
+  var textTransform = property("textTransform");
+  var textDecoration = property("textDecoration");
+  var fontStyle = property("fontStyle");
+  var fontVariantNumeric = (key) => (params, context, id) => ({
+    ["--tw-" + key]: id,
+    fontVariantNumeric: "var(--tw-ordinal,/*!*/ /*!*/) var(--tw-slashed-zero,/*!*/ /*!*/) var(--tw-numeric-figure,/*!*/ /*!*/) var(--tw-numeric-spacing,/*!*/ /*!*/) var(--tw-numeric-fraction,/*!*/ /*!*/)"
+  });
+  var inset = (params, {theme: theme22}, id) => (_ = theme22("inset", params)) && {[id]: _};
+  var opacityProperty = (params, theme22, id, section = id) => (_ = theme22(section + "Opacity", tail(params))) && {
+    [`--tw-${id}-opacity`]: _
+  };
+  var parseColorComponent = (chars2, factor) => Math.round(parseInt(chars2, 16) * factor);
+  var asRGBA = (color, opacityProperty2, opacityDefault) => {
+    if (color && color[0] == "#" && (_ = (color.length - 1) / 3) && ($ = [17, 1, 0.062272][_ - 1])) {
+      return `rgba(${parseColorComponent(color.substr(1, _), $)},${parseColorComponent(color.substr(1 + _, _), $)},${parseColorComponent(color.substr(1 + 2 * _, _), $)},${opacityProperty2 ? `var(--tw-${opacityProperty2}${opacityDefault ? "," + opacityDefault : ""})` : opacityDefault || 1})`;
+    }
+    return color;
+  };
+  var withOpacityFallback = (property2, kind, color) => color && typeof color == "string" ? (_ = asRGBA(color, kind + "-opacity")) && _ !== color ? {
+    [`--tw-${kind}-opacity`]: "1",
+    [property2]: [color, _]
+  } : {[property2]: color} : void 0;
+  var transparentTo = (color) => ($ = asRGBA(color, "", "0")) == _ ? "transparent" : $;
+  var reversableEdge = (params, {theme: theme22}, id, section, prefix, suffix) => (_ = {x: ["right", "left"], y: ["bottom", "top"]}[params[0]]) && ($ = `--tw-${id}-${params[0]}-reverse`) ? params[1] == "reverse" ? {
+    [$]: "1"
+  } : {
+    [$]: "0",
+    [joinTruthy([prefix, _[0], suffix])]: (__ = theme22(section, tail(params))) && `calc(${__} * var(${$}))`,
+    [joinTruthy([prefix, _[1], suffix])]: __ && [__, `calc(${__} * calc(1 - var(${$})))`]
+  } : void 0;
+  var placeHelper = (property2, params) => params[0] && {
+    [property2]: (includes("wun", (params[0] || "")[3]) ? "space-" : "") + params[0]
+  };
+  var contentPluginFor = (property2) => (params) => includes(["start", "end"], params[0]) ? {[property2]: "flex-" + params[0]} : placeHelper(property2, params);
+  var gridPlugin = (kind) => (params, {theme: theme22}) => {
+    if (_ = theme22("grid" + capitalize(kind), params, "")) {
+      return {["grid-" + kind]: _};
+    }
+    switch (params[0]) {
+      case "span":
+        return params[1] && {
+          ["grid-" + kind]: `span ${params[1]} / span ${params[1]}`
+        };
+      case "start":
+      case "end":
+        return (_ = theme22("grid" + capitalize(kind) + capitalize(params[0]), tail(params), join(tail(params)))) && {
+          [`grid-${kind}-${params[0]}`]: _
+        };
+    }
+  };
+  var border = (params, {theme: theme22}, id) => {
+    switch (params[0]) {
+      case "solid":
+      case "dashed":
+      case "dotted":
+      case "double":
+      case "none":
+        return propertyValue("borderStyle")(params);
+      case "collapse":
+      case "separate":
+        return propertyValue("borderCollapse")(params);
+      case "opacity":
+        return opacityProperty(params, theme22, id);
+    }
+    return (_ = theme22(id + "Width", params, "")) ? {borderWidth: _} : withOpacityFallback("borderColor", id, theme22(id + "Color", params));
+  };
+  var transform = (gpu) => (gpu ? "translate3d(var(--tw-translate-x,0),var(--tw-translate-y,0),0)" : "translateX(var(--tw-translate-x,0)) translateY(var(--tw-translate-y,0))") + " rotate(var(--tw-rotate,0)) skewX(var(--tw-skew-x,0)) skewY(var(--tw-skew-y,0)) scaleX(var(--tw-scale-x,1)) scaleY(var(--tw-scale-y,1))";
+  var transformXYFunction = (params, context, id) => params[0] && (_ = context.theme(id, params[1] || params[0])) && {
+    [`--tw-${id}-x`]: params[0] !== "y" && _,
+    [`--tw-${id}-y`]: params[0] !== "x" && _,
+    transform: [`${id}${params[1] ? params[0].toUpperCase() : ""}(${_})`, transform()]
+  };
+  var edgesPluginFor = (key) => (params, context, id) => id[1] ? edges(context.theme(key, params), id[1], key) : themeProperty(key)(params, context, id);
+  var padding = edgesPluginFor("padding");
+  var margin = edgesPluginFor("margin");
+  var minMax = (params, {theme: theme22}, id) => (_ = {w: "width", h: "height"}[params[0]]) && {
+    [_ = `${id}${capitalize(_)}`]: theme22(_, tail(params))
+  };
+  var filter = (params, {theme: theme22}, id) => {
+    const parts = id.split("-");
+    const prefix = parts[0] == "backdrop" ? parts[0] + "-" : "";
+    if (!prefix) {
+      params.unshift(...parts);
+    }
+    if (params[0] == "filter") {
+      const filters = [
+        "blur",
+        "brightness",
+        "contrast",
+        "grayscale",
+        "hue-rotate",
+        "invert",
+        prefix && "opacity",
+        "saturate",
+        "sepia",
+        !prefix && "drop-shadow"
+      ].filter(Boolean);
+      return params[1] == "none" ? {filter: "none"} : filters.reduce((css2, key) => {
+        css2["--tw-" + prefix + key] = "var(--tw-empty,/*!*/ /*!*/)";
+        return css2;
+      }, {
+        filter: filters.map((key) => `var(--tw-${prefix}${key})`).join(" ")
+      });
+    }
+    $ = params.shift();
+    if (includes(["hue", "drop"], $))
+      $ += capitalize(params.shift());
+    return (_ = theme22(prefix ? "backdrop" + capitalize($) : $, params)) && {
+      ["--tw-" + prefix + $]: (Array.isArray(_) ? _ : [_]).map((_4) => `${hyphenate($)}(${_4})`).join(" ")
+    };
+  };
+  var corePlugins = {
+    group: (params, {tag}, id) => tag(join([id, ...params])),
+    hidden: alias(display, "none"),
+    inline: display,
+    block: display,
+    contents: display,
+    flow: display,
+    table: (params, context, id) => includes(["auto", "fixed"], params[0]) ? {tableLayout: params[0]} : display(params, context, id),
+    flex(params, context, id) {
+      switch (params[0]) {
+        case "row":
+        case "col":
+          return {
+            flexDirection: join(params[0] == "col" ? ["column", ...tail(params)] : params)
+          };
+        case "nowrap":
+        case "wrap":
+          return {flexWrap: join(params)};
+        case "grow":
+        case "shrink":
+          _ = context.theme("flex" + capitalize(params[0]), tail(params), params[1] || 1);
+          return _ != null && {
+            ["flex-" + params[0]]: "" + _
+          };
+      }
+      return (_ = context.theme("flex", params, "")) ? {flex: _} : display(params, context, id);
+    },
+    grid(params, context, id) {
+      switch (params[0]) {
+        case "cols":
+        case "rows":
+          return (_ = context.theme("gridTemplate" + capitalize(toColumnsOrRows(params[0])), tail(params), params.length == 2 && Number(params[1]) ? `repeat(${params[1]},minmax(0,1fr))` : join(tail(params)))) && {
+            ["gridTemplate-" + toColumnsOrRows(params[0])]: _
+          };
+        case "flow":
+          return params.length > 1 && {
+            gridAutoFlow: join(params[1] == "col" ? ["column", ...tail(params, 2)] : tail(params), " ")
+          };
+      }
+      return display(params, context, id);
+    },
+    auto: (params, {theme: theme22}) => includes(["cols", "rows"], params[0]) && (_ = theme22("gridAuto" + capitalize(toColumnsOrRows(params[0])), tail(params), join(tail(params)))) && {
+      ["gridAuto-" + toColumnsOrRows(params[0])]: _
+    },
+    static: position,
+    fixed: position,
+    absolute: position,
+    relative: position,
+    sticky: position,
+    visible: {visibility: "visible"},
+    invisible: {visibility: "hidden"},
+    antialiased: {
+      WebkitFontSmoothing: "antialiased",
+      MozOsxFontSmoothing: "grayscale"
+    },
+    "subpixel-antialiased": {
+      WebkitFontSmoothing: "auto",
+      MozOsxFontSmoothing: "auto"
+    },
+    truncate: {
+      overflow: "hidden",
+      whiteSpace: "nowrap",
+      textOverflow: "ellipsis"
+    },
+    "sr-only": {
+      position: "absolute",
+      width: "1px",
+      height: "1px",
+      padding: "0",
+      margin: "-1px",
+      overflow: "hidden",
+      whiteSpace: "nowrap",
+      clip: "rect(0,0,0,0)",
+      borderWidth: "0"
+    },
+    "not-sr-only": {
+      position: "static",
+      width: "auto",
+      height: "auto",
+      padding: "0",
+      margin: "0",
+      overflow: "visible",
+      whiteSpace: "normal",
+      clip: "auto"
+    },
+    resize: (params) => ({
+      resize: {x: "vertical", y: "horizontal"}[params[0]] || params[0] || "both"
+    }),
+    box: (params) => params[0] && {boxSizing: params[0] + "-box"},
+    appearance: propertyValue(),
+    cursor: themePropertyFallback(),
+    float: propertyValue(),
+    clear: propertyValue(),
+    decoration: propertyValue("boxDecorationBreak"),
+    isolate: {isolation: "isolate"},
+    isolation: propertyValue(),
+    "mix-blend": propertyValue("mixBlendMode"),
+    top: inset,
+    right: inset,
+    bottom: inset,
+    left: inset,
+    inset: (params, {theme: theme22}) => (_ = expandEdges(params[0])) ? edges(theme22("inset", tail(params)), params[0]) : (_ = theme22("inset", params)) && {
+      top: _,
+      right: _,
+      bottom: _,
+      left: _
+    },
+    underline: textDecoration,
+    "line-through": textDecoration,
+    "no-underline": alias(textDecoration, "none"),
+    "text-underline": alias(textDecoration, "underline"),
+    "text-no-underline": alias(textDecoration, "none"),
+    "text-line-through": alias(textDecoration, "line-through"),
+    uppercase: textTransform,
+    lowercase: textTransform,
+    capitalize: textTransform,
+    "normal-case": alias(textTransform, "none"),
+    "text-normal-case": alias(textTransform, "none"),
+    italic: fontStyle,
+    "not-italic": alias(fontStyle, "normal"),
+    "font-italic": alias(fontStyle, "italic"),
+    "font-not-italic": alias(fontStyle, "normal"),
+    font: (params, context, id) => (_ = context.theme("fontFamily", params, "")) ? {fontFamily: _} : themeProperty("fontWeight")(params, context, id),
+    items: (params) => params[0] && {
+      alignItems: includes(["start", "end"], params[0]) ? "flex-" + params[0] : join(params)
+    },
+    "justify-self": propertyValue(),
+    "justify-items": propertyValue(),
+    justify: contentPluginFor("justifyContent"),
+    content: contentPluginFor("alignContent"),
+    self: contentPluginFor("alignSelf"),
+    place: (params) => params[0] && placeHelper("place-" + params[0], tail(params)),
+    overscroll: (params) => params[0] && {
+      ["overscrollBehavior" + (params[1] ? "-" + params[0] : "")]: params[1] || params[0]
+    },
+    col: gridPlugin("column"),
+    row: gridPlugin("row"),
+    duration: themeProperty("transitionDuration"),
+    delay: themeProperty("transitionDelay"),
+    tracking: themeProperty("letterSpacing"),
+    leading: themeProperty("lineHeight"),
+    z: themeProperty("zIndex"),
+    opacity: themeProperty(),
+    ease: themeProperty("transitionTimingFunction"),
+    p: padding,
+    py: padding,
+    px: padding,
+    pt: padding,
+    pr: padding,
+    pb: padding,
+    pl: padding,
+    m: margin,
+    my: margin,
+    mx: margin,
+    mt: margin,
+    mr: margin,
+    mb: margin,
+    ml: margin,
+    w: themeProperty("width"),
+    h: themeProperty("height"),
+    min: minMax,
+    max: minMax,
+    fill: themeProperty(),
+    order: themeProperty(),
+    origin: themePropertyFallback("transformOrigin", " "),
+    select: propertyValue("userSelect"),
+    "pointer-events": propertyValue(),
+    align: propertyValue("verticalAlign"),
+    whitespace: propertyValue("whiteSpace"),
+    "normal-nums": {fontVariantNumeric: "normal"},
+    ordinal: fontVariantNumeric("ordinal"),
+    "slashed-zero": fontVariantNumeric("slashed-zero"),
+    "lining-nums": fontVariantNumeric("numeric-figure"),
+    "oldstyle-nums": fontVariantNumeric("numeric-figure"),
+    "proportional-nums": fontVariantNumeric("numeric-spacing"),
+    "tabular-nums": fontVariantNumeric("numeric-spacing"),
+    "diagonal-fractions": fontVariantNumeric("numeric-fraction"),
+    "stacked-fractions": fontVariantNumeric("numeric-fraction"),
+    overflow: (params, context, id) => includes(["ellipsis", "clip"], params[0]) ? propertyValue("textOverflow")(params) : params[1] ? {["overflow-" + params[0]]: params[1]} : propertyValue()(params, context, id),
+    transform: (params) => params[0] == "none" ? {transform: "none"} : {
+      "--tw-translate-x": "0",
+      "--tw-translate-y": "0",
+      "--tw-rotate": "0",
+      "--tw-skew-x": "0",
+      "--tw-skew-y": "0",
+      "--tw-scale-x": "1",
+      "--tw-scale-y": "1",
+      transform: transform(params[0] == "gpu")
+    },
+    rotate: (params, {theme: theme22}) => (_ = theme22("rotate", params)) && {
+      "--tw-rotate": _,
+      transform: [`rotate(${_})`, transform()]
+    },
+    scale: transformXYFunction,
+    translate: transformXYFunction,
+    skew: transformXYFunction,
+    gap: (params, context, id) => (_ = {x: "column", y: "row"}[params[0]]) ? {[_ + "Gap"]: context.theme("gap", tail(params))} : themeProperty("gap")(params, context, id),
+    stroke: (params, context, id) => (_ = context.theme("stroke", params, "")) ? {stroke: _} : themeProperty("strokeWidth")(params, context, id),
+    outline: (params, {theme: theme22}) => (_ = theme22("outline", params)) && {
+      outline: _[0],
+      outlineOffset: _[1]
+    },
+    "break-normal": {
+      wordBreak: "normal",
+      overflowWrap: "normal"
+    },
+    "break-words": {overflowWrap: "break-word"},
+    "break-all": {wordBreak: "break-all"},
+    text(params, {theme: theme22}, id) {
+      switch (params[0]) {
+        case "left":
+        case "center":
+        case "right":
+        case "justify":
+          return {textAlign: params[0]};
+        case "uppercase":
+        case "lowercase":
+        case "capitalize":
+          return textTransform([], _, params[0]);
+        case "opacity":
+          return opacityProperty(params, theme22, id);
+      }
+      const fontSize = theme22("fontSize", params, "");
+      if (fontSize) {
+        return typeof fontSize == "string" ? {fontSize} : __assign({
+          fontSize: fontSize[0]
+        }, typeof fontSize[1] == "string" ? {lineHeight: fontSize[1]} : fontSize[1]);
+      }
+      return withOpacityFallback("color", "text", theme22("textColor", params));
+    },
+    bg(params, {theme: theme22}, id) {
+      switch (params[0]) {
+        case "fixed":
+        case "local":
+        case "scroll":
+          return propertyValue("backgroundAttachment", ",")(params);
+        case "bottom":
+        case "center":
+        case "left":
+        case "right":
+        case "top":
+          return propertyValue("backgroundPosition", " ")(params);
+        case "no":
+          return params[1] == "repeat" && propertyValue("backgroundRepeat")(params);
+        case "repeat":
+          return includes("xy", params[1]) ? propertyValue("backgroundRepeat")(params) : {backgroundRepeat: params[1] || params[0]};
+        case "opacity":
+          return opacityProperty(params, theme22, id, "background");
+        case "clip":
+        case "origin":
+          return params[1] && {
+            ["background-" + params[0]]: params[1] + (params[1] == "text" ? "" : "-box")
+          };
+        case "blend":
+          return propertyValue("background-blend-mode")(tail(params));
+        case "gradient":
+          if (params[1] == "to" && (_ = expandEdges(params[2]))) {
+            return {
+              backgroundImage: `linear-gradient(to ${join(_, " ")},var(--tw-gradient-stops))`
+            };
+          }
+      }
+      return (_ = theme22("backgroundPosition", params, "")) ? {backgroundPosition: _} : (_ = theme22("backgroundSize", params, "")) ? {backgroundSize: _} : (_ = theme22("backgroundImage", params, "")) ? {backgroundImage: _} : withOpacityFallback("backgroundColor", "bg", theme22("backgroundColor", params));
+    },
+    from: (params, {theme: theme22}) => (_ = theme22("gradientColorStops", params)) && {
+      "--tw-gradient-from": _,
+      "--tw-gradient-stops": `var(--tw-gradient-from),var(--tw-gradient-to,${transparentTo(_)})`
+    },
+    via: (params, {theme: theme22}) => (_ = theme22("gradientColorStops", params)) && {
+      "--tw-gradient-stops": `var(--tw-gradient-from),${_},var(--tw-gradient-to,${transparentTo(_)})`
+    },
+    to: (params, {theme: theme22}) => (_ = theme22("gradientColorStops", params)) && {
+      "--tw-gradient-to": _
+    },
+    border: (params, context, id) => expandEdges(params[0]) ? edges(context.theme("borderWidth", tail(params)), params[0], "border", "width") : border(params, context, id),
+    divide: (params, context, id) => (_ = reversableEdge(params, context, id, "divideWidth", "border", "width") || border(params, context, id)) && {
+      "&>:not([hidden])~:not([hidden])": _
+    },
+    space: (params, context, id) => (_ = reversableEdge(params, context, id, "space", "margin")) && {
+      "&>:not([hidden])~:not([hidden])": _
+    },
+    placeholder: (params, {theme: theme22}, id) => (_ = params[0] == "opacity" ? opacityProperty(params, theme22, id) : withOpacityFallback("color", "placeholder", theme22("placeholderColor", params))) && {
+      "&::placeholder": _
+    },
+    shadow: (params, {theme: theme22}) => (_ = theme22("boxShadow", params)) && {
+      ":global": {
+        "*": {
+          "--tw-shadow": "0 0 transparent"
+        }
+      },
+      "--tw-shadow": _ == "none" ? "0 0 transparent" : _,
+      boxShadow: [
+        _,
+        `var(--tw-ring-offset-shadow,0 0 transparent),var(--tw-ring-shadow,0 0 transparent),var(--tw-shadow)`
+      ]
+    },
+    animate: (params, {theme: theme22, tag}) => {
+      if ($ = theme22("animation", params)) {
+        const parts = $.split(" ");
+        if ((_ = theme22("keyframes", parts[0], __ = {})) !== __) {
+          return ($ = tag(parts[0])) && {
+            animation: $ + " " + join(tail(parts), " "),
+            ["@keyframes " + $]: _
+          };
+        }
+        return {animation: $};
+      }
+    },
+    ring(params, {theme: theme22}, id) {
+      switch (params[0]) {
+        case "inset":
+          return {"--tw-ring-inset": "inset"};
+        case "opacity":
+          return opacityProperty(params, theme22, id);
+        case "offset":
+          return (_ = theme22("ringOffsetWidth", tail(params), "")) ? {
+            "--tw-ring-offset-width": _
+          } : {
+            "--tw-ring-offset-color": theme22("ringOffsetColor", tail(params))
+          };
+      }
+      return (_ = theme22("ringWidth", params, "")) ? {
+        "--tw-ring-offset-shadow": `var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)`,
+        "--tw-ring-shadow": `var(--tw-ring-inset) 0 0 0 calc(${_} + var(--tw-ring-offset-width)) var(--tw-ring-color)`,
+        boxShadow: `var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 transparent)`,
+        ":global": {
+          "*": {
+            "--tw-ring-inset": "var(--tw-empty,/*!*/ /*!*/)",
+            "--tw-ring-offset-width": theme22("ringOffsetWidth", "", "0px"),
+            "--tw-ring-offset-color": theme22("ringOffsetColor", "", "#fff"),
+            "--tw-ring-color": asRGBA(theme22("ringColor", "", "#93c5fd"), "ring-opacity", theme22("ringOpacity", "", "0.5")),
+            "--tw-ring-offset-shadow": "0 0 transparent",
+            "--tw-ring-shadow": "0 0 transparent"
+          }
+        }
+      } : {
+        "--tw-ring-opacity": "1",
+        "--tw-ring-color": asRGBA(theme22("ringColor", params), "ring-opacity")
+      };
+    },
+    object: (params, context, id) => includes(["contain", "cover", "fill", "none", "scale-down"], join(params)) ? {objectFit: join(params)} : themePropertyFallback("objectPosition", " ")(params, context, id),
+    list: (params, context, id) => join(params) == "item" ? display(params, context, id) : includes(["inside", "outside"], join(params)) ? {listStylePosition: params[0]} : themePropertyFallback("listStyleType")(params, context, id),
+    rounded: (params, context, id) => corners(context.theme("borderRadius", tail(params), ""), params[0], "border", "radius") || themeProperty("borderRadius")(params, context, id),
+    "transition-none": {transitionProperty: "none"},
+    transition: (params, {theme: theme22}) => ({
+      transitionProperty: theme22("transitionProperty", params),
+      transitionTimingFunction: theme22("transitionTimingFunction", ""),
+      transitionDuration: theme22("transitionDuration", "")
+    }),
+    container: (params, {theme: theme22}) => {
+      const {screens = theme22("screens"), center, padding: padding2} = theme22("container");
+      const paddingFor = (screen) => (_ = padding2 && (typeof padding2 == "string" ? padding2 : padding2[screen] || padding2.DEFAULT)) ? {
+        paddingRight: _,
+        paddingLeft: _
+      } : {};
+      return Object.keys(screens).reduce((rules2, screen) => {
+        if (($ = screens[screen]) && typeof $ == "string") {
+          rules2[buildMediaQuery($)] = {
+            "&": __assign({
+              "max-width": $
+            }, paddingFor(screen))
+          };
+        }
+        return rules2;
+      }, __assign(__assign({
+        width: "100%"
+      }, center ? {marginRight: "auto", marginLeft: "auto"} : {}), paddingFor("xs")));
+    },
+    filter,
+    blur: filter,
+    brightness: filter,
+    contrast: filter,
+    grayscale: filter,
+    "hue-rotate": filter,
+    invert: filter,
+    saturate: filter,
+    sepia: filter,
+    "drop-shadow": filter,
+    backdrop: filter
+  };
+  var createPreflight = (theme22) => ({
+    ":root": {tabSize: 4},
+    "body,blockquote,dl,dd,h1,h2,h3,h4,h5,h6,hr,figure,p,pre,fieldset,ol,ul": {margin: "0"},
+    button: {backgroundColor: "transparent", backgroundImage: "none"},
+    'button,[type="button"],[type="reset"],[type="submit"]': {WebkitAppearance: "button"},
+    "button:focus": {outline: ["1px dotted", "5px auto -webkit-focus-ring-color"]},
+    "fieldset,ol,ul,legend": {padding: "0"},
+    "ol,ul": {listStyle: "none"},
+    html: {
+      lineHeight: "1.5",
+      WebkitTextSizeAdjust: "100%",
+      fontFamily: theme22("fontFamily.sans", "ui-sans-serif,system-ui,sans-serif")
+    },
+    body: {fontFamily: "inherit", lineHeight: "inherit"},
+    "*,::before,::after": {
+      boxSizing: "border-box",
+      border: `0 solid ${theme22("borderColor.DEFAULT", "currentColor")}`
+    },
+    hr: {height: "0", color: "inherit", borderTopWidth: "1px"},
+    img: {borderStyle: "solid"},
+    textarea: {resize: "vertical"},
+    "input::placeholder,textarea::placeholder": {
+      opacity: "1",
+      color: theme22("placeholderColor.DEFAULT", theme22("colors.gray.400", "#a1a1aa"))
+    },
+    'button,[role="button"]': {cursor: "pointer"},
+    table: {textIndent: "0", borderColor: "inherit", borderCollapse: "collapse"},
+    "h1,h2,h3,h4,h5,h6": {fontSize: "inherit", fontWeight: "inherit"},
+    a: {color: "inherit", textDecoration: "inherit"},
+    "button,input,optgroup,select,textarea": {
+      fontFamily: "inherit",
+      fontSize: "100%",
+      margin: "0",
+      padding: "0",
+      lineHeight: "inherit",
+      color: "inherit"
+    },
+    "button,select": {textTransform: "none"},
+    "::-moz-focus-inner": {borderStyle: "none", padding: "0"},
+    ":-moz-focusring": {outline: "1px dotted ButtonText"},
+    ":-moz-ui-invalid": {boxShadow: "none"},
+    progress: {verticalAlign: "baseline"},
+    "::-webkit-inner-spin-button,::-webkit-outer-spin-button": {height: "auto"},
+    '[type="search"]': {WebkitAppearance: "textfield", outlineOffset: "-2px"},
+    "::-webkit-search-decoration": {WebkitAppearance: "none"},
+    "::-webkit-file-upload-button": {WebkitAppearance: "button", font: "inherit"},
+    summary: {display: "list-item"},
+    "abbr[title]": {textDecoration: "underline dotted"},
+    "b,strong": {fontWeight: "bolder"},
+    "pre,code,kbd,samp": {
+      fontFamily: theme22("fontFamily", "mono", "ui-monospace,monospace"),
+      fontSize: "1em"
+    },
+    "sub,sup": {fontSize: "75%", lineHeight: "0", position: "relative", verticalAlign: "baseline"},
+    sub: {bottom: "-0.25em"},
+    sup: {top: "-0.5em"},
+    "img,svg,video,canvas,audio,iframe,embed,object": {display: "block", verticalAlign: "middle"},
+    "img,video": {maxWidth: "100%", height: "auto"}
+  });
+  var coreVariants = {
+    dark: "@media (prefers-color-scheme:dark)",
+    sticky: "@supports ((position: -webkit-sticky) or (position:sticky))",
+    "motion-reduce": "@media (prefers-reduced-motion:reduce)",
+    "motion-safe": "@media (prefers-reduced-motion:no-preference)",
+    first: "&:first-child",
+    last: "&:last-child",
+    even: "&:nth-child(2n)",
+    odd: "&:nth-child(odd)",
+    children: "&>*",
+    siblings: "&~*",
+    sibling: "&+*",
+    override: "&&"
+  };
+  var STYLE_ELEMENT_ID = "__twind";
+  var getStyleElement = (nonce) => {
+    let element = self[STYLE_ELEMENT_ID];
+    if (!element) {
+      element = document.head.appendChild(document.createElement("style"));
+      element.id = STYLE_ELEMENT_ID;
+      nonce && (element.nonce = nonce);
+      element.appendChild(document.createTextNode(""));
+    }
+    return element;
+  };
+  var cssomSheet2 = ({
+    nonce,
+    target = getStyleElement(nonce).sheet
+  } = {}) => {
+    const offset = target.cssRules.length;
+    return {
+      target,
+      insert: (rule, index2) => target.insertRule(rule, offset + index2)
+    };
+  };
+  var voidSheet2 = () => ({
+    target: null,
+    insert: noop3
+  });
+  var mode2 = (report) => ({
+    unknown(section, key = [], optional, context) {
+      if (!optional) {
+        this.report({id: "UNKNOWN_THEME_VALUE", key: section + "." + join(key)}, context);
+      }
+    },
+    report(_a) {
+      var {id} = _a, info = __rest(_a, ["id"]);
+      const message = `[${id}] ${JSON.stringify(info)}`;
+      const stack = (new Error(message).stack || message).split("at ");
+      for (let frame; (frame = stack.splice(1, 1)[0]) && !/(^|\.)(tw|setup) /.test(frame); ) {
+      }
+      return report(join(stack, "at "));
+    }
+  });
+  var warn2 = /* @__PURE__ */ mode2((message) => console.warn(message));
+  var strict2 = /* @__PURE__ */ mode2((message) => {
+    throw new Error(message);
+  });
+  var silent2 = /* @__PURE__ */ mode2(noop3);
+  var import_style_vendorizer = __toModule2(require_bundle_min());
+  var noprefix2 = (property2, value, important) => `${property2}:${value}${important ? " !important" : ""}`;
+  var autoprefix2 = (property2, value, important) => {
+    let cssText = "";
+    const propertyAlias = (0, import_style_vendorizer.cssPropertyAlias)(property2);
+    if (propertyAlias)
+      cssText += `${noprefix2(propertyAlias, value, important)};`;
+    let flags = (0, import_style_vendorizer.cssPropertyPrefixFlags)(property2);
+    if (flags & 1)
+      cssText += `-webkit-${noprefix2(property2, value, important)};`;
+    if (flags & 2)
+      cssText += `-moz-${noprefix2(property2, value, important)};`;
+    if (flags & 4)
+      cssText += `-ms-${noprefix2(property2, value, important)};`;
+    flags = (0, import_style_vendorizer.cssValuePrefixFlags)(property2, value);
+    if (flags & 1)
+      cssText += `${noprefix2(property2, `-webkit-${value}`, important)};`;
+    if (flags & 2)
+      cssText += `${noprefix2(property2, `-moz-${value}`, important)};`;
+    if (flags & 4)
+      cssText += `${noprefix2(property2, `-ms-${value}`, important)};`;
+    cssText += noprefix2(property2, value, important);
+    return cssText;
+  };
+  var ratios = (start, end) => {
+    const result = {};
+    do {
+      for (let dividend = 1; dividend < start; dividend++) {
+        result[`${dividend}/${start}`] = Number((dividend / start * 100).toFixed(6)) + "%";
+      }
+    } while (++start <= end);
+    return result;
+  };
+  var exponential = (stop, unit, start = 0) => {
+    const result = {};
+    for (; start <= stop; start = start * 2 || 1) {
+      result[start] = start + unit;
+    }
+    return result;
+  };
+  var linear = (stop, unit = "", divideBy = 1, start = 0, step = 1, result = {}) => {
+    for (; start <= stop; start += step) {
+      result[start] = start / divideBy + unit;
+    }
+    return result;
+  };
+  var alias2 = (section) => (theme22) => theme22(section);
+  var themeFactory = (args, {theme: theme22}) => theme22(...args);
+  var theme2 = (...args) => directive2(themeFactory, args);
+  var defaultTheme = {
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px"
+    },
+    colors: {
+      transparent: "transparent",
+      current: "currentColor",
+      black: "#000",
+      white: "#fff",
+      gray: {
+        50: "#f9fafb",
+        100: "#f3f4f6",
+        200: "#e5e7eb",
+        300: "#d1d5db",
+        400: "#9ca3af",
+        500: "#6b7280",
+        600: "#4b5563",
+        700: "#374151",
+        800: "#1f2937",
+        900: "#111827"
+      },
+      red: {
+        50: "#fef2f2",
+        100: "#fee2e2",
+        200: "#fecaca",
+        300: "#fca5a5",
+        400: "#f87171",
+        500: "#ef4444",
+        600: "#dc2626",
+        700: "#b91c1c",
+        800: "#991b1b",
+        900: "#7f1d1d"
+      },
+      yellow: {
+        50: "#fffbeb",
+        100: "#fef3c7",
+        200: "#fde68a",
+        300: "#fcd34d",
+        400: "#fbbf24",
+        500: "#f59e0b",
+        600: "#d97706",
+        700: "#b45309",
+        800: "#92400e",
+        900: "#78350f"
+      },
+      green: {
+        50: "#ecfdf5",
+        100: "#d1fae5",
+        200: "#a7f3d0",
+        300: "#6ee7b7",
+        400: "#34d399",
+        500: "#10b981",
+        600: "#059669",
+        700: "#047857",
+        800: "#065f46",
+        900: "#064e3b"
+      },
+      blue: {
+        50: "#eff6ff",
+        100: "#dbeafe",
+        200: "#bfdbfe",
+        300: "#93c5fd",
+        400: "#60a5fa",
+        500: "#3b82f6",
+        600: "#2563eb",
+        700: "#1d4ed8",
+        800: "#1e40af",
+        900: "#1e3a8a"
+      },
+      indigo: {
+        50: "#eef2ff",
+        100: "#e0e7ff",
+        200: "#c7d2fe",
+        300: "#a5b4fc",
+        400: "#818cf8",
+        500: "#6366f1",
+        600: "#4f46e5",
+        700: "#4338ca",
+        800: "#3730a3",
+        900: "#312e81"
+      },
+      purple: {
+        50: "#f5f3ff",
+        100: "#ede9fe",
+        200: "#ddd6fe",
+        300: "#c4b5fd",
+        400: "#a78bfa",
+        500: "#8b5cf6",
+        600: "#7c3aed",
+        700: "#6d28d9",
+        800: "#5b21b6",
+        900: "#4c1d95"
+      },
+      pink: {
+        50: "#fdf2f8",
+        100: "#fce7f3",
+        200: "#fbcfe8",
+        300: "#f9a8d4",
+        400: "#f472b6",
+        500: "#ec4899",
+        600: "#db2777",
+        700: "#be185d",
+        800: "#9d174d",
+        900: "#831843"
+      }
+    },
+    spacing: __assign(__assign(__assign(__assign(__assign({
+      px: "1px",
+      0: "0px"
+    }, /* @__PURE__ */ linear(4, "rem", 4, 0.5, 0.5)), /* @__PURE__ */ linear(12, "rem", 4, 5)), {
+      14: "3.5rem"
+    }), /* @__PURE__ */ linear(64, "rem", 4, 16, 4)), {
+      72: "18rem",
+      80: "20rem",
+      96: "24rem"
+    }),
+    durations: {
+      75: "75ms",
+      100: "100ms",
+      150: "150ms",
+      200: "200ms",
+      300: "300ms",
+      500: "500ms",
+      700: "700ms",
+      1e3: "1000ms"
+    },
+    animation: {
+      none: "none",
+      spin: "spin 1s linear infinite",
+      ping: "ping 1s cubic-bezier(0, 0, 0.2, 1) infinite",
+      pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+      bounce: "bounce 1s infinite"
+    },
+    backdropBlur: /* @__PURE__ */ alias2("blur"),
+    backdropBrightness: /* @__PURE__ */ alias2("brightness"),
+    backdropContrast: /* @__PURE__ */ alias2("contrast"),
+    backdropGrayscale: /* @__PURE__ */ alias2("grayscale"),
+    backdropHueRotate: /* @__PURE__ */ alias2("hueRotate"),
+    backdropInvert: /* @__PURE__ */ alias2("invert"),
+    backdropOpacity: /* @__PURE__ */ alias2("opacity"),
+    backdropSaturate: /* @__PURE__ */ alias2("saturate"),
+    backdropSepia: /* @__PURE__ */ alias2("sepia"),
+    backgroundColor: /* @__PURE__ */ alias2("colors"),
+    backgroundImage: {
+      none: "none"
+    },
+    backgroundOpacity: /* @__PURE__ */ alias2("opacity"),
+    backgroundSize: {
+      auto: "auto",
+      cover: "cover",
+      contain: "contain"
+    },
+    blur: {
+      0: "0",
+      sm: "4px",
+      DEFAULT: "8px",
+      md: "12px",
+      lg: "16px",
+      xl: "24px",
+      "2xl": "40px",
+      "3xl": "64px"
+    },
+    brightness: __assign(__assign(__assign({}, /* @__PURE__ */ linear(200, "", 100, 0, 50)), /* @__PURE__ */ linear(110, "", 100, 90, 5)), {
+      75: "0.75",
+      125: "1.25"
+    }),
+    borderColor: (theme22) => __assign(__assign({}, theme22("colors")), {
+      DEFAULT: theme22("colors.gray.200", "currentColor")
+    }),
+    borderOpacity: /* @__PURE__ */ alias2("opacity"),
+    borderRadius: {
+      none: "0px",
+      sm: "0.125rem",
+      DEFAULT: "0.25rem",
+      md: "0.375rem",
+      lg: "0.5rem",
+      xl: "0.75rem",
+      "2xl": "1rem",
+      "3xl": "1.5rem",
+      "1/2": "50%",
+      full: "9999px"
+    },
+    borderWidth: __assign({
+      DEFAULT: "1px"
+    }, /* @__PURE__ */ exponential(8, "px")),
+    boxShadow: {
+      sm: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+      DEFAULT: "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
+      md: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+      lg: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+      xl: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+      "2xl": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+      inner: "inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)",
+      none: "none"
+    },
+    contrast: __assign(__assign({}, /* @__PURE__ */ linear(200, "", 100, 0, 50)), {
+      75: "0.75",
+      125: "1.25"
+    }),
+    divideColor: /* @__PURE__ */ alias2("borderColor"),
+    divideOpacity: /* @__PURE__ */ alias2("borderOpacity"),
+    divideWidth: /* @__PURE__ */ alias2("borderWidth"),
+    dropShadow: {
+      sm: "0 1px 1px rgba(0,0,0,0.05)",
+      DEFAULT: ["0 1px 2px rgba(0, 0, 0, 0.1)", "0 1px 1px rgba(0, 0, 0, 0.06)"],
+      md: ["0 4px 3px rgba(0, 0, 0, 0.07)", "0 2px 2px rgba(0, 0, 0, 0.06)"],
+      lg: ["0 10px 8px rgba(0, 0, 0, 0.04)", "0 4px 3px rgba(0, 0, 0, 0.1)"],
+      xl: ["0 20px 13px rgba(0, 0, 0, 0.03)", "0 8px 5px rgba(0, 0, 0, 0.08)"],
+      "2xl": "0 25px 25px rgba(0, 0, 0, 0.15)",
+      none: "0 0 #0000"
+    },
+    fill: {current: "currentColor"},
+    grayscale: {
+      0: "0",
+      DEFAULT: "100%"
+    },
+    hueRotate: {
+      0: "0deg",
+      15: "15deg",
+      30: "30deg",
+      60: "60deg",
+      90: "90deg",
+      180: "180deg"
+    },
+    invert: {
+      0: "0",
+      DEFAULT: "100%"
+    },
+    flex: {
+      1: "1 1 0%",
+      auto: "1 1 auto",
+      initial: "0 1 auto",
+      none: "none"
+    },
+    fontFamily: {
+      sans: 'ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"'.split(","),
+      serif: 'ui-serif,Georgia,Cambria,"Times New Roman",Times,serif'.split(","),
+      mono: 'ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace'.split(",")
+    },
+    fontSize: {
+      xs: ["0.75rem", "1rem"],
+      sm: ["0.875rem", "1.25rem"],
+      base: ["1rem", "1.5rem"],
+      lg: ["1.125rem", "1.75rem"],
+      xl: ["1.25rem", "1.75rem"],
+      "2xl": ["1.5rem", "2rem"],
+      "3xl": ["1.875rem", "2.25rem"],
+      "4xl": ["2.25rem", "2.5rem"],
+      "5xl": ["3rem", "1"],
+      "6xl": ["3.75rem", "1"],
+      "7xl": ["4.5rem", "1"],
+      "8xl": ["6rem", "1"],
+      "9xl": ["8rem", "1"]
+    },
+    fontWeight: {
+      thin: "100",
+      extralight: "200",
+      light: "300",
+      normal: "400",
+      medium: "500",
+      semibold: "600",
+      bold: "700",
+      extrabold: "800",
+      black: "900"
+    },
+    gridTemplateColumns: {},
+    gridTemplateRows: {},
+    gridAutoColumns: {
+      min: "min-content",
+      max: "max-content",
+      fr: "minmax(0,1fr)"
+    },
+    gridAutoRows: {
+      min: "min-content",
+      max: "max-content",
+      fr: "minmax(0,1fr)"
+    },
+    gridColumn: {
+      auto: "auto",
+      "span-full": "1 / -1"
+    },
+    gridRow: {
+      auto: "auto",
+      "span-full": "1 / -1"
+    },
+    gap: /* @__PURE__ */ alias2("spacing"),
+    gradientColorStops: /* @__PURE__ */ alias2("colors"),
+    height: (theme22) => __assign(__assign(__assign({
+      auto: "auto"
+    }, theme22("spacing")), ratios(2, 6)), {
+      full: "100%",
+      screen: "100vh"
+    }),
+    inset: (theme22) => __assign(__assign(__assign({
+      auto: "auto"
+    }, theme22("spacing")), ratios(2, 4)), {
+      full: "100%"
+    }),
+    keyframes: {
+      spin: {
+        from: {
+          transform: "rotate(0deg)"
+        },
+        to: {
+          transform: "rotate(360deg)"
+        }
+      },
+      ping: {
+        "0%": {
+          transform: "scale(1)",
+          opacity: "1"
+        },
+        "75%,100%": {
+          transform: "scale(2)",
+          opacity: "0"
+        }
+      },
+      pulse: {
+        "0%,100%": {
+          opacity: "1"
+        },
+        "50%": {
+          opacity: ".5"
+        }
+      },
+      bounce: {
+        "0%, 100%": {
+          transform: "translateY(-25%)",
+          animationTimingFunction: "cubic-bezier(0.8,0,1,1)"
+        },
+        "50%": {
+          transform: "none",
+          animationTimingFunction: "cubic-bezier(0,0,0.2,1)"
+        }
+      }
+    },
+    letterSpacing: {
+      tighter: "-0.05em",
+      tight: "-0.025em",
+      normal: "0em",
+      wide: "0.025em",
+      wider: "0.05em",
+      widest: "0.1em"
+    },
+    lineHeight: __assign({
+      none: "1",
+      tight: "1.25",
+      snug: "1.375",
+      normal: "1.5",
+      relaxed: "1.625",
+      loose: "2"
+    }, /* @__PURE__ */ linear(10, "rem", 4, 3)),
+    margin: (theme22) => __assign({
+      auto: "auto"
+    }, theme22("spacing")),
+    maxHeight: (theme22) => __assign(__assign({}, theme22("spacing")), {
+      full: "100%",
+      screen: "100vh"
+    }),
+    maxWidth: (theme22, {breakpoints}) => __assign({
+      none: "none",
+      0: "0rem",
+      xs: "20rem",
+      sm: "24rem",
+      md: "28rem",
+      lg: "32rem",
+      xl: "36rem",
+      "2xl": "42rem",
+      "3xl": "48rem",
+      "4xl": "56rem",
+      "5xl": "64rem",
+      "6xl": "72rem",
+      "7xl": "80rem",
+      full: "100%",
+      min: "min-content",
+      max: "max-content",
+      prose: "65ch"
+    }, breakpoints(theme22("screens"))),
+    minHeight: {
+      0: "0px",
+      full: "100%",
+      screen: "100vh"
+    },
+    minWidth: {
+      0: "0px",
+      full: "100%",
+      min: "min-content",
+      max: "max-content"
+    },
+    opacity: __assign(__assign({}, /* @__PURE__ */ linear(100, "", 100, 0, 10)), {
+      5: "0.05",
+      25: "0.25",
+      75: "0.75",
+      95: "0.95"
+    }),
+    order: __assign({
+      first: "-9999",
+      last: "9999",
+      none: "0"
+    }, /* @__PURE__ */ linear(12, "", 1, 1)),
+    outline: {
+      none: ["2px solid transparent", "2px"],
+      white: ["2px dotted white", "2px"],
+      black: ["2px dotted black", "2px"]
+    },
+    padding: /* @__PURE__ */ alias2("spacing"),
+    placeholderColor: /* @__PURE__ */ alias2("colors"),
+    placeholderOpacity: /* @__PURE__ */ alias2("opacity"),
+    ringColor: (theme22) => __assign({
+      DEFAULT: theme22("colors.blue.500", "#3b82f6")
+    }, theme22("colors")),
+    ringOffsetColor: /* @__PURE__ */ alias2("colors"),
+    ringOffsetWidth: /* @__PURE__ */ exponential(8, "px"),
+    ringOpacity: (theme22) => __assign({
+      DEFAULT: "0.5"
+    }, theme22("opacity")),
+    ringWidth: __assign({
+      DEFAULT: "3px"
+    }, /* @__PURE__ */ exponential(8, "px")),
+    rotate: __assign(__assign(__assign({}, /* @__PURE__ */ exponential(2, "deg")), /* @__PURE__ */ exponential(12, "deg", 3)), /* @__PURE__ */ exponential(180, "deg", 45)),
+    saturate: /* @__PURE__ */ linear(200, "", 100, 0, 50),
+    scale: __assign(__assign(__assign({}, /* @__PURE__ */ linear(150, "", 100, 0, 50)), /* @__PURE__ */ linear(110, "", 100, 90, 5)), {
+      75: "0.75",
+      125: "1.25"
+    }),
+    sepia: {
+      0: "0",
+      DEFAULT: "100%"
+    },
+    skew: __assign(__assign({}, /* @__PURE__ */ exponential(2, "deg")), /* @__PURE__ */ exponential(12, "deg", 3)),
+    space: /* @__PURE__ */ alias2("spacing"),
+    stroke: {
+      current: "currentColor"
+    },
+    strokeWidth: /* @__PURE__ */ linear(2),
+    textColor: /* @__PURE__ */ alias2("colors"),
+    textOpacity: /* @__PURE__ */ alias2("opacity"),
+    transitionDuration: (theme22) => __assign({
+      DEFAULT: "150ms"
+    }, theme22("durations")),
+    transitionDelay: /* @__PURE__ */ alias2("durations"),
+    transitionProperty: {
+      none: "none",
+      all: "all",
+      DEFAULT: "background-color,border-color,color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter",
+      colors: "background-color,border-color,color,fill,stroke",
+      opacity: "opacity",
+      shadow: "box-shadow",
+      transform: "transform"
+    },
+    transitionTimingFunction: {
+      DEFAULT: "cubic-bezier(0.4,0,0.2,1)",
+      linear: "linear",
+      in: "cubic-bezier(0.4,0,1,1)",
+      out: "cubic-bezier(0,0,0.2,1)",
+      "in-out": "cubic-bezier(0.4,0,0.2,1)"
+    },
+    translate: (theme22) => __assign(__assign(__assign({}, theme22("spacing")), ratios(2, 4)), {
+      full: "100%"
+    }),
+    width: (theme22) => __assign(__assign(__assign(__assign({
+      auto: "auto"
+    }, theme22("spacing")), ratios(2, 6)), ratios(12, 12)), {
+      screen: "100vw",
+      full: "100%",
+      min: "min-content",
+      max: "max-content"
+    }),
+    zIndex: __assign({
+      auto: "auto"
+    }, /* @__PURE__ */ linear(50, "", 1, 0, 10))
+  };
+  var flattenColorPalette = (colors2, target = {}, prefix = []) => {
+    Object.keys(colors2).forEach((property2) => {
+      const value = colors2[property2];
+      if (property2 == "DEFAULT") {
+        target[join(prefix)] = value;
+        target[join(prefix, ".")] = value;
+      }
+      const key = [...prefix, property2];
+      target[join(key)] = value;
+      target[join(key, ".")] = value;
+      if (value && typeof value == "object") {
+        flattenColorPalette(value, target, key);
+      }
+    }, target);
+    return target;
+  };
+  var resolveContext = {
+    negative: () => ({}),
+    breakpoints: (screens) => Object.keys(screens).filter((key) => typeof screens[key] == "string").reduce((target, key) => {
+      target["screen-" + key] = screens[key];
+      return target;
+    }, {})
+  };
+  var handleArbitraryValues = (section, key) => (key = key[0] == "[" && key.slice(-1) == "]" && key.slice(1, -1)) && includes(section, "olor") == /^(#|(hsl|rgb)a?\(|[a-z]+$)/.test(key) && (includes(key, "calc(") ? key.replace(/(-?\d*\.?\d(?!\b-.+[,)](?![^+\-/*])\D)(?:%|[a-z]+)?|\))([+\-/*])/g, "$1 $2 ") : key);
+  var makeThemeResolver = (config) => {
+    const cache = new Map();
+    const theme22 = __assign(__assign({}, defaultTheme), config);
+    const deref = (theme3, section) => {
+      const base = theme3 && theme3[section];
+      const value = typeof base == "function" ? base(resolve2, resolveContext) : base;
+      return value && section == "colors" ? flattenColorPalette(value) : value;
+    };
+    const resolve2 = (section, key, defaultValue) => {
+      const keypath = section.split(".");
+      section = keypath[0];
+      if (keypath.length > 1) {
+        defaultValue = key;
+        key = join(tail(keypath), ".");
+      }
+      let base = cache.get(section);
+      if (!base) {
+        cache.set(section, base = __assign({}, deref(theme22, section)));
+        Object.assign(base, deref(theme22.extend, section));
+      }
+      if (key != null) {
+        key = (Array.isArray(key) ? join(key) : key) || "DEFAULT";
+        const value = handleArbitraryValues(section, key) || base[key];
+        return value == null ? defaultValue : Array.isArray(value) && !includes(["fontSize", "outline", "dropShadow"], section) ? join(value, ",") : value;
+      }
+      return base;
+    };
+    return resolve2;
+  };
+  var translate = (plugins, context) => (rule, isTranslating) => {
+    if (typeof rule.d == "function") {
+      return rule.d(context);
+    }
+    const parameters = rule.d.split(/-(?![^[]*])/g);
+    if (!isTranslating && parameters[0] == "tw" && rule.$ == rule.d) {
+      return rule.$;
+    }
+    for (let index2 = parameters.length; index2; index2--) {
+      const id = join(parameters.slice(0, index2));
+      const plugin = plugins[id];
+      if (plugin) {
+        return typeof plugin == "function" ? plugin(tail(parameters, index2), context, id) : typeof plugin == "string" ? context[isTranslating ? "css" : "tw"](plugin) : plugin;
+      }
+    }
+  };
+  var _2;
+  var GROUP_RE = /^:(group(?:(?!-focus).+?)*)-(.+)$/;
+  var NOT_PREFIX_RE = /^(:not)-(.+)/;
+  var prepareVariantSelector = (variant) => variant[1] == "[" ? tail(variant) : variant;
+  var decorate = (darkMode, variants, {theme: theme22, tag}) => {
+    const applyVariant = (translation, variant) => {
+      if (_2 = theme22("screens", tail(variant), "")) {
+        return {[buildMediaQuery(_2)]: translation};
+      }
+      if (variant == ":dark" && darkMode == "class") {
+        return {".dark &": translation};
+      }
+      if (_2 = GROUP_RE.exec(variant)) {
+        return {[`.${escape3(tag(_2[1]))}:${_2[2]} &`]: translation};
+      }
+      return {
+        [variants[tail(variant)] || "&" + variant.replace(NOT_PREFIX_RE, (_4, not, variant2) => not + "(" + prepareVariantSelector(":" + variant2) + ")")]: translation
+      };
+    };
+    return (translation, rule) => rule.v.reduceRight(applyVariant, translation);
+  };
+  var _3;
+  var responsivePrecedence = (css2) => (((_3 = /(?:^|min-width: *)(\d+(?:.\d+)?)(p)?/.exec(css2)) ? +_3[1] / (_3[2] ? 15 : 1) / 10 : 0) & 31) << 22;
+  var seperatorPrecedence = (string) => {
+    _3 = 0;
+    for (let index2 = string.length; index2--; ) {
+      _3 += includes("-:,", string[index2]);
+    }
+    return _3;
+  };
+  var atRulePresedence = (css2) => (seperatorPrecedence(css2) & 15) << 18;
+  var PRECEDENCES_BY_PSEUDO_CLASS = [
+    "rst",
+    "st",
+    "en",
+    "d",
+    "nk",
+    "sited",
+    "pty",
+    "ecked",
+    "cus-w",
+    "ver",
+    "cus",
+    "cus-v",
+    "tive",
+    "sable",
+    "ad-on",
+    "tiona",
+    "quire"
+  ];
+  var pseudoPrecedence = (pseudoClass) => 1 << (~(_3 = PRECEDENCES_BY_PSEUDO_CLASS.indexOf(pseudoClass.replace(GROUP_RE, ":$2").slice(3, 8))) ? _3 : 17);
+  var makeVariantPresedenceCalculator = (theme22, variants) => (presedence, variant) => presedence | ((_3 = theme22("screens", tail(variant), "")) ? 1 << 27 | responsivePrecedence(buildMediaQuery(_3)) : variant == ":dark" ? 1 << 30 : (_3 = variants[variant] || variant.replace(NOT_PREFIX_RE, ":$2"))[0] == "@" ? atRulePresedence(_3) : pseudoPrecedence(variant));
+  var declarationPropertyPrecedence = (property2) => property2[0] == "-" ? 0 : seperatorPrecedence(property2) + ((_3 = /^(?:(border-(?!w|c|sty)|[tlbr].{2,4}m?$|c.{7}$)|([fl].{5}l|g.{8}$|pl))/.exec(property2)) ? +!!_3[1] || -!!_3[2] : 0) + 1;
+  var stringifyBlock = (body, selector) => selector + "{" + body + "}";
+  var serialize = (prefix, variants, context) => {
+    const {theme: theme22, tag} = context;
+    const tagVar = (_4, property2) => "--" + tag(property2);
+    const tagVars = (value) => `${value}`.replace(/--(tw-[\w-]+)\b/g, tagVar);
+    const stringifyDeclaration = (property2, value, important) => {
+      property2 = tagVars(property2);
+      return Array.isArray(value) ? join(value.filter(Boolean).map((value2) => prefix(property2, tagVars(value2), important)), ";") : prefix(property2, tagVars(value), important);
+    };
+    let rules2;
+    const stringify3 = (atRules, selector, presedence, css2, important) => {
+      if (Array.isArray(css2)) {
+        css2.forEach((css22) => css22 && stringify3(atRules, selector, presedence, css22, important));
+        return;
+      }
+      let declarations = "";
+      let maxPropertyPresedence = 0;
+      let numberOfDeclarations = 0;
+      if (css2["@apply"]) {
+        css2 = merge(evalThunk(apply2(css2["@apply"]), context), __assign(__assign({}, css2), {"@apply": void 0}), context);
+      }
+      Object.keys(css2).forEach((key) => {
+        const value = evalThunk(css2[key], context);
+        if (isCSSProperty(key, value)) {
+          if (value !== "" && key.length > 1) {
+            const property2 = hyphenate(key);
+            numberOfDeclarations += 1;
+            maxPropertyPresedence = Math.max(maxPropertyPresedence, declarationPropertyPrecedence(property2));
+            declarations = (declarations && declarations + ";") + stringifyDeclaration(property2, value, important);
+          }
+        } else if (value) {
+          if (key == ":global") {
+            key = "@global";
+          }
+          if (key[0] == "@") {
+            if (key[1] == "g") {
+              stringify3([], "", 0, value, important);
+            } else if (key[1] == "f") {
+              stringify3([], key, 0, value, important);
+            } else if (key[1] == "k") {
+              const currentSize = rules2.length;
+              stringify3([], "", 0, value, important);
+              const waypoints = rules2.splice(currentSize, rules2.length - currentSize);
+              rules2.push({
+                r: stringifyBlock(join(waypoints.map((p) => p.r), ""), key),
+                p: waypoints.reduce((sum, p) => sum + p.p, 0)
+              });
+            } else if (key[1] == "i") {
+              ;
+              (Array.isArray(value) ? value : [value]).forEach((value2) => value2 && rules2.push({p: 0, r: `${key} ${value2};`}));
+            } else {
+              if (key[2] == "c") {
+                key = buildMediaQuery(context.theme("screens", tail(key, 8).trim()));
+              }
+              stringify3([...atRules, key], selector, presedence | responsivePrecedence(key) | atRulePresedence(key), value, important);
+            }
+          } else {
+            stringify3(atRules, selector ? join(selector.split(/,(?![^[]*])/g).map((selectorPart) => join(key.split(/,(?![^[]*])/g).map((keyPart) => includes(keyPart, "&") ? keyPart.replace(/&/g, selectorPart) : (selectorPart && selectorPart + " ") + keyPart), ",")), ",") : key, presedence, value, important);
+          }
+        }
+      });
+      if (numberOfDeclarations) {
+        rules2.push({
+          r: atRules.reduceRight(stringifyBlock, stringifyBlock(declarations, selector)),
+          p: presedence * (1 << 8) + ((Math.max(0, 15 - numberOfDeclarations) & 15) << 4 | (maxPropertyPresedence || 15) & 15)
+        });
+      }
+    };
+    const variantPresedence = makeVariantPresedenceCalculator(theme22, variants);
+    return (css2, className, rule, layer = 0) => {
+      layer <<= 28;
+      rules2 = [];
+      stringify3([], className ? "." + escape3(className) : "", rule ? rule.v.reduceRight(variantPresedence, layer) : layer, css2, rule && rule.i);
+      return rules2;
+    };
+  };
+  var inject = (sheet, mode22, init2, context) => {
+    let sortedPrecedences;
+    init2((value = []) => sortedPrecedences = value);
+    let insertedRules;
+    init2((value = new Set()) => insertedRules = value);
+    return ({r: css2, p: presedence}) => {
+      if (!insertedRules.has(css2)) {
+        insertedRules.add(css2);
+        const index2 = sortedInsertionIndex(sortedPrecedences, presedence);
+        try {
+          sheet.insert(css2, index2);
+          sortedPrecedences.splice(index2, 0, presedence);
+        } catch (error2) {
+          if (!/:-[mwo]/.test(css2)) {
+            mode22.report({id: "INJECT_CSS_ERROR", css: css2, error: error2}, context);
+          }
+        }
+      }
+    };
+  };
+  var sanitize = (value, defaultValue, disabled, enabled = defaultValue) => value === false ? disabled : value === true ? enabled : value || defaultValue;
+  var loadMode = (mode22) => (typeof mode22 == "string" ? {t: strict2, a: warn2, i: silent2}[mode22[1]] : mode22) || warn2;
+  var stringifyVariant = (selector, variant) => selector + (variant[1] == ":" ? tail(variant, 2) + ":" : tail(variant)) + ":";
+  var stringify2 = (rule, directive22 = rule.d) => typeof directive22 == "function" ? "" : rule.v.reduce(stringifyVariant, "") + (rule.i ? "!" : "") + (rule.n ? "-" : "") + directive22;
+  var COMPONENT_PROPS = {_: {value: "", writable: true}};
+  var configure = (config = {}) => {
+    const theme22 = makeThemeResolver(config.theme);
+    const mode22 = loadMode(config.mode);
+    const hash4 = sanitize(config.hash, false, false, cyrb32);
+    const important = config.important;
+    let activeRule = {v: []};
+    let translateDepth = 0;
+    const lastTranslations = [];
+    const context = {
+      tw: (...tokens) => process2(tokens),
+      theme: (section, key, defaultValue) => {
+        var _a;
+        const value = (_a = theme22(section, key, defaultValue)) != null ? _a : mode22.unknown(section, key == null || Array.isArray(key) ? key : key.split("."), defaultValue != null, context);
+        return activeRule.n && value && includes("rg", (typeof value)[5]) ? `calc(${value} * -1)` : value;
+      },
+      tag: (value) => hash4 ? hash4(value) : value,
+      css: (rules2) => {
+        translateDepth++;
+        const lastTranslationsIndex = lastTranslations.length;
+        try {
+          ;
+          (typeof rules2 == "string" ? parse([rules2]) : rules2).forEach(convert);
+          const css2 = Object.create(null, COMPONENT_PROPS);
+          for (let index2 = lastTranslationsIndex; index2 < lastTranslations.length; index2++) {
+            const translation = lastTranslations[index2];
+            if (translation) {
+              switch (typeof translation) {
+                case "object":
+                  merge(css2, translation, context);
+                  break;
+                case "string":
+                  css2._ += (css2._ && " ") + translation;
+              }
+            }
+          }
+          return css2;
+        } finally {
+          lastTranslations.length = lastTranslationsIndex;
+          translateDepth--;
+        }
+      }
+    };
+    const translate2 = translate(__assign(__assign({}, corePlugins), config.plugins), context);
+    const doTranslate = (rule) => {
+      const parentRule = activeRule;
+      activeRule = rule;
+      try {
+        return evalThunk(translate2(rule), context);
+      } finally {
+        activeRule = parentRule;
+      }
+    };
+    const variants = __assign(__assign({}, coreVariants), config.variants);
+    const decorate2 = decorate(config.darkMode || "media", variants, context);
+    const serialize2 = serialize(sanitize(config.prefix, autoprefix2, noprefix2), variants, context);
+    const sheet = config.sheet || (typeof window == "undefined" ? voidSheet2() : cssomSheet2(config));
+    const {init: init2 = (callback) => callback()} = sheet;
+    const inject2 = inject(sheet, mode22, init2, context);
+    let idToClassName;
+    init2((value = new Map()) => idToClassName = value);
+    const inlineDirectiveName = new WeakMap();
+    const evaluateFunctions = (key, value) => key == "_" ? void 0 : typeof value == "function" ? JSON.stringify(evalThunk(value, context), evaluateFunctions) : value;
+    const convert = (rule) => {
+      if (!translateDepth && activeRule.v.length) {
+        rule = __assign(__assign({}, rule), {v: [...activeRule.v, ...rule.v], $: ""});
+      }
+      if (!rule.$) {
+        rule.$ = stringify2(rule, inlineDirectiveName.get(rule.d));
+      }
+      let className = translateDepth ? null : idToClassName.get(rule.$);
+      if (className == null) {
+        let translation = doTranslate(rule);
+        if (!rule.$) {
+          rule.$ = cyrb32(JSON.stringify(translation, evaluateFunctions));
+          inlineDirectiveName.set(rule.d, rule.$);
+          rule.$ = stringify2(rule, rule.$);
+        }
+        if (translation && typeof translation == "object") {
+          rule.v = rule.v.map(prepareVariantSelector);
+          if (important)
+            rule.i = important;
+          translation = decorate2(translation, rule);
+          if (translateDepth) {
+            lastTranslations.push(translation);
+          } else {
+            const layer = typeof rule.d == "function" ? typeof translation._ == "string" ? 1 : 3 : 2;
+            className = hash4 || typeof rule.d == "function" ? (hash4 || cyrb32)(layer + rule.$) : rule.$;
+            serialize2(translation, className, rule, layer).forEach(inject2);
+            if (translation._) {
+              className += " " + translation._;
+            }
+          }
+        } else {
+          if (typeof translation == "string") {
+            className = translation;
+          } else {
+            className = rule.$;
+            mode22.report({id: "UNKNOWN_DIRECTIVE", rule: className}, context);
+          }
+          if (translateDepth && typeof rule.d !== "function") {
+            lastTranslations.push(className);
+          }
+        }
+        if (!translateDepth) {
+          idToClassName.set(rule.$, className);
+          ensureMaxSize(idToClassName, 3e4);
+        }
+      }
+      return className;
+    };
+    const process2 = (tokens) => join(parse(tokens).map(convert).filter(Boolean), " ");
+    const preflight = sanitize(config.preflight, identity2, false);
+    if (preflight) {
+      const css2 = createPreflight(theme22);
+      const styles = serialize2(typeof preflight == "function" ? evalThunk(preflight(css2, context), context) || css2 : __assign(__assign({}, css2), preflight));
+      init2((injected = (styles.forEach(inject2), true)) => injected);
+    }
+    return {
+      init: () => mode22.report({id: "LATE_SETUP_CALL"}, context),
+      process: process2
+    };
+  };
+  var create2 = (config) => {
+    let process2 = (tokens) => {
+      init2();
+      return process2(tokens);
+    };
+    let init2 = (config2) => {
+      ;
+      ({process: process2, init: init2} = configure(config2));
+    };
+    if (config)
+      init2(config);
+    let context;
+    const fromContext = (key) => () => {
+      if (!context) {
+        process2([
+          (_4) => {
+            context = _4;
+            return "";
+          }
+        ]);
+      }
+      return context[key];
+    };
+    return {
+      tw: Object.defineProperties((...tokens) => process2(tokens), {
+        theme: {
+          get: fromContext("theme")
+        }
+      }),
+      setup: (config2) => init2(config2)
+    };
+  };
+  var {tw: tw2, setup: setup2} = /* @__PURE__ */ create2();
+});
+
+// node_modules/twind/colors/colors.cjs
+var require_colors = __commonJS((exports) => {
+  var __create2 = Object.create;
+  var __defProp2 = Object.defineProperty;
+  var __getProtoOf2 = Object.getPrototypeOf;
+  var __hasOwnProp2 = Object.prototype.hasOwnProperty;
+  var __getOwnPropNames2 = Object.getOwnPropertyNames;
+  var __getOwnPropDesc2 = Object.getOwnPropertyDescriptor;
+  var __markAsModule2 = (target) => __defProp2(target, "__esModule", {value: true});
+  var __export2 = (target, all) => {
+    for (var name in all)
+      __defProp2(target, name, {get: all[name], enumerable: true});
+  };
+  var __exportStar = (target, module22, desc) => {
+    if (module22 && typeof module22 === "object" || typeof module22 === "function") {
+      for (let key of __getOwnPropNames2(module22))
+        if (!__hasOwnProp2.call(target, key) && key !== "default")
+          __defProp2(target, key, {get: () => module22[key], enumerable: !(desc = __getOwnPropDesc2(module22, key)) || desc.enumerable});
+    }
+    return target;
+  };
+  var __toModule2 = (module22) => {
+    return __exportStar(__markAsModule2(__defProp2(module22 != null ? __create2(__getProtoOf2(module22)) : {}, "default", module22 && module22.__esModule && "default" in module22 ? {get: () => module22.default, enumerable: true} : {value: module22, enumerable: true})), module22);
+  };
+  __markAsModule2(exports);
+  __export2(exports, {
+    amber: () => amber2,
+    black: () => black2,
+    blue: () => blue2,
+    blueGray: () => blueGray2,
+    coolGray: () => coolGray2,
+    cyan: () => cyan2,
+    emerald: () => emerald2,
+    fuchsia: () => fuchsia2,
+    gray: () => gray2,
+    green: () => green2,
+    indigo: () => indigo2,
+    lightBlue: () => lightBlue2,
+    lime: () => lime2,
+    orange: () => orange2,
+    pink: () => pink2,
+    purple: () => purple2,
+    red: () => red2,
+    rose: () => rose2,
+    teal: () => teal2,
+    trueGray: () => trueGray2,
+    violet: () => violet2,
+    warmGray: () => warmGray2,
+    white: () => white2,
+    yellow: () => yellow2
+  });
+  var import_url2 = __toModule2(require("url"));
+  var shim_import_meta_url = (0, import_url2.pathToFileURL)(__filename);
+  var black2 = "#000";
+  var white2 = "#fff";
+  var rose2 = {
+    50: "#fff1f2",
+    100: "#ffe4e6",
+    200: "#fecdd3",
+    300: "#fda4af",
+    400: "#fb7185",
+    500: "#f43f5e",
+    600: "#e11d48",
+    700: "#be123c",
+    800: "#9f1239",
+    900: "#881337"
+  };
+  var pink2 = {
+    50: "#fdf2f8",
+    100: "#fce7f3",
+    200: "#fbcfe8",
+    300: "#f9a8d4",
+    400: "#f472b6",
+    500: "#ec4899",
+    600: "#db2777",
+    700: "#be185d",
+    800: "#9d174d",
+    900: "#831843"
+  };
+  var fuchsia2 = {
+    50: "#fdf4ff",
+    100: "#fae8ff",
+    200: "#f5d0fe",
+    300: "#f0abfc",
+    400: "#e879f9",
+    500: "#d946ef",
+    600: "#c026d3",
+    700: "#a21caf",
+    800: "#86198f",
+    900: "#701a75"
+  };
+  var purple2 = {
+    50: "#faf5ff",
+    100: "#f3e8ff",
+    200: "#e9d5ff",
+    300: "#d8b4fe",
+    400: "#c084fc",
+    500: "#a855f7",
+    600: "#9333ea",
+    700: "#7e22ce",
+    800: "#6b21a8",
+    900: "#581c87"
+  };
+  var violet2 = {
+    50: "#f5f3ff",
+    100: "#ede9fe",
+    200: "#ddd6fe",
+    300: "#c4b5fd",
+    400: "#a78bfa",
+    500: "#8b5cf6",
+    600: "#7c3aed",
+    700: "#6d28d9",
+    800: "#5b21b6",
+    900: "#4c1d95"
+  };
+  var indigo2 = {
+    50: "#eef2ff",
+    100: "#e0e7ff",
+    200: "#c7d2fe",
+    300: "#a5b4fc",
+    400: "#818cf8",
+    500: "#6366f1",
+    600: "#4f46e5",
+    700: "#4338ca",
+    800: "#3730a3",
+    900: "#312e81"
+  };
+  var blue2 = {
+    50: "#eff6ff",
+    100: "#dbeafe",
+    200: "#bfdbfe",
+    300: "#93c5fd",
+    400: "#60a5fa",
+    500: "#3b82f6",
+    600: "#2563eb",
+    700: "#1d4ed8",
+    800: "#1e40af",
+    900: "#1e3a8a"
+  };
+  var lightBlue2 = {
+    50: "#f0f9ff",
+    100: "#e0f2fe",
+    200: "#bae6fd",
+    300: "#7dd3fc",
+    400: "#38bdf8",
+    500: "#0ea5e9",
+    600: "#0284c7",
+    700: "#0369a1",
+    800: "#075985",
+    900: "#0c4a6e"
+  };
+  var cyan2 = {
+    50: "#ecfeff",
+    100: "#cffafe",
+    200: "#a5f3fc",
+    300: "#67e8f9",
+    400: "#22d3ee",
+    500: "#06b6d4",
+    600: "#0891b2",
+    700: "#0e7490",
+    800: "#155e75",
+    900: "#164e63"
+  };
+  var teal2 = {
+    50: "#f0fdfa",
+    100: "#ccfbf1",
+    200: "#99f6e4",
+    300: "#5eead4",
+    400: "#2dd4bf",
+    500: "#14b8a6",
+    600: "#0d9488",
+    700: "#0f766e",
+    800: "#115e59",
+    900: "#134e4a"
+  };
+  var emerald2 = {
+    50: "#ecfdf5",
+    100: "#d1fae5",
+    200: "#a7f3d0",
+    300: "#6ee7b7",
+    400: "#34d399",
+    500: "#10b981",
+    600: "#059669",
+    700: "#047857",
+    800: "#065f46",
+    900: "#064e3b"
+  };
+  var green2 = {
+    50: "#f0fdf4",
+    100: "#dcfce7",
+    200: "#bbf7d0",
+    300: "#86efac",
+    400: "#4ade80",
+    500: "#22c55e",
+    600: "#16a34a",
+    700: "#15803d",
+    800: "#166534",
+    900: "#14532d"
+  };
+  var lime2 = {
+    50: "#f7fee7",
+    100: "#ecfccb",
+    200: "#d9f99d",
+    300: "#bef264",
+    400: "#a3e635",
+    500: "#84cc16",
+    600: "#65a30d",
+    700: "#4d7c0f",
+    800: "#3f6212",
+    900: "#365314"
+  };
+  var yellow2 = {
+    50: "#fefce8",
+    100: "#fef9c3",
+    200: "#fef08a",
+    300: "#fde047",
+    400: "#facc15",
+    500: "#eab308",
+    600: "#ca8a04",
+    700: "#a16207",
+    800: "#854d0e",
+    900: "#713f12"
+  };
+  var amber2 = {
+    50: "#fffbeb",
+    100: "#fef3c7",
+    200: "#fde68a",
+    300: "#fcd34d",
+    400: "#fbbf24",
+    500: "#f59e0b",
+    600: "#d97706",
+    700: "#b45309",
+    800: "#92400e",
+    900: "#78350f"
+  };
+  var orange2 = {
+    50: "#fff7ed",
+    100: "#ffedd5",
+    200: "#fed7aa",
+    300: "#fdba74",
+    400: "#fb923c",
+    500: "#f97316",
+    600: "#ea580c",
+    700: "#c2410c",
+    800: "#9a3412",
+    900: "#7c2d12"
+  };
+  var red2 = {
+    50: "#fef2f2",
+    100: "#fee2e2",
+    200: "#fecaca",
+    300: "#fca5a5",
+    400: "#f87171",
+    500: "#ef4444",
+    600: "#dc2626",
+    700: "#b91c1c",
+    800: "#991b1b",
+    900: "#7f1d1d"
+  };
+  var warmGray2 = {
+    50: "#fafaf9",
+    100: "#f5f5f4",
+    200: "#e7e5e4",
+    300: "#d6d3d1",
+    400: "#a8a29e",
+    500: "#78716c",
+    600: "#57534e",
+    700: "#44403c",
+    800: "#292524",
+    900: "#1c1917"
+  };
+  var trueGray2 = {
+    50: "#fafafa",
+    100: "#f5f5f5",
+    200: "#e5e5e5",
+    300: "#d4d4d4",
+    400: "#a3a3a3",
+    500: "#737373",
+    600: "#525252",
+    700: "#404040",
+    800: "#262626",
+    900: "#171717"
+  };
+  var gray2 = {
+    50: "#fafafa",
+    100: "#f4f4f5",
+    200: "#e4e4e7",
+    300: "#d4d4d8",
+    400: "#a1a1aa",
+    500: "#71717a",
+    600: "#52525b",
+    700: "#3f3f46",
+    800: "#27272a",
+    900: "#18181b"
+  };
+  var coolGray2 = {
+    50: "#f9fafb",
+    100: "#f3f4f6",
+    200: "#e5e7eb",
+    300: "#d1d5db",
+    400: "#9ca3af",
+    500: "#6b7280",
+    600: "#4b5563",
+    700: "#374151",
+    800: "#1f2937",
+    900: "#111827"
+  };
+  var blueGray2 = {
+    50: "#f8fafc",
+    100: "#f1f5f9",
+    200: "#e2e8f0",
+    300: "#cbd5e1",
+    400: "#94a3b8",
+    500: "#64748b",
+    600: "#475569",
+    700: "#334155",
+    800: "#1e293b",
+    900: "#0f172a"
+  };
+});
+
 // .svelte/vercel/entry.js
 __markAsModule(exports);
 __export(exports, {
@@ -848,8 +3072,8 @@ var getSearch = (parsedURL) => {
     return parsedURL.search;
   }
   const lastOffset = parsedURL.href.length - 1;
-  const hash2 = parsedURL.hash || (parsedURL.href[lastOffset] === "#" ? "#" : "");
-  return parsedURL.href[lastOffset - hash2.length] === "?" ? "?" : "";
+  const hash4 = parsedURL.hash || (parsedURL.href[lastOffset] === "#" ? "#" : "");
+  return parsedURL.href[lastOffset - hash4.length] === "?" ? "?" : "";
 };
 var INTERNALS = Symbol("Request internals");
 var isRequest = (object) => {
@@ -1620,8 +3844,8 @@ function normalize(loaded) {
   }
   return loaded;
 }
-function resolve(base2, path) {
-  const baseparts = path[0] === "/" ? [] : base2.slice(1).split("/");
+function resolve(base, path) {
+  const baseparts = path[0] === "/" ? [] : base.slice(1).split("/");
   const pathparts = path[0] === "/" ? path.slice(1).split("/") : path.split("/");
   baseparts.pop();
   for (let i = 0; i < pathparts.length; i += 1) {
@@ -2185,7 +4409,7 @@ function parse_body(req) {
       case "application/x-www-form-urlencoded":
         return get_urlencoded(raw);
       case "multipart/form-data": {
-        const boundary = directives.find((directive) => directive.startsWith("boundary="));
+        const boundary = directives.find((directive2) => directive2.startsWith("boundary="));
         if (!boundary)
           throw new Error("Missing boundary");
         return get_multipart(raw, boundary.slice("boundary=".length));
@@ -2285,7 +4509,7 @@ async function respond(incoming, options2, state = {}) {
           if (response) {
             if (response.status === 200) {
               if (!/(no-store|immutable)/.test(response.headers["cache-control"])) {
-                const etag = `"${hash(response.body)}"`;
+                const etag = `"${hash2(response.body)}"`;
                 if (request.headers["if-none-match"] === etag) {
                   return {
                     status: 304,
@@ -2311,11 +4535,11 @@ async function respond(incoming, options2, state = {}) {
     };
   }
 }
-function hash(str) {
-  let hash2 = 5381, i = str.length;
+function hash2(str) {
+  let hash4 = 5381, i = str.length;
   while (i)
-    hash2 = hash2 * 33 ^ str.charCodeAt(--i);
-  return (hash2 >>> 0).toString(36);
+    hash4 = hash4 * 33 ^ str.charCodeAt(--i);
+  return (hash4 >>> 0).toString(36);
 }
 
 // node_modules/svelte/internal/index.mjs
@@ -2345,6 +4569,9 @@ function subscribe(store, ...callbacks) {
   }
   const unsub = store.subscribe(...callbacks);
   return unsub.unsubscribe ? () => unsub.unsubscribe() : unsub;
+}
+function null_to_empty(value) {
+  return value == null ? "" : value;
 }
 var is_client = typeof window !== "undefined";
 var now = is_client ? () => window.performance.now() : () => Date.now();
@@ -2577,6 +4804,14 @@ function v4() {
   return out;
 }
 
+// node_modules/twind/twind.mjs
+var import_twind = __toModule(require_twind());
+var {apply, autoprefix, create, cssomSheet, directive, hash: hash3, mode, noprefix, setup, silent, strict, theme, tw, voidSheet, warn} = import_twind.default;
+
+// node_modules/twind/colors/colors.mjs
+var import_colors = __toModule(require_colors());
+var {amber, black, blue, blueGray, coolGray, cyan, emerald, fuchsia, gray, green, indigo, lightBlue, lime, orange, pink, purple, red, rose, teal, trueGray, violet, warmGray, white, yellow} = import_colors.default;
+
 // node_modules/svelte/store/index.mjs
 var subscriber_queue2 = [];
 function writable2(value, start = noop2) {
@@ -2725,7 +4960,7 @@ function spring(value, opts = {}) {
 }
 
 // .svelte/output/server/app.js
-var css$6 = {
+var css$3 = {
   code: "#svelte-announcer.svelte-1j55zn5{position:absolute;left:0;top:0;clip:rect(0 0 0 0);clip-path:inset(50%);overflow:hidden;white-space:nowrap;width:1px;height:1px}",
   map: `{"version":3,"file":"root.svelte","sources":["root.svelte"],"sourcesContent":["<!-- This file is generated by @sveltejs/kit \u2014 do not edit it! -->\\n<script>\\n\\timport { setContext, afterUpdate, onMount } from 'svelte';\\n\\n\\t// stores\\n\\texport let stores;\\n\\texport let page;\\n\\n\\texport let components;\\n\\texport let props_0 = null;\\n\\texport let props_1 = null;\\n\\texport let props_2 = null;\\n\\n\\tsetContext('__svelte__', stores);\\n\\n\\t$: stores.page.set(page);\\n\\tafterUpdate(stores.page.notify);\\n\\n\\tlet mounted = false;\\n\\tlet navigated = false;\\n\\tlet title = null;\\n\\n\\tonMount(() => {\\n\\t\\tconst unsubscribe = stores.page.subscribe(() => {\\n\\t\\t\\tif (mounted) {\\n\\t\\t\\t\\tnavigated = true;\\n\\t\\t\\t\\ttitle = document.title || 'untitled page';\\n\\t\\t\\t}\\n\\t\\t});\\n\\n\\t\\tmounted = true;\\n\\t\\treturn unsubscribe;\\n\\t});\\n</script>\\n\\n<svelte:component this={components[0]} {...(props_0 || {})}>\\n\\t{#if components[1]}\\n\\t\\t<svelte:component this={components[1]} {...(props_1 || {})}>\\n\\t\\t\\t{#if components[2]}\\n\\t\\t\\t\\t<svelte:component this={components[2]} {...(props_2 || {})}/>\\n\\t\\t\\t{/if}\\n\\t\\t</svelte:component>\\n\\t{/if}\\n</svelte:component>\\n\\n{#if mounted}\\n\\t<div id=\\"svelte-announcer\\" aria-live=\\"assertive\\" aria-atomic=\\"true\\">\\n\\t\\t{#if navigated}\\n\\t\\t\\tNavigated to {title}\\n\\t\\t{/if}\\n\\t</div>\\n{/if}\\n\\n<style>\\n\\t#svelte-announcer {\\n\\t\\tposition: absolute;\\n\\t\\tleft: 0;\\n\\t\\ttop: 0;\\n\\t\\tclip: rect(0 0 0 0);\\n\\t\\tclip-path: inset(50%);\\n\\t\\toverflow: hidden;\\n\\t\\twhite-space: nowrap;\\n\\t\\twidth: 1px;\\n\\t\\theight: 1px;\\n\\t}\\n</style>"],"names":[],"mappings":"AAsDC,iBAAiB,eAAC,CAAC,AAClB,QAAQ,CAAE,QAAQ,CAClB,IAAI,CAAE,CAAC,CACP,GAAG,CAAE,CAAC,CACN,IAAI,CAAE,KAAK,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CACnB,SAAS,CAAE,MAAM,GAAG,CAAC,CACrB,QAAQ,CAAE,MAAM,CAChB,WAAW,CAAE,MAAM,CACnB,KAAK,CAAE,GAAG,CACV,MAAM,CAAE,GAAG,AACZ,CAAC"}`
 };
@@ -2763,7 +4998,7 @@ var Root = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     $$bindings.props_1(props_1);
   if ($$props.props_2 === void 0 && $$bindings.props_2 && props_2 !== void 0)
     $$bindings.props_2(props_2);
-  $$result.css.add(css$6);
+  $$result.css.add(css$3);
   {
     stores.page.set(page2);
   }
@@ -2821,9 +5056,9 @@ function init(settings) {
     amp: false,
     dev: false,
     entry: {
-      file: "/./_app/start-f2059cad.js",
+      file: "/./_app/start-efc90fad.js",
       css: ["/./_app/assets/start-a8cd1609.css"],
-      js: ["/./_app/start-f2059cad.js", "/./_app/chunks/vendor-4eb29b52.js"]
+      js: ["/./_app/start-efc90fad.js", "/./_app/chunks/vendor-09aebf70.js"]
     },
     fetched: void 0,
     get_component_path: (id) => "/./_app/" + entry_lookup[id],
@@ -2862,32 +5097,216 @@ var manifest = {
     },
     {
       type: "page",
-      pattern: /^\/about\/?$/,
+      pattern: /^\/champions\/?$/,
       params: empty,
-      a: ["src/routes/$layout.svelte", "src/routes/about.svelte"],
+      a: ["src/routes/$layout.svelte", "src/routes/champions.svelte"],
       b: [".svelte/build/components/error.svelte"]
-    },
-    {
-      type: "endpoint",
-      pattern: /^\/todos\.json$/,
-      params: empty,
-      load: () => Promise.resolve().then(function() {
-        return index_json;
-      })
     },
     {
       type: "page",
-      pattern: /^\/todos\/?$/,
-      params: empty,
-      a: ["src/routes/$layout.svelte", "src/routes/todos/index.svelte"],
+      pattern: /^\/summoners\/([^/]+?)\/?$/,
+      params: (m) => ({summonerName: d(m[1])}),
+      a: ["src/routes/$layout.svelte", "src/routes/summoners/[summonerName].svelte"],
       b: [".svelte/build/components/error.svelte"]
     },
     {
       type: "endpoint",
-      pattern: /^\/todos\/([^/]+?)\.json$/,
-      params: (m) => ({uid: d(m[1])}),
+      pattern: /^\/api\/ddragon\/([^/]+?)\/data\/([^/]+?)\/champion\/?$/,
+      params: (m) => ({version: d(m[1]), locale: d(m[2])}),
       load: () => Promise.resolve().then(function() {
-        return _uid__json;
+        return champion;
+      })
+    },
+    {
+      type: "endpoint",
+      pattern: /^\/api\/lol\/champion-mastery\/v4\/champion-masteries\/by-summoner\/([^/]+?)\/?$/,
+      params: (m) => ({encryptedSummonerID: d(m[1])}),
+      load: () => Promise.resolve().then(function() {
+        return index$6;
+      })
+    },
+    {
+      type: "endpoint",
+      pattern: /^\/api\/lol\/champion-mastery\/v4\/champion-masteries\/by-summoner\/([^/]+?)\/by-champion\/([^/]+?)\/?$/,
+      params: (m) => ({encryptedSummonerID: d(m[1]), championId: d(m[2])}),
+      load: () => Promise.resolve().then(function() {
+        return _championId_;
+      })
+    },
+    {
+      type: "endpoint",
+      pattern: /^\/api\/lol\/champion-mastery\/v4\/scores\/by-summoner\/([^/]+?)\/?$/,
+      params: (m) => ({encryptedSummonerID: d(m[1])}),
+      load: () => Promise.resolve().then(function() {
+        return _encryptedSummonerID_$3;
+      })
+    },
+    {
+      type: "endpoint",
+      pattern: /^\/api\/lol\/third-party-code\/v4\/third-party-code\/by-summoner\/([^/]+?)\/?$/,
+      params: (m) => ({encryptedSummonerID: d(m[1])}),
+      load: () => Promise.resolve().then(function() {
+        return _encryptedSummonerID_$2;
+      })
+    },
+    {
+      type: "endpoint",
+      pattern: /^\/api\/lol\/league-exp\/v4\/entries\/([^/]+?)\/([^/]+?)\/([^/]+?)\/?$/,
+      params: (m) => ({queue: d(m[1]), tier: d(m[2]), division: d(m[3])}),
+      load: () => Promise.resolve().then(function() {
+        return index$5;
+      })
+    },
+    {
+      type: "endpoint",
+      pattern: /^\/api\/lol\/spectator\/v4\/featured-games\/?$/,
+      params: empty,
+      load: () => Promise.resolve().then(function() {
+        return featuredGames;
+      })
+    },
+    {
+      type: "endpoint",
+      pattern: /^\/api\/lol\/spectator\/v4\/active-games\/by-summoner\/([^/]+?)\/?$/,
+      params: (m) => ({encryptedSummonerID: d(m[1])}),
+      load: () => Promise.resolve().then(function() {
+        return _encryptedSummonerID_$1;
+      })
+    },
+    {
+      type: "endpoint",
+      pattern: /^\/api\/lol\/champion\/v3\/champion-rotations\/?$/,
+      params: empty,
+      load: () => Promise.resolve().then(function() {
+        return championRotations;
+      })
+    },
+    {
+      type: "endpoint",
+      pattern: /^\/api\/lol\/summoner\/v4\/summoners\/by-account\/([^/]+?)\/?$/,
+      params: (m) => ({encryptedAccountID: d(m[1])}),
+      load: () => Promise.resolve().then(function() {
+        return _encryptedAccountID_$1;
+      })
+    },
+    {
+      type: "endpoint",
+      pattern: /^\/api\/lol\/summoner\/v4\/summoners\/by-puuid\/([^/]+?)\/?$/,
+      params: (m) => ({encryptedPUUID: d(m[1])}),
+      load: () => Promise.resolve().then(function() {
+        return _encryptedPUUID_;
+      })
+    },
+    {
+      type: "endpoint",
+      pattern: /^\/api\/lol\/summoner\/v4\/summoners\/by-name\/([^/]+?)\/?$/,
+      params: (m) => ({summonerName: d(m[1])}),
+      load: () => Promise.resolve().then(function() {
+        return _summonerName_$1;
+      })
+    },
+    {
+      type: "endpoint",
+      pattern: /^\/api\/lol\/summoner\/v4\/summoners\/([^/]+?)\/?$/,
+      params: (m) => ({encryptedSummonerID: d(m[1])}),
+      load: () => Promise.resolve().then(function() {
+        return index$4;
+      })
+    },
+    {
+      type: "endpoint",
+      pattern: /^\/api\/lol\/league\/v4\/grandmasterleagues\/([^/]+?)\/?$/,
+      params: (m) => ({queue: d(m[1])}),
+      load: () => Promise.resolve().then(function() {
+        return _queue_$2;
+      })
+    },
+    {
+      type: "endpoint",
+      pattern: /^\/api\/lol\/league\/v4\/challengerleagues\/by-queue\/([^/]+?)\/?$/,
+      params: (m) => ({queue: d(m[1])}),
+      load: () => Promise.resolve().then(function() {
+        return _queue_$1;
+      })
+    },
+    {
+      type: "endpoint",
+      pattern: /^\/api\/lol\/league\/v4\/masterleagues\/([^/]+?)\/?$/,
+      params: (m) => ({queue: d(m[1])}),
+      load: () => Promise.resolve().then(function() {
+        return _queue_;
+      })
+    },
+    {
+      type: "endpoint",
+      pattern: /^\/api\/lol\/league\/v4\/entries\/by-summoner\/([^/]+?)\/?$/,
+      params: (m) => ({encryptedSummonerID: d(m[1])}),
+      load: () => Promise.resolve().then(function() {
+        return _encryptedSummonerID_;
+      })
+    },
+    {
+      type: "endpoint",
+      pattern: /^\/api\/lol\/league\/v4\/entries\/([^/]+?)\/([^/]+?)\/([^/]+?)\/?$/,
+      params: (m) => ({queue: d(m[1]), tier: d(m[2]), division: d(m[3])}),
+      load: () => Promise.resolve().then(function() {
+        return index$3;
+      })
+    },
+    {
+      type: "endpoint",
+      pattern: /^\/api\/lol\/league\/v4\/leagues\/([^/]+?)\/?$/,
+      params: (m) => ({leagueId: d(m[1])}),
+      load: () => Promise.resolve().then(function() {
+        return _leagueId_;
+      })
+    },
+    {
+      type: "endpoint",
+      pattern: /^\/api\/lol\/status\/v3\/shard-data\/?$/,
+      params: empty,
+      load: () => Promise.resolve().then(function() {
+        return shardData;
+      })
+    },
+    {
+      type: "endpoint",
+      pattern: /^\/api\/lol\/match\/v4\/matchlists\/by-account\/([^/]+?)\/?$/,
+      params: (m) => ({encryptedAccountID: d(m[1])}),
+      load: () => Promise.resolve().then(function() {
+        return _encryptedAccountID_;
+      })
+    },
+    {
+      type: "endpoint",
+      pattern: /^\/api\/lol\/match\/v4\/timelines\/by-match\/([^/]+?)\/?$/,
+      params: (m) => ({matchId: d(m[1])}),
+      load: () => Promise.resolve().then(function() {
+        return _matchId_;
+      })
+    },
+    {
+      type: "endpoint",
+      pattern: /^\/api\/lol\/match\/v4\/matches\/by-tournament-code\/([^/]+?)\/ids\/?$/,
+      params: (m) => ({tournamentCode: d(m[1])}),
+      load: () => Promise.resolve().then(function() {
+        return index$2;
+      })
+    },
+    {
+      type: "endpoint",
+      pattern: /^\/api\/lol\/match\/v4\/matches\/([^/]+?)\/?$/,
+      params: (m) => ({matchId: d(m[1])}),
+      load: () => Promise.resolve().then(function() {
+        return index$1;
+      })
+    },
+    {
+      type: "endpoint",
+      pattern: /^\/api\/lol\/match\/v4\/matches\/([^/]+?)\/by-tournament-code\/([^/]+?)\/?$/,
+      params: (m) => ({matchId: d(m[1]), tournamentCode: d(m[2])}),
+      load: () => Promise.resolve().then(function() {
+        return _tournamentCode_;
       })
     }
   ]
@@ -2905,16 +5324,16 @@ var module_lookup = {
     return error;
   }),
   "src/routes/index.svelte": () => Promise.resolve().then(function() {
-    return index$1;
-  }),
-  "src/routes/about.svelte": () => Promise.resolve().then(function() {
-    return about;
-  }),
-  "src/routes/todos/index.svelte": () => Promise.resolve().then(function() {
     return index;
+  }),
+  "src/routes/champions.svelte": () => Promise.resolve().then(function() {
+    return champions;
+  }),
+  "src/routes/summoners/[summonerName].svelte": () => Promise.resolve().then(function() {
+    return _summonerName_;
   })
 };
-var metadata_lookup = {"src/routes/$layout.svelte": {entry: "/./_app/pages/$layout.svelte-a6ce5e1a.js", css: ["/./_app/assets/pages/$layout.svelte-668ef4e9.css"], js: ["/./_app/pages/$layout.svelte-a6ce5e1a.js", "/./_app/chunks/vendor-4eb29b52.js"], styles: null}, ".svelte/build/components/error.svelte": {entry: "/./_app/error.svelte-925c3d77.js", css: [], js: ["/./_app/error.svelte-925c3d77.js", "/./_app/chunks/vendor-4eb29b52.js"], styles: null}, "src/routes/index.svelte": {entry: "/./_app/pages/index.svelte-9afe0a24.js", css: ["/./_app/assets/pages/index.svelte-270bf971.css"], js: ["/./_app/pages/index.svelte-9afe0a24.js", "/./_app/chunks/vendor-4eb29b52.js"], styles: null}, "src/routes/about.svelte": {entry: "/./_app/pages/about.svelte-abf72c28.js", css: ["/./_app/assets/pages/about.svelte-4db5be0d.css"], js: ["/./_app/pages/about.svelte-abf72c28.js", "/./_app/chunks/vendor-4eb29b52.js"], styles: null}, "src/routes/todos/index.svelte": {entry: "/./_app/pages/todos/index.svelte-6d7cf1b0.js", css: ["/./_app/assets/pages/todos/index.svelte-d4098fcc.css"], js: ["/./_app/pages/todos/index.svelte-6d7cf1b0.js", "/./_app/chunks/vendor-4eb29b52.js"], styles: null}};
+var metadata_lookup = {"src/routes/$layout.svelte": {entry: "/./_app/pages/$layout.svelte-2c01aa56.js", css: ["/./_app/assets/pages/$layout.svelte-fef7bb48.css"], js: ["/./_app/pages/$layout.svelte-2c01aa56.js", "/./_app/chunks/vendor-09aebf70.js"], styles: null}, ".svelte/build/components/error.svelte": {entry: "/./_app/error.svelte-7bb94a9d.js", css: [], js: ["/./_app/error.svelte-7bb94a9d.js", "/./_app/chunks/vendor-09aebf70.js"], styles: null}, "src/routes/index.svelte": {entry: "/./_app/pages/index.svelte-347fe96b.js", css: ["/./_app/assets/pages/index.svelte-806ed064.css"], js: ["/./_app/pages/index.svelte-347fe96b.js", "/./_app/chunks/vendor-09aebf70.js"], styles: null}, "src/routes/champions.svelte": {entry: "/./_app/pages/champions.svelte-619f5cf2.js", css: [], js: ["/./_app/pages/champions.svelte-619f5cf2.js", "/./_app/chunks/vendor-09aebf70.js"], styles: null}, "src/routes/summoners/[summonerName].svelte": {entry: "/./_app/pages/summoners/[summonerName].svelte-591d910c.js", css: [], js: ["/./_app/pages/summoners/[summonerName].svelte-591d910c.js", "/./_app/chunks/vendor-09aebf70.js"], styles: null}};
 async function load_component(file) {
   return {
     module: await module_lookup[file](),
@@ -2928,65 +5347,770 @@ function render(request, {
   const host = request.headers["host"];
   return respond({...request, host}, options, {prerender: prerender2});
 }
-var base = "https://api.svelte.dev";
-async function api(request, resource, data) {
-  if (!request.context.userid) {
-    return {status: 401};
+var URL$n = "http://ddragon.leagueoflegends.com/cdn/";
+var OPTIONS$o = {
+  method: "GET",
+  withCredentials: true,
+  headers: {
+    "X-Riot-Token": "RGAPI-f36e6fb6-12ee-4a41-82af-07b56867cc3d",
+    "Content-Type": "application/json"
   }
-  const res = await fetch(`${base}/${resource}`, {
-    method: request.method,
-    headers: {
-      "content-type": "application/json"
-    },
-    body: data && JSON.stringify(data)
-  });
-  if (res.ok && request.method !== "GET" && request.headers.accept !== "application/json") {
+};
+async function get$o({
+  params
+}) {
+  const {version, locale} = params;
+  const res = await fetch(`${URL$n}${version}/data/${locale}/champion.json`, OPTIONS$o);
+  if (res.ok) {
+    const champions2 = await res.json();
     return {
-      status: 303,
-      headers: {
-        location: "/todos"
-      },
-      body: ""
+      body: champions2
     };
   }
   return {
     status: res.status,
-    body: await res.json()
+    statusText: res.statusText
   };
 }
-var get = async (request) => {
-  const response = await api(request, `todos/${request.context.userid}`);
-  if (response.status === 404) {
-    return {body: []};
-  }
-  return response;
-};
-var post = async (request) => {
-  const response = await api(request, `todos/${request.context.userid}`, {
-    text: request.body.get("text")
-  });
-  return response;
-};
-var index_json = /* @__PURE__ */ Object.freeze({
+var champion = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
-  get,
-  post
+  get: get$o
 });
-var patch = async (request) => {
-  return api(request, `todos/${request.context.userid}/${request.params.uid}`, {
-    text: request.body.get("text"),
-    done: request.body.has("done") ? !!request.body.get("done") : void 0
-  });
+var END_POINT$m = "/lol/champion-mastery/v4/champion-masteries/by-summoner/";
+var URL$m = "https://euw1.api.riotgames.com" + END_POINT$m;
+var OPTIONS$n = {
+  method: "GET",
+  withCredentials: true,
+  headers: {
+    "X-Riot-Token": "RGAPI-f36e6fb6-12ee-4a41-82af-07b56867cc3d",
+    "Content-Type": "application/json"
+  }
 };
-var del = async (request) => {
-  return api(request, `todos/${request.context.userid}/${request.params.uid}`);
-};
-var _uid__json = /* @__PURE__ */ Object.freeze({
+async function get$n({
+  params
+}) {
+  const {encryptedSummonerID} = params;
+  const res = await fetch(URL$m + encryptedSummonerID, OPTIONS$n);
+  if (res.ok) {
+    const leagues = await res.json();
+    return {
+      body: leagues
+    };
+  }
+  return {
+    status: res.status,
+    statusText: res.statusText
+  };
+}
+var index$6 = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
-  patch,
-  del
+  get: get$n
+});
+var OPTIONS$m = {
+  method: "GET",
+  withCredentials: true,
+  headers: {
+    "X-Riot-Token": "RGAPI-f36e6fb6-12ee-4a41-82af-07b56867cc3d",
+    "Content-Type": "application/json"
+  }
+};
+async function get$m({
+  params
+}) {
+  const {encryptedSummonerID, championId} = params;
+  const res = await fetch("https://euw1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/" + encryptedSummonerID + "/by-champion/" + championId, OPTIONS$m);
+  if (res.ok) {
+    const leagues = await res.json();
+    return {
+      body: leagues
+    };
+  }
+  return {
+    status: res.status,
+    statusText: res.statusText
+  };
+}
+var _championId_ = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  get: get$m
+});
+var END_POINT$l = "/lol/champion-mastery/v4/scores/by-summoner/";
+var URL$l = "https://euw1.api.riotgames.com" + END_POINT$l;
+var OPTIONS$l = {
+  method: "GET",
+  withCredentials: true,
+  headers: {
+    "X-Riot-Token": "RGAPI-f36e6fb6-12ee-4a41-82af-07b56867cc3d",
+    "Content-Type": "application/json"
+  }
+};
+async function get$l({
+  params
+}) {
+  const {encryptedSummonerID} = params;
+  const res = await fetch(URL$l + encryptedSummonerID, OPTIONS$l);
+  if (res.ok) {
+    const score = await res.json();
+    return {
+      body: String(score)
+    };
+  }
+  return {
+    status: res.status,
+    statusText: res.statusText
+  };
+}
+var _encryptedSummonerID_$3 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  get: get$l
+});
+var END_POINT$k = "/lol/platform/v4/third-party-code/by-summoner/";
+var URL$k = "https://euw1.api.riotgames.com" + END_POINT$k;
+var OPTIONS$k = {
+  method: "GET",
+  withCredentials: true,
+  headers: {
+    "X-Riot-Token": "RGAPI-f36e6fb6-12ee-4a41-82af-07b56867cc3d",
+    "Content-Type": "application/json"
+  }
+};
+async function get$k({
+  params
+}) {
+  const {encryptedSummonerID} = params;
+  const res = await fetch(URL$k + encryptedSummonerID, OPTIONS$k);
+  if (res.ok) {
+    const leagues = await res.json();
+    return {
+      body: leagues
+    };
+  }
+  return {
+    status: res.status,
+    statusText: res.statusText
+  };
+}
+var _encryptedSummonerID_$2 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  get: get$k
+});
+var END_POINT$j = "/lol/league-exp/v4/entries/";
+var URL$j = "https://euw1.api.riotgames.com" + END_POINT$j;
+var OPTIONS$j = {
+  method: "GET",
+  withCredentials: true,
+  headers: {
+    "X-Riot-Token": "RGAPI-f36e6fb6-12ee-4a41-82af-07b56867cc3d",
+    "Content-Type": "application/json"
+  }
+};
+async function get$j({
+  params
+}) {
+  const {queue, tier, division} = params;
+  const res = await fetch(URL$j + queue + "/" + tier + "/" + division, OPTIONS$j);
+  if (res.ok) {
+    const leagues = await res.json();
+    return {
+      body: leagues
+    };
+  }
+  return {
+    status: res.status,
+    statusText: res.statusText
+  };
+}
+var index$5 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  get: get$j
+});
+var END_POINT$i = "/lol/spectator/v4/featured-games";
+var URL$i = "https://euw1.api.riotgames.com" + END_POINT$i;
+var OPTIONS$i = {
+  method: "GET",
+  withCredentials: true,
+  headers: {
+    "X-Riot-Token": "RGAPI-f36e6fb6-12ee-4a41-82af-07b56867cc3d",
+    "Content-Type": "application/json"
+  }
+};
+async function get$i() {
+  const res = await fetch(URL$i, OPTIONS$i);
+  if (res.ok) {
+    const championRotations2 = await res.json();
+    return {
+      body: championRotations2
+    };
+  }
+  return {
+    status: res.status,
+    statusText: res.statusText
+  };
+}
+var featuredGames = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  get: get$i
+});
+var END_POINT$h = "/lol/spectator/v4/active-games/by-summoner/";
+var URL$h = "https://euw1.api.riotgames.com" + END_POINT$h;
+var OPTIONS$h = {
+  method: "GET",
+  withCredentials: true,
+  headers: {
+    "X-Riot-Token": "RGAPI-f36e6fb6-12ee-4a41-82af-07b56867cc3d",
+    "Content-Type": "application/json"
+  }
+};
+async function get$h({
+  params
+}) {
+  const {encryptedSummonerID} = params;
+  const res = await fetch(URL$h + encryptedSummonerID, OPTIONS$h);
+  if (res.ok) {
+    const leagues = await res.json();
+    return {
+      body: leagues
+    };
+  }
+  return {
+    status: res.status,
+    statusText: res.statusText
+  };
+}
+var _encryptedSummonerID_$1 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  get: get$h
+});
+var END_POINT$g = "/lol/platform/v3/champion-rotations";
+var URL$g = "https://euw1.api.riotgames.com" + END_POINT$g;
+var OPTIONS$g = {
+  method: "GET",
+  withCredentials: true,
+  headers: {
+    "X-Riot-Token": "RGAPI-f36e6fb6-12ee-4a41-82af-07b56867cc3d",
+    "Content-Type": "application/json"
+  }
+};
+async function get$g() {
+  const res = await fetch(URL$g, OPTIONS$g);
+  if (res.ok) {
+    const championRotations2 = await res.json();
+    return {
+      body: championRotations2
+    };
+  }
+  return {
+    status: res.status,
+    statusText: res.statusText
+  };
+}
+var championRotations = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  get: get$g
+});
+var END_POINT$f = "/lol/summoner/v4/summoners/by-account/";
+var URL$f = "https://euw1.api.riotgames.com" + END_POINT$f;
+var OPTIONS$f = {
+  method: "GET",
+  withCredentials: true,
+  headers: {
+    "X-Riot-Token": "RGAPI-f36e6fb6-12ee-4a41-82af-07b56867cc3d",
+    "Content-Type": "application/json"
+  }
+};
+async function get$f({
+  params
+}) {
+  const {encryptedAccountID} = params;
+  const res = await fetch(URL$f + encryptedAccountID, OPTIONS$f);
+  if (res.ok) {
+    const leagues = await res.json();
+    return {
+      body: leagues
+    };
+  }
+  return {
+    status: res.status,
+    statusText: res.statusText
+  };
+}
+var _encryptedAccountID_$1 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  get: get$f
+});
+var END_POINT$e = "/lol/summoner/v4/summoners/by-puuid/";
+var URL$e = "https://euw1.api.riotgames.com" + END_POINT$e;
+var OPTIONS$e = {
+  method: "GET",
+  withCredentials: true,
+  headers: {
+    "X-Riot-Token": "RGAPI-f36e6fb6-12ee-4a41-82af-07b56867cc3d",
+    "Content-Type": "application/json"
+  }
+};
+async function get$e({
+  params
+}) {
+  const {encryptedPUUID} = params;
+  const res = await fetch(URL$e + encryptedPUUID, OPTIONS$e);
+  if (res.ok) {
+    const leagues = await res.json();
+    return {
+      body: leagues
+    };
+  }
+  return {
+    status: res.status,
+    statusText: res.statusText
+  };
+}
+var _encryptedPUUID_ = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  get: get$e
+});
+var END_POINT$d = "/lol/summoner/v4/summoners/by-name/";
+var URL$d = "https://euw1.api.riotgames.com" + END_POINT$d;
+var OPTIONS$d = {
+  method: "GET",
+  withCredentials: true,
+  headers: {
+    "X-Riot-Token": "RGAPI-f36e6fb6-12ee-4a41-82af-07b56867cc3d",
+    "Content-Type": "application/json"
+  }
+};
+async function get$d({
+  params
+}) {
+  const {summonerName} = params;
+  const res = await fetch(URL$d + summonerName, OPTIONS$d);
+  if (res.ok) {
+    const leagues = await res.json();
+    return {
+      body: leagues
+    };
+  }
+  return {
+    status: res.status,
+    statusText: res.statusText
+  };
+}
+var _summonerName_$1 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  get: get$d
+});
+var END_POINT$c = "/lol/summoner/v4/summoners/";
+var URL$c = "https://euw1.api.riotgames.com" + END_POINT$c;
+var OPTIONS$c = {
+  method: "GET",
+  withCredentials: true,
+  headers: {
+    "X-Riot-Token": "RGAPI-f36e6fb6-12ee-4a41-82af-07b56867cc3d",
+    "Content-Type": "application/json"
+  }
+};
+async function get$c({
+  params
+}) {
+  const {encryptedSummonerID} = params;
+  const res = await fetch(URL$c + encryptedSummonerID, OPTIONS$c);
+  if (res.ok) {
+    const leagues = await res.json();
+    return {
+      body: leagues
+    };
+  }
+  return {
+    status: res.status,
+    statusText: res.statusText
+  };
+}
+var index$4 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  get: get$c
+});
+var END_POINT$b = "/lol/league/v4/challengerleagues/by-queue/";
+var URL$b = "https://euw1.api.riotgames.com" + END_POINT$b;
+var OPTIONS$b = {
+  method: "GET",
+  withCredentials: true,
+  headers: {
+    "X-Riot-Token": "RGAPI-f36e6fb6-12ee-4a41-82af-07b56867cc3d",
+    "Content-Type": "application/json"
+  }
+};
+async function get$b({
+  params
+}) {
+  const {queue} = params;
+  const res = await fetch(URL$b + queue, OPTIONS$b);
+  if (res.ok) {
+    const leagues = await res.json();
+    return {
+      body: leagues
+    };
+  }
+  return {
+    status: res.status,
+    statusText: res.statusText
+  };
+}
+var _queue_$2 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  get: get$b
+});
+var END_POINT$a = "/lol/league/v4/grandmasterleagues/by-queue/";
+var URL$a = "https://euw1.api.riotgames.com" + END_POINT$a;
+var OPTIONS$a = {
+  method: "GET",
+  withCredentials: true,
+  headers: {
+    "X-Riot-Token": "RGAPI-f36e6fb6-12ee-4a41-82af-07b56867cc3d",
+    "Content-Type": "application/json"
+  }
+};
+async function get$a({
+  params
+}) {
+  const {queue} = params;
+  const res = await fetch(URL$a + queue, OPTIONS$a);
+  if (res.ok) {
+    const leagues = await res.json();
+    return {
+      body: leagues
+    };
+  }
+  return {
+    status: res.status,
+    statusText: res.statusText
+  };
+}
+var _queue_$1 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  get: get$a
+});
+var END_POINT$9 = "/lol/league/v4/masterleagues/by-queue/";
+var URL$9 = "https://euw1.api.riotgames.com" + END_POINT$9;
+var OPTIONS$9 = {
+  method: "GET",
+  withCredentials: true,
+  headers: {
+    "X-Riot-Token": "RGAPI-f36e6fb6-12ee-4a41-82af-07b56867cc3d",
+    "Content-Type": "application/json"
+  }
+};
+async function get$9({
+  params
+}) {
+  const {queue} = params;
+  const res = await fetch(URL$9 + queue, OPTIONS$9);
+  if (res.ok) {
+    const leagues = await res.json();
+    return {
+      body: leagues
+    };
+  }
+  return {
+    status: res.status,
+    statusText: res.statusText
+  };
+}
+var _queue_ = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  get: get$9
+});
+var END_POINT$8 = "/lol/league/v4/entries/by-summoner/";
+var URL$8 = "https://euw1.api.riotgames.com" + END_POINT$8;
+var OPTIONS$8 = {
+  method: "GET",
+  withCredentials: true,
+  headers: {
+    "X-Riot-Token": "RGAPI-f36e6fb6-12ee-4a41-82af-07b56867cc3d",
+    "Content-Type": "application/json"
+  }
+};
+async function get$8({
+  params
+}) {
+  const {encryptedSummonerID} = params;
+  const res = await fetch(URL$8 + encryptedSummonerID, OPTIONS$8);
+  if (res.ok) {
+    const entryBySummoner = await res.json();
+    return {
+      body: entryBySummoner
+    };
+  }
+  return {
+    status: res.status,
+    statusText: res.statusText
+  };
+}
+var _encryptedSummonerID_ = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  get: get$8
+});
+var END_POINT$7 = "/lol/league/v4/entries/";
+var URL$7 = "https://euw1.api.riotgames.com" + END_POINT$7;
+var OPTIONS$7 = {
+  method: "GET",
+  withCredentials: true,
+  headers: {
+    "X-Riot-Token": "RGAPI-f36e6fb6-12ee-4a41-82af-07b56867cc3d",
+    "Content-Type": "application/json"
+  }
+};
+async function get$7({
+  params,
+  query
+}) {
+  const {queue, tier, division} = params;
+  const res = await fetch(URL$7 + queue + "/" + tier + "/" + division + "?" + query.toString(), OPTIONS$7);
+  if (res.ok) {
+    const leagues = await res.json();
+    return {
+      body: leagues
+    };
+  }
+  return {
+    status: res.status,
+    statusText: res.statusText
+  };
+}
+var index$3 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  get: get$7
+});
+var END_POINT$6 = "/lol/league/v4/leagues/";
+var URL$6 = "https://euw1.api.riotgames.com" + END_POINT$6;
+var OPTIONS$6 = {
+  method: "GET",
+  withCredentials: true,
+  headers: {
+    "X-Riot-Token": "RGAPI-f36e6fb6-12ee-4a41-82af-07b56867cc3d",
+    "Content-Type": "application/json"
+  }
+};
+async function get$6({
+  params
+}) {
+  const {leagueId} = params;
+  const res = await fetch(URL$6 + leagueId, OPTIONS$6);
+  if (res.ok) {
+    const league = await res.json();
+    return {
+      body: league
+    };
+  }
+  return {
+    status: res.status,
+    statusText: res.statusText
+  };
+}
+var _leagueId_ = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  get: get$6
+});
+var END_POINT$5 = "/lol/status/v3/shard-data";
+var URL$5 = "https://euw1.api.riotgames.com" + END_POINT$5;
+var OPTIONS$5 = {
+  method: "GET",
+  withCredentials: true,
+  headers: {
+    "X-Riot-Token": "RGAPI-f36e6fb6-12ee-4a41-82af-07b56867cc3d",
+    "Content-Type": "application/json"
+  }
+};
+async function get$5() {
+  const res = await fetch(URL$5, OPTIONS$5);
+  if (res.ok) {
+    const status = await res.json();
+    return {
+      body: status
+    };
+  }
+  return {
+    status: res.status,
+    statusText: res.statusText
+  };
+}
+var shardData = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  get: get$5
+});
+var END_POINT$4 = "/lol/match/v4/matchlists/by-account/";
+var URL$4 = "https://euw1.api.riotgames.com" + END_POINT$4;
+var OPTIONS$4 = {
+  method: "GET",
+  withCredentials: true,
+  headers: {
+    "X-Riot-Token": "RGAPI-f36e6fb6-12ee-4a41-82af-07b56867cc3d",
+    "Content-Type": "application/json"
+  }
+};
+async function get$4({
+  params,
+  query
+}) {
+  const {encryptedAccountId} = params;
+  const res = await fetch(URL$4 + encryptedAccountId + "?" + query, OPTIONS$4);
+  if (res.ok) {
+    const leagues = await res.json();
+    return {
+      body: leagues
+    };
+  }
+  return {
+    status: res.status,
+    statusText: res.statusText
+  };
+}
+var _encryptedAccountID_ = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  get: get$4
+});
+var END_POINT$3 = "/lol/match/v4/timelines/by-match/";
+var URL$3 = "https://euw1.api.riotgames.com" + END_POINT$3;
+var OPTIONS$3 = {
+  method: "GET",
+  withCredentials: true,
+  headers: {
+    "X-Riot-Token": "RGAPI-f36e6fb6-12ee-4a41-82af-07b56867cc3d",
+    "Content-Type": "application/json"
+  }
+};
+async function get$3({
+  params
+}) {
+  const {matchId} = params;
+  const res = await fetch(URL$3 + matchId, OPTIONS$3);
+  if (res.ok) {
+    const leagues = await res.json();
+    return {
+      body: leagues
+    };
+  }
+  return {
+    status: res.status,
+    statusText: res.statusText
+  };
+}
+var _matchId_ = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  get: get$3
+});
+var END_POINT$2 = "/lol/match/v4/matches/by-tournament-code/";
+var URL$2 = "https://euw1.api.riotgames.com" + END_POINT$2;
+var OPTIONS$2 = {
+  method: "GET",
+  withCredentials: true,
+  headers: {
+    "X-Riot-Token": "RGAPI-f36e6fb6-12ee-4a41-82af-07b56867cc3d",
+    "Content-Type": "application/json"
+  }
+};
+async function get$2({
+  params
+}) {
+  const {tournamentCode} = params;
+  const res = await fetch(URL$2 + tournamentCode + "/ids", OPTIONS$2);
+  if (res.ok) {
+    const leagues = await res.json();
+    return {
+      body: leagues
+    };
+  }
+  return {
+    status: res.status,
+    statusText: res.statusText
+  };
+}
+var index$2 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  get: get$2
+});
+var END_POINT$1 = "/lol/match/v4/matches/";
+var URL$1 = "https://euw1.api.riotgames.com" + END_POINT$1;
+var OPTIONS$1 = {
+  method: "GET",
+  withCredentials: true,
+  headers: {
+    "X-Riot-Token": "RGAPI-f36e6fb6-12ee-4a41-82af-07b56867cc3d",
+    "Content-Type": "application/json"
+  }
+};
+async function get$1({
+  params
+}) {
+  const {matchId} = params;
+  const res = await fetch(URL$1 + matchId, OPTIONS$1);
+  if (res.ok) {
+    const leagues = await res.json();
+    return {
+      body: leagues
+    };
+  }
+  return {
+    status: res.status,
+    statusText: res.statusText
+  };
+}
+var index$1 = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  get: get$1
+});
+var END_POINT = "/lol/match/v4/timelines/by-match/";
+var URL2 = "https://euw1.api.riotgames.com" + END_POINT;
+var OPTIONS = {
+  method: "GET",
+  withCredentials: true,
+  headers: {
+    "X-Riot-Token": "RGAPI-f36e6fb6-12ee-4a41-82af-07b56867cc3d",
+    "Content-Type": "application/json"
+  }
+};
+async function get({
+  params
+}) {
+  const {matchId, tournamentCode} = params;
+  const res = await fetch(URL2 + matchId + "/by-tournament-code/" + tournamentCode, OPTIONS);
+  if (res.ok) {
+    const leagues = await res.json();
+    return {
+      body: leagues
+    };
+  }
+  return {
+    status: res.status,
+    statusText: res.statusText
+  };
+}
+var _tournamentCode_ = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  get
 });
 var getStores = () => {
   const stores = getContext("__svelte__");
@@ -3013,37 +6137,36 @@ var page = {
   }
 };
 var logo = "/_app/assets/svelte-logo.87df40b8.svg";
-var css$5 = {
-  code: "header.svelte-a57vis.svelte-a57vis{display:flex;justify-content:space-between}.corner.svelte-a57vis.svelte-a57vis{width:3em;height:3em}.corner.svelte-a57vis a.svelte-a57vis{display:flex;align-items:center;justify-content:center;width:100%;height:100%}.corner.svelte-a57vis img.svelte-a57vis{width:2em;height:2em;object-fit:contain}nav.svelte-a57vis.svelte-a57vis{display:flex;justify-content:center;--background:rgba(255,255,255,0.7)}svg.svelte-a57vis.svelte-a57vis{width:2em;height:3em;display:block}path.svelte-a57vis.svelte-a57vis{fill:var(--background)}ul.svelte-a57vis.svelte-a57vis{position:relative;padding:0;margin:0;height:3em;display:flex;justify-content:center;align-items:center;list-style:none;background:var(--background);background-size:contain}li.svelte-a57vis.svelte-a57vis{position:relative;height:100%}li.active.svelte-a57vis.svelte-a57vis::before{--size:6px;content:'';width:0;height:0;position:absolute;top:0;left:calc(50% - var(--size));border:var(--size) solid transparent;border-top:var(--size) solid var(--accent-color)}nav.svelte-a57vis a.svelte-a57vis{display:flex;height:100%;align-items:center;padding:0 1em;color:var(--heading-color);font-weight:700;font-size:0.8rem;text-transform:uppercase;letter-spacing:10%;text-decoration:none;transition:color 0.2s linear}a.svelte-a57vis.svelte-a57vis:hover{color:var(--accent-color)}",
-  map: `{"version":3,"file":"index.svelte","sources":["index.svelte"],"sourcesContent":["<script lang=\\"ts\\">import { page } from '$app/stores';\\nimport logo from './svelte-logo.svg';\\n</script>\\n\\n<header>\\n\\t<div class=\\"corner\\">\\n\\t\\t<a href=\\"https://kit.svelte.dev\\">\\n\\t\\t\\t<img src={logo} alt=\\"SvelteKit\\" />\\n\\t\\t</a>\\n\\t</div>\\n\\n\\t<nav>\\n\\t\\t<svg viewBox=\\"0 0 2 3\\" aria-hidden=\\"true\\">\\n\\t\\t\\t<path d=\\"M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z\\"/>\\n\\t\\t</svg>\\n\\t\\t<ul>\\n\\t\\t\\t<li class:active={$page.path === '/'}><a sveltekit:prefetch href=\\"/\\">Home</a></li>\\n\\t\\t\\t<li class:active={$page.path === '/about'}><a sveltekit:prefetch href=\\"/about\\">About</a></li>\\n\\t\\t\\t<li class:active={$page.path === '/todos'}><a sveltekit:prefetch href=\\"/todos\\">Todos</a></li>\\n\\t\\t</ul>\\n\\t\\t<svg viewBox=\\"0 0 2 3\\" aria-hidden=\\"true\\">\\n\\t\\t\\t<path d=\\"M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z\\"/>\\n\\t\\t</svg>\\n\\t</nav>\\n\\n\\t<div class=\\"corner\\">\\n\\t\\t<!-- TODO put something else here? github link? -->\\n\\t</div>\\n</header>\\n\\n<style>\\n\\theader {\\n\\t\\tdisplay: flex;\\n\\t\\tjustify-content: space-between;\\n\\t}\\n\\n\\t.corner {\\n\\t\\twidth: 3em;\\n\\t\\theight: 3em;\\n\\t}\\n\\n\\t.corner a {\\n\\t\\tdisplay: flex;\\n\\t\\talign-items: center;\\n\\t\\tjustify-content: center;\\n\\t\\twidth: 100%;\\n\\t\\theight: 100%;\\n\\t}\\n\\n\\t.corner img {\\n\\t\\twidth: 2em;\\n\\t\\theight: 2em;\\n\\t\\tobject-fit: contain;\\n\\t}\\n\\n\\tnav {\\n\\t\\tdisplay: flex;\\n\\t\\tjustify-content: center;\\n\\t\\t--background: rgba(255,255,255,0.7);\\n\\t}\\n\\n\\tsvg {\\n\\t\\twidth: 2em;\\n\\t\\theight: 3em;\\n\\t\\tdisplay: block;\\n\\t}\\n\\n\\tpath {\\n\\t\\tfill: var(--background);\\n\\t}\\n\\n\\tul {\\n\\t\\tposition: relative;\\n\\t\\tpadding: 0;\\n\\t\\tmargin: 0;\\n\\t\\theight: 3em;\\n\\t\\tdisplay: flex;\\n\\t\\tjustify-content: center;\\n\\t\\talign-items: center;\\n\\t\\tlist-style: none;\\n\\t\\tbackground: var(--background);\\n\\t\\tbackground-size: contain;\\n\\t}\\n\\n\\tli {\\n\\t\\tposition: relative;\\n\\t\\theight: 100%;\\n\\t}\\n\\n\\tli.active::before {\\n\\t\\t--size: 6px;\\n\\t\\tcontent: '';\\n\\t\\twidth: 0;\\n\\t\\theight: 0;\\n\\t\\tposition: absolute;\\n\\t\\ttop: 0;\\n\\t\\tleft: calc(50% - var(--size));\\n\\t\\tborder: var(--size) solid transparent;\\n\\t\\tborder-top: var(--size) solid var(--accent-color);\\n\\t}\\n\\n\\tnav a {\\n\\t\\tdisplay: flex;\\n\\t\\theight: 100%;\\n\\t\\talign-items: center;\\n\\t\\tpadding: 0 1em;\\n\\t\\tcolor: var(--heading-color);\\n\\t\\tfont-weight: 700;\\n\\t\\tfont-size: 0.8rem;\\n\\t\\ttext-transform: uppercase;\\n\\t\\tletter-spacing: 10%;\\n\\t\\ttext-decoration: none;\\n\\t\\ttransition: color 0.2s linear;\\n\\t}\\n\\n\\ta:hover {\\n\\t\\tcolor: var(--accent-color);\\n\\t}\\n</style>\\n"],"names":[],"mappings":"AA+BC,MAAM,4BAAC,CAAC,AACP,OAAO,CAAE,IAAI,CACb,eAAe,CAAE,aAAa,AAC/B,CAAC,AAED,OAAO,4BAAC,CAAC,AACR,KAAK,CAAE,GAAG,CACV,MAAM,CAAE,GAAG,AACZ,CAAC,AAED,qBAAO,CAAC,CAAC,cAAC,CAAC,AACV,OAAO,CAAE,IAAI,CACb,WAAW,CAAE,MAAM,CACnB,eAAe,CAAE,MAAM,CACvB,KAAK,CAAE,IAAI,CACX,MAAM,CAAE,IAAI,AACb,CAAC,AAED,qBAAO,CAAC,GAAG,cAAC,CAAC,AACZ,KAAK,CAAE,GAAG,CACV,MAAM,CAAE,GAAG,CACX,UAAU,CAAE,OAAO,AACpB,CAAC,AAED,GAAG,4BAAC,CAAC,AACJ,OAAO,CAAE,IAAI,CACb,eAAe,CAAE,MAAM,CACvB,YAAY,CAAE,qBAAqB,AACpC,CAAC,AAED,GAAG,4BAAC,CAAC,AACJ,KAAK,CAAE,GAAG,CACV,MAAM,CAAE,GAAG,CACX,OAAO,CAAE,KAAK,AACf,CAAC,AAED,IAAI,4BAAC,CAAC,AACL,IAAI,CAAE,IAAI,YAAY,CAAC,AACxB,CAAC,AAED,EAAE,4BAAC,CAAC,AACH,QAAQ,CAAE,QAAQ,CAClB,OAAO,CAAE,CAAC,CACV,MAAM,CAAE,CAAC,CACT,MAAM,CAAE,GAAG,CACX,OAAO,CAAE,IAAI,CACb,eAAe,CAAE,MAAM,CACvB,WAAW,CAAE,MAAM,CACnB,UAAU,CAAE,IAAI,CAChB,UAAU,CAAE,IAAI,YAAY,CAAC,CAC7B,eAAe,CAAE,OAAO,AACzB,CAAC,AAED,EAAE,4BAAC,CAAC,AACH,QAAQ,CAAE,QAAQ,CAClB,MAAM,CAAE,IAAI,AACb,CAAC,AAED,EAAE,mCAAO,QAAQ,AAAC,CAAC,AAClB,MAAM,CAAE,GAAG,CACX,OAAO,CAAE,EAAE,CACX,KAAK,CAAE,CAAC,CACR,MAAM,CAAE,CAAC,CACT,QAAQ,CAAE,QAAQ,CAClB,GAAG,CAAE,CAAC,CACN,IAAI,CAAE,KAAK,GAAG,CAAC,CAAC,CAAC,IAAI,MAAM,CAAC,CAAC,CAC7B,MAAM,CAAE,IAAI,MAAM,CAAC,CAAC,KAAK,CAAC,WAAW,CACrC,UAAU,CAAE,IAAI,MAAM,CAAC,CAAC,KAAK,CAAC,IAAI,cAAc,CAAC,AAClD,CAAC,AAED,iBAAG,CAAC,CAAC,cAAC,CAAC,AACN,OAAO,CAAE,IAAI,CACb,MAAM,CAAE,IAAI,CACZ,WAAW,CAAE,MAAM,CACnB,OAAO,CAAE,CAAC,CAAC,GAAG,CACd,KAAK,CAAE,IAAI,eAAe,CAAC,CAC3B,WAAW,CAAE,GAAG,CAChB,SAAS,CAAE,MAAM,CACjB,cAAc,CAAE,SAAS,CACzB,cAAc,CAAE,GAAG,CACnB,eAAe,CAAE,IAAI,CACrB,UAAU,CAAE,KAAK,CAAC,IAAI,CAAC,MAAM,AAC9B,CAAC,AAED,6BAAC,MAAM,AAAC,CAAC,AACR,KAAK,CAAE,IAAI,cAAc,CAAC,AAC3B,CAAC"}`
+var css$2 = {
+  code: "li.svelte-11fl9je.svelte-11fl9je{position:relative;height:100%}li.active.svelte-11fl9je.svelte-11fl9je::before{--size:6px;content:'';width:0;height:0;position:absolute;top:0;left:calc(50% - var(--size));border:var(--size) solid transparent;border-top:var(--size) solid var(--accent-color)}nav.svelte-11fl9je a.svelte-11fl9je{display:flex;height:100%;align-items:center;padding:0 1em;color:var(--heading-color);font-weight:700;font-size:0.8rem;text-transform:uppercase;letter-spacing:10%;text-decoration:none;transition:color 0.2s linear}a.svelte-11fl9je.svelte-11fl9je:hover{color:var(--accent-color)}",
+  map: `{"version":3,"file":"index.svelte","sources":["index.svelte"],"sourcesContent":["<script lang=\\"ts\\">import { tw } from 'twind';\\nimport { page } from '$app/stores';\\nimport logo from './svelte-logo.svg';\\n</script>\\n\\n<header class={tw\`flex justify-between\`}>\\n\\t<div class={tw\`h-8 w-8\`}>\\n\\t\\t<a class=\\"flex items-center justify-center w-full h-full\\" href=\\"https://kit.svelte.dev\\">\\n\\t\\t\\t<img class=\\"h-8 w-8 object-contain\\" src={logo} alt=\\"SvelteKit\\" />\\n\\t\\t</a>\\n\\t</div>\\n\\n\\t<nav class=\\"flex justify-center bg-gray-200\\">\\n\\t\\t<ul class=\\"relative p-0 m-0 h-12 flex items-center list-none\\">\\n\\t\\t\\t<li class:active={$page.path === '/'}><a sveltekit:prefetch href=\\"/\\">Home</a></li>\\n\\t\\t\\t<li class:active={$page.path === '/champions'}>\\n\\t\\t\\t\\t<a sveltekit:prefetch href=\\"/champions\\">Champions</a>\\n\\t\\t\\t</li>\\n\\t\\t\\t<li class:active={$page.path === '/summoners/Doublelift'}>\\n\\t\\t\\t\\t<a sveltekit:prefetch href=\\"/summoners/Doublelift\\">Summoners</a>\\n\\t\\t\\t</li>\\n\\t\\t</ul>\\n\\t\\t<svg viewBox=\\"0 0 2 3\\" aria-hidden=\\"true\\">\\n\\t\\t\\t<path d=\\"M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z\\" />\\n\\t\\t</svg>\\n\\t</nav>\\n\\n\\t<div class={tw\`h-8 w-8\`}>\\n\\t\\t<!-- TODO put something else here? github link? -->\\n\\t</div>\\n</header>\\n\\n<style>\\n\\tli {\\n\\t\\tposition: relative;\\n\\t\\theight: 100%;\\n\\t}\\n\\n\\tli.active::before {\\n\\t\\t--size: 6px;\\n\\t\\tcontent: '';\\n\\t\\twidth: 0;\\n\\t\\theight: 0;\\n\\t\\tposition: absolute;\\n\\t\\ttop: 0;\\n\\t\\tleft: calc(50% - var(--size));\\n\\t\\tborder: var(--size) solid transparent;\\n\\t\\tborder-top: var(--size) solid var(--accent-color);\\n\\t}\\n\\n\\tnav a {\\n\\t\\tdisplay: flex;\\n\\t\\theight: 100%;\\n\\t\\talign-items: center;\\n\\t\\tpadding: 0 1em;\\n\\t\\tcolor: var(--heading-color);\\n\\t\\tfont-weight: 700;\\n\\t\\tfont-size: 0.8rem;\\n\\t\\ttext-transform: uppercase;\\n\\t\\tletter-spacing: 10%;\\n\\t\\ttext-decoration: none;\\n\\t\\ttransition: color 0.2s linear;\\n\\t}\\n\\n\\ta:hover {\\n\\t\\tcolor: var(--accent-color);\\n\\t}\\n</style>\\n"],"names":[],"mappings":"AAiCC,EAAE,8BAAC,CAAC,AACH,QAAQ,CAAE,QAAQ,CAClB,MAAM,CAAE,IAAI,AACb,CAAC,AAED,EAAE,qCAAO,QAAQ,AAAC,CAAC,AAClB,MAAM,CAAE,GAAG,CACX,OAAO,CAAE,EAAE,CACX,KAAK,CAAE,CAAC,CACR,MAAM,CAAE,CAAC,CACT,QAAQ,CAAE,QAAQ,CAClB,GAAG,CAAE,CAAC,CACN,IAAI,CAAE,KAAK,GAAG,CAAC,CAAC,CAAC,IAAI,MAAM,CAAC,CAAC,CAC7B,MAAM,CAAE,IAAI,MAAM,CAAC,CAAC,KAAK,CAAC,WAAW,CACrC,UAAU,CAAE,IAAI,MAAM,CAAC,CAAC,KAAK,CAAC,IAAI,cAAc,CAAC,AAClD,CAAC,AAED,kBAAG,CAAC,CAAC,eAAC,CAAC,AACN,OAAO,CAAE,IAAI,CACb,MAAM,CAAE,IAAI,CACZ,WAAW,CAAE,MAAM,CACnB,OAAO,CAAE,CAAC,CAAC,GAAG,CACd,KAAK,CAAE,IAAI,eAAe,CAAC,CAC3B,WAAW,CAAE,GAAG,CAChB,SAAS,CAAE,MAAM,CACjB,cAAc,CAAE,SAAS,CACzB,cAAc,CAAE,GAAG,CACnB,eAAe,CAAE,IAAI,CACrB,UAAU,CAAE,KAAK,CAAC,IAAI,CAAC,MAAM,AAC9B,CAAC,AAED,+BAAC,MAAM,AAAC,CAAC,AACR,KAAK,CAAE,IAAI,cAAc,CAAC,AAC3B,CAAC"}`
 };
 var Header = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let $page, $$unsubscribe_page;
   $$unsubscribe_page = subscribe(page, (value) => $page = value);
-  $$result.css.add(css$5);
+  $$result.css.add(css$2);
   $$unsubscribe_page();
-  return `<header class="${"svelte-a57vis"}"><div class="${"corner svelte-a57vis"}"><a href="${"https://kit.svelte.dev"}" class="${"svelte-a57vis"}"><img${add_attribute("src", logo, 0)} alt="${"SvelteKit"}" class="${"svelte-a57vis"}"></a></div>
+  return `<header${add_attribute("class", tw`flex justify-between`, 0)}><div${add_attribute("class", tw`h-8 w-8`, 0)}><a class="${"flex items-center justify-center w-full h-full svelte-11fl9je"}" href="${"https://kit.svelte.dev"}"><img class="${"h-8 w-8 object-contain"}"${add_attribute("src", logo, 0)} alt="${"SvelteKit"}"></a></div>
 
-	<nav class="${"svelte-a57vis"}"><svg viewBox="${"0 0 2 3"}" aria-hidden="${"true"}" class="${"svelte-a57vis"}"><path d="${"M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z"}" class="${"svelte-a57vis"}"></path></svg>
-		<ul class="${"svelte-a57vis"}"><li class="${["svelte-a57vis", $page.path === "/" ? "active" : ""].join(" ").trim()}"><a sveltekit:prefetch href="${"/"}" class="${"svelte-a57vis"}">Home</a></li>
-			<li class="${["svelte-a57vis", $page.path === "/about" ? "active" : ""].join(" ").trim()}"><a sveltekit:prefetch href="${"/about"}" class="${"svelte-a57vis"}">About</a></li>
-			<li class="${["svelte-a57vis", $page.path === "/todos" ? "active" : ""].join(" ").trim()}"><a sveltekit:prefetch href="${"/todos"}" class="${"svelte-a57vis"}">Todos</a></li></ul>
-		<svg viewBox="${"0 0 2 3"}" aria-hidden="${"true"}" class="${"svelte-a57vis"}"><path d="${"M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z"}" class="${"svelte-a57vis"}"></path></svg></nav>
+	<nav class="${"flex justify-center bg-gray-200 svelte-11fl9je"}"><ul class="${"relative p-0 m-0 h-12 flex items-center list-none"}"><li class="${["svelte-11fl9je", $page.path === "/" ? "active" : ""].join(" ").trim()}"><a sveltekit:prefetch href="${"/"}" class="${"svelte-11fl9je"}">Home</a></li>
+			<li class="${["svelte-11fl9je", $page.path === "/champions" ? "active" : ""].join(" ").trim()}"><a sveltekit:prefetch href="${"/champions"}" class="${"svelte-11fl9je"}">Champions</a></li>
+			<li class="${["svelte-11fl9je", $page.path === "/summoners/Doublelift" ? "active" : ""].join(" ").trim()}"><a sveltekit:prefetch href="${"/summoners/Doublelift"}" class="${"svelte-11fl9je"}">Summoners</a></li></ul>
+		<svg viewBox="${"0 0 2 3"}" aria-hidden="${"true"}"><path d="${"M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z"}"></path></svg></nav>
 
-	<div class="${"corner svelte-a57vis"}"></div>
+	<div${add_attribute("class", tw`h-8 w-8`, 0)}></div>
 </header>`;
 });
-var css$4 = {
-  code: "main.svelte-1izrdc8.svelte-1izrdc8{flex:1;display:flex;flex-direction:column;padding:1rem;width:100%;max-width:1024px;margin:0 auto;box-sizing:border-box}footer.svelte-1izrdc8.svelte-1izrdc8{display:flex;flex-direction:column;justify-content:center;align-items:center;padding:40px}footer.svelte-1izrdc8 a.svelte-1izrdc8{font-weight:bold}@media(min-width: 480px){footer.svelte-1izrdc8.svelte-1izrdc8{padding:40px 0}}",
-  map: `{"version":3,"file":"$layout.svelte","sources":["$layout.svelte"],"sourcesContent":["<script lang=\\"ts\\">import Header from '$lib/Header/index.svelte';\\nimport '../app.css';\\n</script>\\n\\n<Header />\\n\\n<main>\\n\\t<slot />\\n</main>\\n\\n<footer>\\n\\t<p>visit <a href=\\"https://kit.svelte.dev\\">kit.svelte.dev</a> to learn SvelteKit</p>\\n</footer>\\n\\n<style>\\n\\tmain {\\n\\t\\tflex: 1;\\n\\t\\tdisplay: flex;\\n\\t\\tflex-direction: column;\\n\\t\\tpadding: 1rem;\\n\\t\\twidth: 100%;\\n\\t\\tmax-width: 1024px;\\n\\t\\tmargin: 0 auto;\\n\\t\\tbox-sizing: border-box;\\n\\t}\\n\\n\\tfooter {\\n\\t\\tdisplay: flex;\\n\\t\\tflex-direction: column;\\n\\t\\tjustify-content: center;\\n\\t\\talign-items: center;\\n\\t\\tpadding: 40px;\\n\\t}\\n\\n\\tfooter a {\\n\\t\\tfont-weight: bold;\\n\\t}\\n\\n\\t@media (min-width: 480px) {\\n\\t\\tfooter {\\n\\t\\t\\tpadding: 40px 0;\\n\\t\\t}\\n\\t}\\n</style>\\n"],"names":[],"mappings":"AAeC,IAAI,8BAAC,CAAC,AACL,IAAI,CAAE,CAAC,CACP,OAAO,CAAE,IAAI,CACb,cAAc,CAAE,MAAM,CACtB,OAAO,CAAE,IAAI,CACb,KAAK,CAAE,IAAI,CACX,SAAS,CAAE,MAAM,CACjB,MAAM,CAAE,CAAC,CAAC,IAAI,CACd,UAAU,CAAE,UAAU,AACvB,CAAC,AAED,MAAM,8BAAC,CAAC,AACP,OAAO,CAAE,IAAI,CACb,cAAc,CAAE,MAAM,CACtB,eAAe,CAAE,MAAM,CACvB,WAAW,CAAE,MAAM,CACnB,OAAO,CAAE,IAAI,AACd,CAAC,AAED,qBAAM,CAAC,CAAC,eAAC,CAAC,AACT,WAAW,CAAE,IAAI,AAClB,CAAC,AAED,MAAM,AAAC,YAAY,KAAK,CAAC,AAAC,CAAC,AAC1B,MAAM,8BAAC,CAAC,AACP,OAAO,CAAE,IAAI,CAAC,CAAC,AAChB,CAAC,AACF,CAAC"}`
+var css$1 = {
+  code: "@media(min-width: 480px){footer.svelte-t281jf{padding:40px 0}}",
+  map: `{"version":3,"file":"$layout.svelte","sources":["$layout.svelte"],"sourcesContent":["<script lang=\\"ts\\">import { tw } from 'twind';\\nimport Header from '$lib/Header/index.svelte';\\nimport '../app.css';\\n</script>\\n\\n<Header />\\n\\n<main class={tw\`flex(& 1 col) p-4 container mx-auto my-0 box-border\`}>\\n\\t<slot />\\n</main>\\n\\n<footer class={tw\`flex(& col) justify-center items-center p-[40px]\`}>\\n\\t<p>Kim Skovhus Andersen &copy; 2021</p>\\n</footer>\\n\\n<style>\\n\\t@media (min-width: 480px) {\\n\\t\\tfooter {\\n\\t\\t\\tpadding: 40px 0;\\n\\t\\t}\\n\\t}\\n</style>\\n"],"names":[],"mappings":"AAgBC,MAAM,AAAC,YAAY,KAAK,CAAC,AAAC,CAAC,AAC1B,MAAM,cAAC,CAAC,AACP,OAAO,CAAE,IAAI,CAAC,CAAC,AAChB,CAAC,AACF,CAAC"}`
 };
 var $layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  $$result.css.add(css$4);
+  $$result.css.add(css$1);
   return `${validate_component(Header, "Header").$$render($$result, {}, {}, {})}
 
-<main class="${"svelte-1izrdc8"}">${slots.default ? slots.default({}) : ``}</main>
+<main${add_attribute("class", tw`flex(& 1 col) p-4 container mx-auto my-0 box-border`, 0)}>${slots.default ? slots.default({}) : ``}</main>
 
-<footer class="${"svelte-1izrdc8"}"><p>visit <a href="${"https://kit.svelte.dev"}" class="${"svelte-1izrdc8"}">kit.svelte.dev</a> to learn SvelteKit</p>
+<footer class="${escape2(null_to_empty(tw`flex(& col) justify-center items-center p-[40px]`)) + " svelte-t281jf"}"><p>Kim Skovhus Andersen \xA9 2021</p>
 </footer>`;
 });
 var $layout$1 = /* @__PURE__ */ Object.freeze({
@@ -3051,7 +6174,7 @@ var $layout$1 = /* @__PURE__ */ Object.freeze({
   [Symbol.toStringTag]: "Module",
   default: $layout
 });
-function load$1({error: error2, status}) {
+function load$2({error: error2, status}) {
   return {props: {error: error2, status}};
 }
 var Error$1 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -3072,22 +6195,22 @@ var error = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
   default: Error$1,
-  load: load$1
+  load: load$2
 });
-var css$3 = {
+var css = {
   code: ".counter.svelte-8u4zcv.svelte-8u4zcv{display:flex;border-top:1px solid rgba(0, 0, 0, 0.1);border-bottom:1px solid rgba(0, 0, 0, 0.1);margin:1rem 0}.counter.svelte-8u4zcv button.svelte-8u4zcv{width:2em;padding:0;display:flex;align-items:center;justify-content:center;border:0;background-color:transparent;color:var(--text-color);font-size:2rem}.counter.svelte-8u4zcv button.svelte-8u4zcv:hover{background-color:var(--secondary-color)}svg.svelte-8u4zcv.svelte-8u4zcv{width:25%;height:25%}path.svelte-8u4zcv.svelte-8u4zcv{vector-effect:non-scaling-stroke;stroke-width:2px;stroke:var(--text-color)}.counter-viewport.svelte-8u4zcv.svelte-8u4zcv{width:8em;height:4em;overflow:hidden;text-align:center;position:relative}.counter-viewport.svelte-8u4zcv strong.svelte-8u4zcv{position:absolute;display:block;width:100%;height:100%;font-weight:400;color:var(--accent-color);font-size:4rem;display:flex;align-items:center;justify-content:center}.counter-digits.svelte-8u4zcv.svelte-8u4zcv{position:absolute;width:100%;height:100%}",
   map: `{"version":3,"file":"index.svelte","sources":["index.svelte"],"sourcesContent":["<script lang=\\"ts\\">import { spring } from 'svelte/motion';\\nlet count = 0;\\nconst displayed_count = spring();\\n$: displayed_count.set(count);\\n$: offset = modulo($displayed_count, 1);\\nfunction modulo(n, m) {\\n    // handle negative numbers\\n    return ((n % m) + m) % m;\\n}\\n</script>\\n\\n<div class=\\"counter\\">\\n\\t<button on:click={() => (count -= 1)} aria-label=\\"Decrease the counter by one\\">\\n\\t\\t<svg aria-hidden=\\"true\\" viewBox=\\"0 0 1 1\\">\\n\\t\\t\\t<path d=\\"M0,0.5 L1,0.5\\" />\\n\\t\\t</svg>\\n\\t</button>\\n\\n\\t<div class=\\"counter-viewport\\">\\n\\t\\t<div class=\\"counter-digits\\" style=\\"transform: translate(0, {100 * offset}%)\\">\\n\\t\\t\\t<strong style=\\"top: -100%\\" aria-hidden=\\"true\\">{Math.floor($displayed_count + 1)}</strong>\\n\\t\\t\\t<strong>{Math.floor($displayed_count)}</strong>\\n\\t\\t</div>\\n\\t</div>\\n\\n\\t<button on:click={() => (count += 1)} aria-label=\\"Increase the counter by one\\">\\n\\t\\t<svg aria-hidden=\\"true\\" viewBox=\\"0 0 1 1\\">\\n\\t\\t\\t<path d=\\"M0,0.5 L1,0.5 M0.5,0 L0.5,1\\" />\\n\\t\\t</svg>\\n\\t</button>\\n</div>\\n\\n<style>\\n\\t.counter {\\n\\t\\tdisplay: flex;\\n\\t\\tborder-top: 1px solid rgba(0, 0, 0, 0.1);\\n\\t\\tborder-bottom: 1px solid rgba(0, 0, 0, 0.1);\\n\\t\\tmargin: 1rem 0;\\n\\t}\\n\\n\\t.counter button.disabled {\\n\\t\\topacity: 0.3;\\n\\t}\\n\\n\\t.counter button {\\n\\t\\twidth: 2em;\\n\\t\\tpadding: 0;\\n\\t\\tdisplay: flex;\\n\\t\\talign-items: center;\\n\\t\\tjustify-content: center;\\n\\t\\tborder: 0;\\n\\t\\tbackground-color: transparent;\\n\\t\\tcolor: var(--text-color);\\n\\t\\tfont-size: 2rem;\\n\\t}\\n\\n\\t.counter button:hover {\\n\\t\\tbackground-color: var(--secondary-color);\\n\\t}\\n\\n\\tsvg {\\n\\t\\twidth: 25%;\\n\\t\\theight: 25%;\\n\\t}\\n\\n\\tpath {\\n\\t\\tvector-effect: non-scaling-stroke;\\n\\t\\tstroke-width: 2px;\\n\\t\\tstroke: var(--text-color);\\n\\t}\\n\\n\\t.counter-viewport {\\n\\t\\twidth: 8em;\\n\\t\\theight: 4em;\\n\\t\\toverflow: hidden;\\n\\t\\ttext-align: center;\\n\\t\\tposition: relative;\\n\\t}\\n\\n\\t.counter-viewport strong {\\n\\t\\tposition: absolute;\\n\\t\\tdisplay: block;\\n\\t\\twidth: 100%;\\n\\t\\theight: 100%;\\n\\t\\tfont-weight: 400;\\n\\t\\tcolor: var(--accent-color);\\n\\t\\tfont-size: 4rem;\\n\\t\\tdisplay: flex;\\n\\t\\talign-items: center;\\n\\t\\tjustify-content: center;\\n\\t}\\n\\n\\t.counter-digits {\\n\\t\\tposition: absolute;\\n\\t\\twidth: 100%;\\n\\t\\theight: 100%;\\n\\t}\\n</style>\\n"],"names":[],"mappings":"AAiCC,QAAQ,4BAAC,CAAC,AACT,OAAO,CAAE,IAAI,CACb,UAAU,CAAE,GAAG,CAAC,KAAK,CAAC,KAAK,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,GAAG,CAAC,CACxC,aAAa,CAAE,GAAG,CAAC,KAAK,CAAC,KAAK,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,GAAG,CAAC,CAC3C,MAAM,CAAE,IAAI,CAAC,CAAC,AACf,CAAC,AAMD,sBAAQ,CAAC,MAAM,cAAC,CAAC,AAChB,KAAK,CAAE,GAAG,CACV,OAAO,CAAE,CAAC,CACV,OAAO,CAAE,IAAI,CACb,WAAW,CAAE,MAAM,CACnB,eAAe,CAAE,MAAM,CACvB,MAAM,CAAE,CAAC,CACT,gBAAgB,CAAE,WAAW,CAC7B,KAAK,CAAE,IAAI,YAAY,CAAC,CACxB,SAAS,CAAE,IAAI,AAChB,CAAC,AAED,sBAAQ,CAAC,oBAAM,MAAM,AAAC,CAAC,AACtB,gBAAgB,CAAE,IAAI,iBAAiB,CAAC,AACzC,CAAC,AAED,GAAG,4BAAC,CAAC,AACJ,KAAK,CAAE,GAAG,CACV,MAAM,CAAE,GAAG,AACZ,CAAC,AAED,IAAI,4BAAC,CAAC,AACL,aAAa,CAAE,kBAAkB,CACjC,YAAY,CAAE,GAAG,CACjB,MAAM,CAAE,IAAI,YAAY,CAAC,AAC1B,CAAC,AAED,iBAAiB,4BAAC,CAAC,AAClB,KAAK,CAAE,GAAG,CACV,MAAM,CAAE,GAAG,CACX,QAAQ,CAAE,MAAM,CAChB,UAAU,CAAE,MAAM,CAClB,QAAQ,CAAE,QAAQ,AACnB,CAAC,AAED,+BAAiB,CAAC,MAAM,cAAC,CAAC,AACzB,QAAQ,CAAE,QAAQ,CAClB,OAAO,CAAE,KAAK,CACd,KAAK,CAAE,IAAI,CACX,MAAM,CAAE,IAAI,CACZ,WAAW,CAAE,GAAG,CAChB,KAAK,CAAE,IAAI,cAAc,CAAC,CAC1B,SAAS,CAAE,IAAI,CACf,OAAO,CAAE,IAAI,CACb,WAAW,CAAE,MAAM,CACnB,eAAe,CAAE,MAAM,AACxB,CAAC,AAED,eAAe,4BAAC,CAAC,AAChB,QAAQ,CAAE,QAAQ,CAClB,KAAK,CAAE,IAAI,CACX,MAAM,CAAE,IAAI,AACb,CAAC"}`
 };
 function modulo(n, m) {
   return (n % m + m) % m;
 }
-var Counter = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let offset;
   let $displayed_count, $$unsubscribe_displayed_count;
   let count = 0;
   const displayed_count = spring();
   $$unsubscribe_displayed_count = subscribe(displayed_count, (value) => $displayed_count = value);
-  $$result.css.add(css$3);
+  $$result.css.add(css);
   {
     displayed_count.set(count);
   }
@@ -3101,164 +6224,82 @@ var Counter = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 	<button aria-label="${"Increase the counter by one"}" class="${"svelte-8u4zcv"}"><svg aria-hidden="${"true"}" viewBox="${"0 0 1 1"}" class="${"svelte-8u4zcv"}"><path d="${"M0,0.5 L1,0.5 M0.5,0 L0.5,1"}" class="${"svelte-8u4zcv"}"></path></svg></button>
 </div>`;
 });
-var css$2 = {
-  code: "section.svelte-mjk9ig.svelte-mjk9ig{display:flex;flex-direction:column;justify-content:center;align-items:center;flex:1}h1.svelte-mjk9ig.svelte-mjk9ig{width:100%}.welcome.svelte-mjk9ig.svelte-mjk9ig{position:relative;width:100%;height:0;padding:0 0 calc(100% * 495 / 2048) 0}.welcome.svelte-mjk9ig img.svelte-mjk9ig{position:absolute;width:100%;height:100%;top:0;display:block}",
-  map: `{"version":3,"file":"index.svelte","sources":["index.svelte"],"sourcesContent":["<script context=\\"module\\" lang=\\"ts\\">export const prerender = true;\\n</script>\\n\\n<script lang=\\"ts\\">import Counter from '$lib/Counter/index.svelte';\\n</script>\\n\\n<svelte:head>\\n\\t<title>Home</title>\\n</svelte:head>\\n\\n<section>\\n\\t<h1>\\n\\t\\t<div class=\\"welcome\\">\\n\\t\\t\\t<picture>\\n\\t\\t\\t\\t<source srcset=\\"svelte-welcome.webp\\" type=\\"image/webp\\" />\\n\\t\\t\\t\\t<img src=\\"svelte-welcome.png\\" alt=\\"Welcome\\" />\\n\\t\\t\\t</picture>\\n\\t\\t</div>\\n\\n\\t\\tto your new<br />SvelteKit app\\n\\t</h1>\\n\\n\\t<h2>\\n\\t\\ttry editing <strong>src/routes/index.svelte</strong>\\n\\t</h2>\\n\\n\\t<Counter />\\n</section>\\n\\n<style>\\n\\tsection {\\n\\t\\tdisplay: flex;\\n\\t\\tflex-direction: column;\\n\\t\\tjustify-content: center;\\n\\t\\talign-items: center;\\n\\t\\tflex: 1;\\n\\t}\\n\\n\\th1 {\\n\\t\\twidth: 100%;\\n\\t}\\n\\n\\t.welcome {\\n\\t\\tposition: relative;\\n\\t\\twidth: 100%;\\n\\t\\theight: 0;\\n\\t\\tpadding: 0 0 calc(100% * 495 / 2048) 0;\\n\\t}\\n\\n\\t.welcome img {\\n\\t\\tposition: absolute;\\n\\t\\twidth: 100%;\\n\\t\\theight: 100%;\\n\\t\\ttop: 0;\\n\\t\\tdisplay: block;\\n\\t}\\n</style>\\n"],"names":[],"mappings":"AA8BC,OAAO,4BAAC,CAAC,AACR,OAAO,CAAE,IAAI,CACb,cAAc,CAAE,MAAM,CACtB,eAAe,CAAE,MAAM,CACvB,WAAW,CAAE,MAAM,CACnB,IAAI,CAAE,CAAC,AACR,CAAC,AAED,EAAE,4BAAC,CAAC,AACH,KAAK,CAAE,IAAI,AACZ,CAAC,AAED,QAAQ,4BAAC,CAAC,AACT,QAAQ,CAAE,QAAQ,CAClB,KAAK,CAAE,IAAI,CACX,MAAM,CAAE,CAAC,CACT,OAAO,CAAE,CAAC,CAAC,CAAC,CAAC,KAAK,IAAI,CAAC,CAAC,CAAC,GAAG,CAAC,CAAC,CAAC,IAAI,CAAC,CAAC,CAAC,AACvC,CAAC,AAED,sBAAQ,CAAC,GAAG,cAAC,CAAC,AACb,QAAQ,CAAE,QAAQ,CAClB,KAAK,CAAE,IAAI,CACX,MAAM,CAAE,IAAI,CACZ,GAAG,CAAE,CAAC,CACN,OAAO,CAAE,KAAK,AACf,CAAC"}`
-};
-var prerender$1 = true;
+var prerender = true;
+setup({
+  mode: "strict",
+  hash: false,
+  theme: {
+    colors: {
+      gray: coolGray,
+      blue: lightBlue,
+      red: rose,
+      pink: fuchsia
+    },
+    fontFamily: {
+      sans: ["Lato", "sans-serif"],
+      serif: ["Merriweather", "serif"]
+    }
+  }
+});
 var Routes = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  $$result.css.add(css$2);
   return `${$$result.head += `${$$result.title = `<title>Home</title>`, ""}`, ""}
 
-<section class="${"svelte-mjk9ig"}"><h1 class="${"svelte-mjk9ig"}"><div class="${"welcome svelte-mjk9ig"}"><picture><source srcset="${"svelte-welcome.webp"}" type="${"image/webp"}">
-				<img src="${"svelte-welcome.png"}" alt="${"Welcome"}" class="${"svelte-mjk9ig"}"></picture></div>
-
-		to your new<br>SvelteKit app
-	</h1>
-
-	<h2>try editing <strong>src/routes/index.svelte</strong></h2>
-
-	${validate_component(Counter, "Counter").$$render($$result, {}, {}, {})}
-</section>`;
-});
-var index$1 = /* @__PURE__ */ Object.freeze({
-  __proto__: null,
-  [Symbol.toStringTag]: "Module",
-  default: Routes,
-  prerender: prerender$1
-});
-var browser = false;
-var dev = false;
-var css$1 = {
-  code: ".content.svelte-cf77e8{width:100%;max-width:var(--column-width);margin:var(--column-margin-top) auto 0 auto}",
-  map: `{"version":3,"file":"about.svelte","sources":["about.svelte"],"sourcesContent":["<script context=\\"module\\">\\n\\timport { browser, dev } from '$app/env';\\n\\n\\t// we don't need any JS on this page, though we'll load\\n\\t// it in dev so that we get hot module replacement...\\n\\texport const hydrate = dev;\\n\\n\\t// ...but if the client-side router is already loaded\\n\\t// (i.e. we came here from elsewhere in the app), use it\\n\\texport const router = browser;\\n\\n\\t// since there's no dynamic data here, we can prerender\\n\\t// it so that it gets served as a static asset in prod\\n\\texport const prerender = true;\\n</script>\\n\\n<svelte:head>\\n\\t<title>About</title>\\n</svelte:head>\\n\\n<div class=\\"content\\">\\n\\t<h1>About this app</h1>\\n\\n\\t<p>\\n\\t\\tThis is a <a href=\\"https://kit.svelte.dev\\">SvelteKit</a> app. You can make your own by typing the\\n\\t\\tfollowing into your command line and following the prompts:\\n\\t</p>\\n\\n\\t<!-- TODO lose the @next! -->\\n\\t<pre>npm init svelte@next</pre>\\n\\n\\t<p>\\n\\t\\tThe page you're looking at is purely static HTML, with no client-side interactivity needed.\\n\\t\\tBecause of that, we don't need to load any JavaScript. Try viewing the page's source, or opening\\n\\t\\tthe devtools network panel and reloading.\\n\\t</p>\\n\\n\\t<p>\\n\\t\\tThe <a href=\\"/todos\\">TODOs</a> page illustrates SvelteKit's data loading and form handling. Try using\\n\\t\\tit with JavaScript disabled!\\n\\t</p>\\n</div>\\n\\n<style>\\n\\t.content {\\n\\t\\twidth: 100%;\\n\\t\\tmax-width: var(--column-width);\\n\\t\\tmargin: var(--column-margin-top) auto 0 auto;\\n\\t}\\n</style>\\n"],"names":[],"mappings":"AA4CC,QAAQ,cAAC,CAAC,AACT,KAAK,CAAE,IAAI,CACX,SAAS,CAAE,IAAI,cAAc,CAAC,CAC9B,MAAM,CAAE,IAAI,mBAAmB,CAAC,CAAC,IAAI,CAAC,CAAC,CAAC,IAAI,AAC7C,CAAC"}`
-};
-var hydrate = dev;
-var router = browser;
-var prerender = true;
-var About = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  $$result.css.add(css$1);
-  return `${$$result.head += `${$$result.title = `<title>About</title>`, ""}`, ""}
-
-<div class="${"content svelte-cf77e8"}"><h1>About this app</h1>
-
-	<p>This is a <a href="${"https://kit.svelte.dev"}">SvelteKit</a> app. You can make your own by typing the
-		following into your command line and following the prompts:
-	</p>
-
-	
-	<pre>npm init svelte@next</pre>
-
-	<p>The page you&#39;re looking at is purely static HTML, with no client-side interactivity needed.
-		Because of that, we don&#39;t need to load any JavaScript. Try viewing the page&#39;s source, or opening
-		the devtools network panel and reloading.
-	</p>
-
-	<p>The <a href="${"/todos"}">TODOs</a> page illustrates SvelteKit&#39;s data loading and form handling. Try using
-		it with JavaScript disabled!
-	</p>
-</div>`;
-});
-var about = /* @__PURE__ */ Object.freeze({
-  __proto__: null,
-  [Symbol.toStringTag]: "Module",
-  default: About,
-  hydrate,
-  router,
-  prerender
-});
-var css = {
-  code: `.todos.svelte-ztcljr.svelte-ztcljr.svelte-ztcljr{width:100%;max-width:var(--column-width);margin:var(--column-margin-top) auto 0 auto;line-height:1}.new.svelte-ztcljr.svelte-ztcljr.svelte-ztcljr{margin:0 0 0.5rem 0}input.svelte-ztcljr.svelte-ztcljr.svelte-ztcljr{border:1px solid transparent}input.svelte-ztcljr.svelte-ztcljr.svelte-ztcljr:focus-visible{box-shadow:inset 1px 1px 6px rgba(0,0,0,0.1);border:1px solid #ff3e00 !important;outline:none}.new.svelte-ztcljr input.svelte-ztcljr.svelte-ztcljr{font-size:28px;width:100%;padding:0.5em 1em 0.3em 1em;box-sizing:border-box;background:rgba(255,255,255,0.05);border-radius:8px;text-align:center}.todo.svelte-ztcljr.svelte-ztcljr.svelte-ztcljr{display:grid;grid-template-columns:2rem 1fr 2rem;grid-gap:0.5rem;align-items:center;margin:0 0 0.5rem 0;padding:0.5rem;background-color:white;border-radius:8px;filter:drop-shadow(2px 4px 6px rgba(0,0,0,0.1));transform:translate(-1px, -1px);transition:filter 0.2s, transform 0.2s}.done.svelte-ztcljr.svelte-ztcljr.svelte-ztcljr{transform:none;opacity:0.4;filter:drop-shadow(0px 0px 1px rgba(0,0,0,0.1))}form.text.svelte-ztcljr.svelte-ztcljr.svelte-ztcljr{position:relative;display:flex;align-items:center;flex:1}.todo.svelte-ztcljr input.svelte-ztcljr.svelte-ztcljr{flex:1;padding:0.5em 2em 0.5em 0.8em;border-radius:3px}.todo.svelte-ztcljr button.svelte-ztcljr.svelte-ztcljr{width:2em;height:2em;border:none;background-color:transparent;background-position:50% 50%;background-repeat:no-repeat}button.toggle.svelte-ztcljr.svelte-ztcljr.svelte-ztcljr{border:1px solid rgba(0,0,0,0.2);border-radius:50%;box-sizing:border-box;background-size:1em auto}.done.svelte-ztcljr .toggle.svelte-ztcljr.svelte-ztcljr{background-image:url("data:image/svg+xml,%3Csvg width='22' height='16' viewBox='0 0 22 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.5 1.5L7.4375 14.5L1.5 8.5909' stroke='%23676778' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}.delete.svelte-ztcljr.svelte-ztcljr.svelte-ztcljr{background-image:url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.5 5V22H19.5V5H4.5Z' fill='%23676778' stroke='%23676778' stroke-width='1.5' stroke-linejoin='round'/%3E%3Cpath d='M10 10V16.5' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M14 10V16.5' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M2 5H22' stroke='%23676778' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M8 5L9.6445 2H14.3885L16 5H8Z' fill='%23676778' stroke='%23676778' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E%0A");opacity:0.2}.delete.svelte-ztcljr.svelte-ztcljr.svelte-ztcljr:hover{transition:opacity 0.2s;opacity:1}.save.svelte-ztcljr.svelte-ztcljr.svelte-ztcljr{position:absolute;right:0;opacity:0;background-image:url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.5 2H3.5C2.67158 2 2 2.67157 2 3.5V20.5C2 21.3284 2.67158 22 3.5 22H20.5C21.3284 22 22 21.3284 22 20.5V3.5C22 2.67157 21.3284 2 20.5 2Z' fill='%23676778' stroke='%23676778' stroke-width='1.5' stroke-linejoin='round'/%3E%3Cpath d='M17 2V11H7.5V2H17Z' fill='white' stroke='white' stroke-width='1.5' stroke-linejoin='round'/%3E%3Cpath d='M13.5 5.5V7.5' stroke='%23676778' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M5.99844 2H18.4992' stroke='%23676778' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E%0A")}.todo.svelte-ztcljr input.svelte-ztcljr:focus+.save.svelte-ztcljr{transition:opacity 0.2s;opacity:1}`,
-  map: `{"version":3,"file":"index.svelte","sources":["index.svelte"],"sourcesContent":["<script context=\\"module\\" lang=\\"ts\\">var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {\\n    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }\\n    return new (P || (P = Promise))(function (resolve, reject) {\\n        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }\\n        function rejected(value) { try { step(generator[\\"throw\\"](value)); } catch (e) { reject(e); } }\\n        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }\\n        step((generator = generator.apply(thisArg, _arguments || [])).next());\\n    });\\n};\\nimport { enhance } from '$lib/form';\\n;\\n// see https://kit.svelte.dev/docs#loading\\nexport const load = ({ fetch }) => __awaiter(void 0, void 0, void 0, function* () {\\n    const res = yield fetch('/todos.json');\\n    if (res.ok) {\\n        const todos = yield res.json();\\n        return {\\n            props: { todos }\\n        };\\n    }\\n    const { message } = yield res.json();\\n    return {\\n        error: new Error(message)\\n    };\\n});\\n</script>\\n\\n<script lang=\\"ts\\">var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {\\n    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }\\n    return new (P || (P = Promise))(function (resolve, reject) {\\n        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }\\n        function rejected(value) { try { step(generator[\\"throw\\"](value)); } catch (e) { reject(e); } }\\n        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }\\n        step((generator = generator.apply(thisArg, _arguments || [])).next());\\n    });\\n};\\nimport { scale } from 'svelte/transition';\\nimport { flip } from 'svelte/animate';\\nexport let todos;\\nfunction patch(res) {\\n    return __awaiter(this, void 0, void 0, function* () {\\n        const todo = yield res.json();\\n        todos = todos.map(t => {\\n            if (t.uid === todo.uid)\\n                return todo;\\n            return t;\\n        });\\n    });\\n}\\n</script>\\n\\n<svelte:head>\\n\\t<title>Todos</title>\\n</svelte:head>\\n\\n<div class=\\"todos\\">\\n\\t<h1>Todos</h1>\\n\\n\\t<form class=\\"new\\" action=\\"/todos.json\\" method=\\"post\\" use:enhance={{\\n\\t\\tresult: async (res, form) => {\\n\\t\\t\\tconst created = await res.json();\\n\\t\\t\\ttodos = [...todos, created]\\n\\n\\t\\t\\tform.reset();\\n\\t\\t}\\n\\t}}>\\n\\t\\t<input name=\\"text\\" placeholder=\\"+ tap to add a todo\\">\\n\\t</form>\\n\\n\\t{#each todos as todo (todo.uid)}\\n\\t\\t<div class=\\"todo\\" class:done={todo.done} transition:scale|local={{start:0.7}} animate:flip={{duration:200}}>\\n\\t\\t\\t<form action=\\"/todos/{todo.uid}.json?_method=patch\\" method=\\"post\\" use:enhance={{\\n\\t\\t\\t\\tpending: (data) => {\\n\\t\\t\\t\\t\\ttodo.done = !!data.get('done');\\n\\t\\t\\t\\t},\\n\\t\\t\\t\\tresult: patch\\n\\t\\t\\t}}>\\n\\t\\t\\t\\t<input type=\\"hidden\\" name=\\"done\\" value={todo.done ? '' : 'true'}>\\n\\t\\t\\t\\t<button class=\\"toggle\\" aria-label=\\"Mark todo as {todo.done ? 'not done' : 'done'}\\"/>\\n\\t\\t\\t</form>\\n\\n\\t\\t\\t<form class=\\"text\\" action=\\"/todos/{todo.uid}.json?_method=patch\\" method=\\"post\\" use:enhance={{\\n\\t\\t\\t\\tresult: patch\\n\\t\\t\\t}}>\\n\\t\\t\\t\\t<input type=\\"text\\" name=\\"text\\" value={todo.text}>\\n\\t\\t\\t\\t<button class=\\"save\\" aria-label=\\"Save todo\\"/>\\n\\t\\t\\t</form>\\n\\n\\t\\t\\t<form action=\\"/todos/{todo.uid}.json?_method=delete\\" method=\\"post\\" use:enhance={{\\n\\t\\t\\t\\tresult: () => {\\n\\t\\t\\t\\t\\ttodos = todos.filter(t => t.uid !== todo.uid);\\n\\t\\t\\t\\t}\\n\\t\\t\\t}}>\\n\\t\\t\\t\\t<button class=\\"delete\\" aria-label=\\"Delete todo\\"/>\\n\\t\\t\\t</form>\\n\\t\\t</div>\\n\\t{/each}\\n</div>\\n\\n<style>\\n\\t.todos {\\n\\t\\twidth: 100%;\\n\\t\\tmax-width: var(--column-width);\\n\\t\\tmargin: var(--column-margin-top) auto 0 auto;\\n\\t\\tline-height: 1;\\n\\t}\\n\\n\\t.new {\\n\\t\\tmargin: 0 0 0.5rem 0;\\n\\t}\\n\\n\\tinput {\\n\\t\\tborder: 1px solid transparent;\\n\\t}\\n\\n\\tinput:focus-visible {\\n\\t\\tbox-shadow: inset 1px 1px 6px rgba(0,0,0,0.1);\\n\\t\\tborder: 1px solid #ff3e00 !important;\\n\\t\\toutline: none;\\n\\t}\\n\\n\\t.new input {\\n\\t\\tfont-size: 28px;\\n\\t\\twidth: 100%;\\n\\t\\tpadding: 0.5em 1em 0.3em 1em;\\n\\t\\tbox-sizing: border-box;\\n\\t\\tbackground: rgba(255,255,255,0.05);\\n\\t\\tborder-radius: 8px;\\n\\t\\ttext-align: center;\\n\\t}\\n\\n\\t.todo {\\n\\t\\tdisplay: grid;\\n\\t\\tgrid-template-columns: 2rem 1fr 2rem;\\n\\t\\tgrid-gap: 0.5rem;\\n\\t\\talign-items: center;\\n\\t\\tmargin: 0 0 0.5rem 0;\\n\\t\\tpadding: 0.5rem;\\n\\t\\tbackground-color: white;\\n\\t\\tborder-radius: 8px;\\n\\t\\tfilter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));\\n\\t\\ttransform: translate(-1px, -1px);\\n\\t\\ttransition: filter 0.2s, transform 0.2s;\\n\\t}\\n\\n\\n\\t.done {\\n\\t\\ttransform: none;\\n\\t\\topacity: 0.4;\\n\\t\\tfilter: drop-shadow(0px 0px 1px rgba(0,0,0,0.1));\\n\\t}\\n\\n\\tform.text {\\n\\t\\tposition: relative;\\n\\t\\tdisplay: flex;\\n\\t\\talign-items: center;\\n\\t\\tflex: 1;\\n\\t}\\n\\n\\t.todo input {\\n\\t\\tflex: 1;\\n\\t\\tpadding: 0.5em 2em 0.5em 0.8em;\\n\\t\\tborder-radius: 3px;\\n\\t}\\n\\n\\t.todo button {\\n\\t\\twidth: 2em;\\n\\t\\theight: 2em;\\n\\t\\tborder: none;\\n\\t\\tbackground-color: transparent;\\n\\t\\tbackground-position: 50% 50%;\\n\\t\\tbackground-repeat: no-repeat;\\n\\t}\\n\\n\\tbutton.toggle {\\n\\t\\tborder: 1px solid rgba(0,0,0,0.2);\\n\\t\\tborder-radius: 50%;\\n\\t\\tbox-sizing: border-box;\\n\\t\\tbackground-size: 1em auto;\\n\\t}\\n\\n\\t.done .toggle {\\n\\t\\tbackground-image: url(\\"data:image/svg+xml,%3Csvg width='22' height='16' viewBox='0 0 22 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.5 1.5L7.4375 14.5L1.5 8.5909' stroke='%23676778' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\\");\\n\\t}\\n\\n\\t.delete {\\n\\t\\tbackground-image: url(\\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.5 5V22H19.5V5H4.5Z' fill='%23676778' stroke='%23676778' stroke-width='1.5' stroke-linejoin='round'/%3E%3Cpath d='M10 10V16.5' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M14 10V16.5' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M2 5H22' stroke='%23676778' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M8 5L9.6445 2H14.3885L16 5H8Z' fill='%23676778' stroke='%23676778' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E%0A\\");\\n\\t\\topacity: 0.2;\\n\\t}\\n\\n\\t.delete:hover {\\n\\t\\ttransition: opacity 0.2s;\\n\\t\\topacity: 1;\\n\\t}\\n\\n\\t.save {\\n\\t\\tposition: absolute;\\n\\t\\tright: 0;\\n\\t\\topacity: 0;\\n\\t\\tbackground-image: url(\\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.5 2H3.5C2.67158 2 2 2.67157 2 3.5V20.5C2 21.3284 2.67158 22 3.5 22H20.5C21.3284 22 22 21.3284 22 20.5V3.5C22 2.67157 21.3284 2 20.5 2Z' fill='%23676778' stroke='%23676778' stroke-width='1.5' stroke-linejoin='round'/%3E%3Cpath d='M17 2V11H7.5V2H17Z' fill='white' stroke='white' stroke-width='1.5' stroke-linejoin='round'/%3E%3Cpath d='M13.5 5.5V7.5' stroke='%23676778' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M5.99844 2H18.4992' stroke='%23676778' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E%0A\\");\\n\\t}\\n\\n\\t.todo input:focus + .save {\\n\\t\\ttransition: opacity 0.2s;\\n\\t\\topacity: 1;\\n\\t}\\n</style>\\n"],"names":[],"mappings":"AAoGC,MAAM,0CAAC,CAAC,AACP,KAAK,CAAE,IAAI,CACX,SAAS,CAAE,IAAI,cAAc,CAAC,CAC9B,MAAM,CAAE,IAAI,mBAAmB,CAAC,CAAC,IAAI,CAAC,CAAC,CAAC,IAAI,CAC5C,WAAW,CAAE,CAAC,AACf,CAAC,AAED,IAAI,0CAAC,CAAC,AACL,MAAM,CAAE,CAAC,CAAC,CAAC,CAAC,MAAM,CAAC,CAAC,AACrB,CAAC,AAED,KAAK,0CAAC,CAAC,AACN,MAAM,CAAE,GAAG,CAAC,KAAK,CAAC,WAAW,AAC9B,CAAC,AAED,+CAAK,cAAc,AAAC,CAAC,AACpB,UAAU,CAAE,KAAK,CAAC,GAAG,CAAC,GAAG,CAAC,GAAG,CAAC,KAAK,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,GAAG,CAAC,CAC7C,MAAM,CAAE,GAAG,CAAC,KAAK,CAAC,OAAO,CAAC,UAAU,CACpC,OAAO,CAAE,IAAI,AACd,CAAC,AAED,kBAAI,CAAC,KAAK,4BAAC,CAAC,AACX,SAAS,CAAE,IAAI,CACf,KAAK,CAAE,IAAI,CACX,OAAO,CAAE,KAAK,CAAC,GAAG,CAAC,KAAK,CAAC,GAAG,CAC5B,UAAU,CAAE,UAAU,CACtB,UAAU,CAAE,KAAK,GAAG,CAAC,GAAG,CAAC,GAAG,CAAC,IAAI,CAAC,CAClC,aAAa,CAAE,GAAG,CAClB,UAAU,CAAE,MAAM,AACnB,CAAC,AAED,KAAK,0CAAC,CAAC,AACN,OAAO,CAAE,IAAI,CACb,qBAAqB,CAAE,IAAI,CAAC,GAAG,CAAC,IAAI,CACpC,QAAQ,CAAE,MAAM,CAChB,WAAW,CAAE,MAAM,CACnB,MAAM,CAAE,CAAC,CAAC,CAAC,CAAC,MAAM,CAAC,CAAC,CACpB,OAAO,CAAE,MAAM,CACf,gBAAgB,CAAE,KAAK,CACvB,aAAa,CAAE,GAAG,CAClB,MAAM,CAAE,YAAY,GAAG,CAAC,GAAG,CAAC,GAAG,CAAC,KAAK,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,GAAG,CAAC,CAAC,CAChD,SAAS,CAAE,UAAU,IAAI,CAAC,CAAC,IAAI,CAAC,CAChC,UAAU,CAAE,MAAM,CAAC,IAAI,CAAC,CAAC,SAAS,CAAC,IAAI,AACxC,CAAC,AAGD,KAAK,0CAAC,CAAC,AACN,SAAS,CAAE,IAAI,CACf,OAAO,CAAE,GAAG,CACZ,MAAM,CAAE,YAAY,GAAG,CAAC,GAAG,CAAC,GAAG,CAAC,KAAK,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,GAAG,CAAC,CAAC,AACjD,CAAC,AAED,IAAI,KAAK,0CAAC,CAAC,AACV,QAAQ,CAAE,QAAQ,CAClB,OAAO,CAAE,IAAI,CACb,WAAW,CAAE,MAAM,CACnB,IAAI,CAAE,CAAC,AACR,CAAC,AAED,mBAAK,CAAC,KAAK,4BAAC,CAAC,AACZ,IAAI,CAAE,CAAC,CACP,OAAO,CAAE,KAAK,CAAC,GAAG,CAAC,KAAK,CAAC,KAAK,CAC9B,aAAa,CAAE,GAAG,AACnB,CAAC,AAED,mBAAK,CAAC,MAAM,4BAAC,CAAC,AACb,KAAK,CAAE,GAAG,CACV,MAAM,CAAE,GAAG,CACX,MAAM,CAAE,IAAI,CACZ,gBAAgB,CAAE,WAAW,CAC7B,mBAAmB,CAAE,GAAG,CAAC,GAAG,CAC5B,iBAAiB,CAAE,SAAS,AAC7B,CAAC,AAED,MAAM,OAAO,0CAAC,CAAC,AACd,MAAM,CAAE,GAAG,CAAC,KAAK,CAAC,KAAK,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,GAAG,CAAC,CACjC,aAAa,CAAE,GAAG,CAClB,UAAU,CAAE,UAAU,CACtB,eAAe,CAAE,GAAG,CAAC,IAAI,AAC1B,CAAC,AAED,mBAAK,CAAC,OAAO,4BAAC,CAAC,AACd,gBAAgB,CAAE,IAAI,uQAAuQ,CAAC,AAC/R,CAAC,AAED,OAAO,0CAAC,CAAC,AACR,gBAAgB,CAAE,IAAI,yrBAAyrB,CAAC,CAChtB,OAAO,CAAE,GAAG,AACb,CAAC,AAED,iDAAO,MAAM,AAAC,CAAC,AACd,UAAU,CAAE,OAAO,CAAC,IAAI,CACxB,OAAO,CAAE,CAAC,AACX,CAAC,AAED,KAAK,0CAAC,CAAC,AACN,QAAQ,CAAE,QAAQ,CAClB,KAAK,CAAE,CAAC,CACR,OAAO,CAAE,CAAC,CACV,gBAAgB,CAAE,IAAI,gpBAAgpB,CAAC,AACxqB,CAAC,AAED,mBAAK,CAAC,mBAAK,MAAM,CAAG,KAAK,cAAC,CAAC,AAC1B,UAAU,CAAE,OAAO,CAAC,IAAI,CACxB,OAAO,CAAE,CAAC,AACX,CAAC"}`
-};
-var __awaiter = function(thisArg, _arguments, P, generator) {
-  function adopt(value) {
-    return value instanceof P ? value : new P(function(resolve2) {
-      resolve2(value);
-    });
-  }
-  return new (P || (P = Promise))(function(resolve2, reject) {
-    function fulfilled(value) {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    }
-    function rejected(value) {
-      try {
-        step(generator["throw"](value));
-      } catch (e) {
-        reject(e);
-      }
-    }
-    function step(result) {
-      result.done ? resolve2(result.value) : adopt(result.value).then(fulfilled, rejected);
-    }
-    step((generator = generator.apply(thisArg, _arguments || [])).next());
-  });
-};
-var load = ({fetch: fetch22}) => __awaiter(void 0, void 0, void 0, function* () {
-  const res = yield fetch22("/todos.json");
-  if (res.ok) {
-    const todos = yield res.json();
-    return {props: {todos}};
-  }
-  const {message} = yield res.json();
-  return {error: new Error(message)};
-});
-var Todos = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  (function(thisArg, _arguments, P, generator) {
-    function adopt(value) {
-      return value instanceof P ? value : new P(function(resolve2) {
-        resolve2(value);
-      });
-    }
-    return new (P || (P = Promise))(function(resolve2, reject) {
-      function fulfilled(value) {
-        try {
-          step(generator.next(value));
-        } catch (e) {
-          reject(e);
-        }
-      }
-      function rejected(value) {
-        try {
-          step(generator["throw"](value));
-        } catch (e) {
-          reject(e);
-        }
-      }
-      function step(result) {
-        result.done ? resolve2(result.value) : adopt(result.value).then(fulfilled, rejected);
-      }
-      step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-  });
-  let {todos} = $$props;
-  if ($$props.todos === void 0 && $$bindings.todos && todos !== void 0)
-    $$bindings.todos(todos);
-  $$result.css.add(css);
-  return `${$$result.head += `${$$result.title = `<title>Todos</title>`, ""}`, ""}
-
-<div class="${"todos svelte-ztcljr"}"><h1>Todos</h1>
-
-	<form class="${"new svelte-ztcljr"}" action="${"/todos.json"}" method="${"post"}"><input name="${"text"}" placeholder="${"+ tap to add a todo"}" class="${"svelte-ztcljr"}"></form>
-
-	${each(todos, (todo) => `<div class="${["todo svelte-ztcljr", todo.done ? "done" : ""].join(" ").trim()}"><form action="${"/todos/" + escape2(todo.uid) + ".json?_method=patch"}" method="${"post"}"><input type="${"hidden"}" name="${"done"}"${add_attribute("value", todo.done ? "" : "true", 0)} class="${"svelte-ztcljr"}">
-				<button class="${"toggle svelte-ztcljr"}" aria-label="${"Mark todo as " + escape2(todo.done ? "not done" : "done")}"></button></form>
-
-			<form class="${"text svelte-ztcljr"}" action="${"/todos/" + escape2(todo.uid) + ".json?_method=patch"}" method="${"post"}"><input type="${"text"}" name="${"text"}"${add_attribute("value", todo.text, 0)} class="${"svelte-ztcljr"}">
-				<button class="${"save svelte-ztcljr"}" aria-label="${"Save todo"}"></button></form>
-
-			<form action="${"/todos/" + escape2(todo.uid) + ".json?_method=delete"}" method="${"post"}"><button class="${"delete svelte-ztcljr"}" aria-label="${"Delete todo"}"></button></form>
-		</div>`)}
-</div>`;
+<section${add_attribute("class", tw`flex(& 1 col) justify-center items-center`, 0)}><p${add_attribute("class", tw`text-red-600 text-lg`, 0)}>hihi</p></section>`;
 });
 var index = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module",
-  default: Todos,
+  default: Routes,
+  prerender
+});
+async function load$1({fetch: fetch22}) {
+  const res = await fetch22("/api/ddragon/11.9.1/data/en_US/champion");
+  if (res.ok) {
+    const jsonRes = await res.json();
+    const data = Object.values(jsonRes.data);
+    return {props: {champions: data}};
+  }
+  return {
+    status: res.status,
+    error: new Error(res.statusText)
+  };
+}
+var Champions = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let {champions: champions2} = $$props;
+  if ($$props.champions === void 0 && $$bindings.champions && champions2 !== void 0)
+    $$bindings.champions(champions2);
+  return `<main${add_attribute("class", tw`flex(& wrap) justify-center`, 0)}>${each(champions2, (champion2) => `<div${add_attribute("class", tw`flex border p-2`, 0)}><img${add_attribute("class", tw`h-20 max-w-max object-contain mr-4`, 0)}${add_attribute("src", `${"http://ddragon.leagueoflegends.com/cdn/"}11.9.1/img/champion/${champion2.id}.png`, 0)}${add_attribute("alt", champion2.name, 0)}>
+			<div${add_attribute("class", tw`flex(& col)`, 0)}><h2${add_attribute("class", tw`text(lg blue-500)`, 0)}>${escape2(champion2.name)}</h2>
+				<p${add_attribute("class", tw`text(sm gray-600)`, 0)}>${escape2(champion2.title)}</p>
+				<p${add_attribute("class", tw`text(md gray-900)`, 0)}>${escape2(champion2.blurb)}</p></div>
+		</div>`)}</main>`;
+});
+var champions = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  default: Champions,
+  load: load$1
+});
+async function load({fetch: fetch22, page: page2}) {
+  const {summonerName} = page2.params;
+  const res = await fetch22(`/api/lol/summoner/v4/summoners/by-name/${summonerName}`);
+  if (res.ok)
+    return {props: {summoner: await res.json()}};
+  return {status: res.status, error: new Error()};
+}
+var U5BsummonerNameu5D = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let {summoner} = $$props;
+  if ($$props.summoner === void 0 && $$bindings.summoner && summoner !== void 0)
+    $$bindings.summoner(summoner);
+  return `<main${add_attribute("class", tw`m-2 p-2 text-gray-500 justify-center shadow-lg`, 0)}><div${add_attribute("class", tw`flex`, 0)}><div${add_attribute("class", tw`flex(& col) w-full`, 0)}><div${add_attribute("class", tw`my-2`, 0)}><div>badge 1</div></div>
+			<div${add_attribute("class", tw`flex`, 0)}><div><img${add_attribute("class", tw`h-20 max-w-max object-contain mr-4`, 0)}${add_attribute("src", `${"http://ddragon.leagueoflegends.com/cdn/"}11.9.1/img/profileicon/${summoner.profileIconId}.png`, 0)}${add_attribute("alt", summoner.astName, 0)}></div>
+				<div${add_attribute("class", tw`flex(& col)`, 0)}><div><h1${add_attribute("class", tw`text-xl text-indigo-900`, 0)}>${escape2(summoner.name)}</h1>
+						<p>Ladder rank</p></div></div></div></div></div></main>`;
+});
+var _summonerName_ = /* @__PURE__ */ Object.freeze({
+  __proto__: null,
+  [Symbol.toStringTag]: "Module",
+  default: U5BsummonerNameu5D,
   load
 });
 
@@ -3286,17 +6327,3 @@ var entry_default = async (req, res) => {
  * Copyright(c) 2015 Douglas Christopher Wilson
  * MIT Licensed
  */
-/*! *****************************************************************************
-Copyright (c) Microsoft Corporation.
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.
-***************************************************************************** */

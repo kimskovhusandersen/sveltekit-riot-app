@@ -20,7 +20,7 @@
 	export let champions;
 </script>
 
-<main>
+<main class={tw`flex(& wrap) justify-center`}>
 	{#each champions as champion}
 		<div class={tw`flex border p-2`}>
 			<img
@@ -36,24 +36,3 @@
 		</div>
 	{/each}
 </main>
-
-<style>
-	main {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-	}
-	.box {
-		padding: 0.25rem;
-		margin: 1.5rem;
-		color: salmon;
-		box-shadow: 4px 5px 11px 2px lightgray;
-	}
-	.box:hover {
-		box-shadow: 4px 5px 11px 10px lightgray;
-	}
-	img {
-		width: 15rem;
-		object-fit: contain;
-	}
-</style>

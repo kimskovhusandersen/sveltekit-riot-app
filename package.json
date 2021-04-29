@@ -30,7 +30,6 @@
     "@fontsource/fira-mono": "^4.2.2",
     "@lukeed/uuid": "^2.0.0",
     "cookie": "^0.4.1",
-    "faker": "^5.5.3",
     "twind": "^0.16.13"
   }
 }
