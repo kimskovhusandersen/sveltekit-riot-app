@@ -23,7 +23,11 @@
 		"allowJs": true,
 		"checkJs": true,
 		"paths": {
-			"$lib/*": ["src/lib/*"]
+			"$lib/*": ["src/lib/*"],
+			"$types": ["src/types"],
+			"$types/*": ["src/types/*"],
+			"$utils": ["src/utils"],
+			"$utils/*": ["src/utils/*"]
 		},
 		"plugins": [{ "name": "@twind/typescript-plugin" }]
 	},

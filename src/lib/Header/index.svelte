@@ -6,8 +6,8 @@
 
 <header class={tw`flex justify-between`}>
 	<div class={tw`h-8 w-8`}>
-		<a class="flex items-center justify-center w-full h-full" href="https://kit.svelte.dev">
-			<img class="h-8 w-8 object-contain" src={logo} alt="SvelteKit" />
+		<a class="flex items-center justify-center w-full h-full" href="https://ksandersen.net">
+			<img class="h-8 w-8 object-contain" src={logo} alt="ksandersen.net" />
 		</a>
 	</div>
 
@@ -21,9 +21,6 @@
 				<a sveltekit:prefetch href="/summoners/Doublelift">Summoners</a>
 			</li>
 		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
 	</nav>
 
 	<div class={tw`h-8 w-8`}>

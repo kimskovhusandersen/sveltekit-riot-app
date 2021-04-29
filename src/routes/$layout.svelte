@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { tw } from 'twind';
 	import Header from '$lib/Header/index.svelte';
-	import '../app.css';
 </script>
 
 <Header />
