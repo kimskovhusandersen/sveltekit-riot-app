@@ -1,3 +1,7 @@
 {
-    "editor.formatOnSave": true
+	"editor.formatOnSave": true,
+	"editor.suggest.showStatusBar": true,
+	"editor.quickSuggestions": {
+		"strings": true
+	}
 }

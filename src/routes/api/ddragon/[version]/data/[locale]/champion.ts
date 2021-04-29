@@ -1,5 +1,4 @@
-const END_POINT = '/lol/league/v4/entries/by-summoner/';
-const URL = 'https://euw1.api.riotgames.com' + END_POINT;
+const URL = 'http://ddragon.leagueoflegends.com/cdn/';
 const OPTIONS = {
 	method: 'GET',
 	withCredentials: true,
@@ -12,14 +11,17 @@ const OPTIONS = {
 export async function get({
 	params
 }: {
-	params: { encryptedSummonerID: string };
+	params: {
+		version: string;
+		locale: string;
+	};
 }): Promise<{ body: Record<string, unknown> } | { status: number; statusText: string }> {
-	const { encryptedSummonerID } = params;
-	const res = await fetch(URL + encryptedSummonerID, OPTIONS);
+	const { version, locale } = params;
+	const res = await fetch(`${URL}${version}/data/${locale}/champion.json`, OPTIONS);
 	if (res.ok) {
-		const score = await res.json();
+		const champions = await res.json();
 		return {
-			body: String(score)
+			body: champions
 		};
 	}
 

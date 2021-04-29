@@ -24,7 +24,16 @@
 		"checkJs": true,
 		"paths": {
 			"$lib/*": ["src/lib/*"]
-		}
+		},
+		"plugins": [{ "name": "@twind/typescript-plugin" }]
 	},
-	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte", "config/**/*.ts", "config/**/*.js", "riot.js"]
+	"include": [
+		"src/**/*.d.ts",
+		"src/**/*.js",
+		"src/**/*.ts",
+		"src/**/*.svelte",
+		"config/**/*.ts",
+		"config/**/*.js",
+		"riot.js"
+	]
 }

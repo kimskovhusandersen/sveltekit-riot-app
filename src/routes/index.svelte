@@ -1,5 +1,23 @@
 <script context="module" lang="ts">
 	export const prerender = true;
+	import { setup, tw } from 'twind';
+	import * as colors from 'twind/colors';
+	setup({
+		mode: 'strict', // throw errors for invalid rules (default: warn)
+		hash: false, // hash all generated class names (default: false)
+		theme: {
+			colors: {
+				gray: colors.coolGray,
+				blue: colors.lightBlue,
+				red: colors.rose,
+				pink: colors.fuchsia
+			},
+			fontFamily: {
+				sans: ['Lato', 'sans-serif'],
+				serif: ['Merriweather', 'serif']
+			}
+		}
+	});
 </script>
 
 <script lang="ts">
@@ -10,50 +28,6 @@
 	<title>Home</title>
 </svelte:head>
 
-<section>
-	<h1>
-		<div class="welcome">
-			<picture>
-				<source srcset="svelte-welcome.webp" type="image/webp" />
-				<img src="svelte-welcome.png" alt="Welcome" />
-			</picture>
-		</div>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/index.svelte</strong>
-	</h2>
-
-	<Counter />
+<section class={tw`flex(& 1 col) justify-center items-center`}>
+	<p class={tw`text-red-600 text-lg`}>hihi</p>
 </section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
-</style>

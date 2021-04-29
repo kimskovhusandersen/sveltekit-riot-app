@@ -1,90 +1,37 @@
 <script lang="ts">
+	import { tw } from 'twind';
 	import { page } from '$app/stores';
 	import logo from './svelte-logo.svg';
 </script>
 
-<header>
-	<div class="corner">
-		<a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
+<header class={tw`flex justify-between`}>
+	<div class={tw`h-8 w-8`}>
+		<a class="flex items-center justify-center w-full h-full" href="https://kit.svelte.dev">
+			<img class="h-8 w-8 object-contain" src={logo} alt="SvelteKit" />
 		</a>
 	</div>
 
-	<nav>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
-		<ul>
+	<nav class="flex justify-center bg-gray-200">
+		<ul class="relative p-0 m-0 h-12 flex items-center list-none">
 			<li class:active={$page.path === '/'}><a sveltekit:prefetch href="/">Home</a></li>
-			<li class:active={$page.path === '/about'}><a sveltekit:prefetch href="/about">About</a></li>
-			<li class:active={$page.path === '/todos'}><a sveltekit:prefetch href="/todos">Todos</a></li>
-			<li class:active={$page.path === '/users'}><a sveltekit:prefetch href="/users">Users</a></li>
-			<li class:active={$page.path === '/summoners/Doublelift'}><a sveltekit:prefetch href="/summoners/Doublelift">Summoners</a></li>
+			<li class:active={$page.path === '/champions'}>
+				<a sveltekit:prefetch href="/champions">Champions</a>
+			</li>
+			<li class:active={$page.path === '/summoners/Doublelift'}>
+				<a sveltekit:prefetch href="/summoners/Doublelift">Summoners</a>
+			</li>
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
 			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
 		</svg>
 	</nav>
 
-	<div class="corner">
+	<div class={tw`h-8 w-8`}>
 		<!-- TODO put something else here? github link? -->
 	</div>
 </header>
 
 <style>
-	header {
-		display: flex;
-		justify-content: space-between;
-	}
-
-	.corner {
-		width: 3em;
-		height: 3em;
-	}
-
-	.corner a {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
-	}
-
-	.corner img {
-		width: 2em;
-		height: 2em;
-		object-fit: contain;
-	}
-
-	nav {
-		display: flex;
-		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
-	}
-
-	svg {
-		width: 2em;
-		height: 3em;
-		display: block;
-	}
-
-	path {
-		fill: var(--background);
-	}
-
-	ul {
-		position: relative;
-		padding: 0;
-		margin: 0;
-		height: 3em;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		list-style: none;
-		background: var(--background);
-		background-size: contain;
-	}
-
 	li {
 		position: relative;
 		height: 100%;
