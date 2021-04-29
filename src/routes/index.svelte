@@ -3,7 +3,7 @@
 	import { setup, tw } from 'twind';
 	import * as colors from 'twind/colors';
 	setup({
-		mode: 'strict', // throw errors for invalid rules (default: warn)
+		mode: import.meta.env.DEV ? 'strict' : 'warn', // throw errors for invalid rules (default: warn)
 		hash: false, // hash all generated class names (default: false)
 		theme: {
 			colors: {

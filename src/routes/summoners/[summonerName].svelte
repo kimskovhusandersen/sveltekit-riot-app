@@ -34,7 +34,7 @@
 				</div>
 				<div class={tw`flex(& col)`}>
 					<div>
-						<h1 class={tw`text-xl text-indigo-900`}>{summoner.name}</h1>
+						<h1 class={tw`text(xl indigo-900)`}>{summoner.name}</h1>
 						<p>Ladder rank</p>
 					</div>
 				</div>
