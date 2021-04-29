@@ -31,7 +31,7 @@
 			<div class={tw`flex(& col)`}>
 				<h2 class={tw`text(lg blue-500)`}>{champion.name}</h2>
 				<p class={tw`text(sm gray-600)`}>{champion.title}</p>
-				<p class={tw`text(md gray-900)`}>{champion.blurb}</p>
+				<p class={tw`text(base gray-900)`}>{champion.blurb}</p>
 			</div>
 		</div>
 	{/each}
